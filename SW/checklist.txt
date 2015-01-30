@@ -1,0 +1,93 @@
+TESTS TO DO:
+	get ili pack for tests to configure lcd, see if there is a driver for our display driver to save a headache
+	simple write gradient direct to FB
+	write to 2 FB's and swap simply every 1000 ticks
+	
+	game(application) header file which calls all gameobjects and defines all game logic functions
+	Framebuffer headerfile definitions, called from game header file -- includes defines of all framebuffers and windows (bg and fg buffers 0 and 1), Write updateWindows() called inside swap(), references swap objects
+	rectangularImage object/draw function with headerfile
+	Write to both FB's (define them in game) and swap after 1000 ticks
+		
+	Send MP3 File
+
+FILESTOCREATE:
+NV3035C DRIVERS
+
+
+Board Support Package for GameMan board (maps between system_stm32f4xxx.h and my files) with memory copied input definitions of locations
+	I2C get touch routines
+	get input routines
+	memory module definitions
+	port and pin definitions
+	Nor Flash writing/reading routines (draw inspiration from EVAL board's)
+
+LinkedList (for render/update queue)
+	draw/update priority by location in queue
+	
+every game has Game header file that includes all gameobjects it needs and defines game flow state machine
+	
+gameobject/drawable object files contain gameobject struct definition who has update void pointer and function for that defined in this file, on all updates be sure to do input/AI updates before status changes
+	gameobject struct contents: ex. moving sprite gameobject which contains mario, or a goomba
+		image pointer
+		related information needed (location, velocity, sizexy, etc)
+		animation frame
+		whether or not to draw it
+		
+			DRAWOBJECT
+				void* ObjectDatas;
+				void (*Draw)();
+				
+			RectangleObject (example of ObjectDatas)
+				xyposition topleft;
+				length l;
+				width w;
+				image* im;
+				
+			DrawRectangleObjectCPU(RectangleObject* obj) (example of Draw function for RectangleObject in it's file.h) //may have to do some casting to get this to work
+				memcpy(FRAMEBUFFER + getXYOffset(obj->xyposition), obj->im, 			l*w); //obviously this is a test, we'd mostly use DMA2D...
+							^to here							^from here
+							
+Drawable/GameObjects to create:
+	Rectangular_Object
+	Text
+	solid shape examples
+
+CARTDRIDGE STUFF:
+http://www.keil.com/support/man/docs/gsac/gsac_specificmemoryareas.htm
+https://my.st.com/public/STe2ecommunities/mcu/Lists/cortex_mx_stm32/Flat.aspx?RootFolder=https%3a%2f%2fmy%2est%2ecom%2fpublic%2fSTe2ecommunities%2fmcu%2fLists%2fcortex_mx_stm32%2fJumping%20to%20program%20from%20custom%20bootloader&FolderCTID=0x01200200770978C69A1141439FE559EB459D7580009C4E14902C3CDE46A77F0FFD06506F5B&currentviews=1211
+write flash driver, follow this guide, use http://www.keil.com/support/man/docs/ulinkpro/ulinkpro_su_newalgorithms.htm
+Set program location under the tab with all the memories to external flash location
+load flash programming driver in the last tab, maybe you can steal some stuff from the EVAL BSP, it has all 3 of these functions implemented
+Set Linker location to the start location of game for cartridge when compiling, change value of vector_table offset (IAP driver app note pg 11)
+don't forget to jump to an odd address, disable irq first, initialize memory, renable in application
+right click a file to see how many bytes it is, do this to figure out how many bytes to bootload
+
+st link utility can load to external flash, need full version of keil to do ropi/rwpi stuff to make it correctly, after that we're good and can write programs to that area
+
+for the game ID constant, http://stackoverflow.com/questions/19781375/how-to-place-constant-at-specific-address-with-ld-linker-command-file
+
+for "game saves" use a write to demonstrate writing a random number or something
+
+
+MALLOC STUFF:
+NOT POSSIBLE--How to place heap in multiple locations (internal first external after)
+how to use new/malloc -- TRY init_mempool and just mallocing...? http://www.keil.com/support/man/docs/ca/ca_init_mempool.htm
+
+
+Parts for external stuff:
+debug USART
+"multiplayer" UART
+I2c for touch screen and mp3
+FMC
+PWM for brightness
+PWM for vibration
+GPIO latch for inputs
+spi for buttons
+1x GPIO for buttons
+spi for mp3
+2x GPIO for mp3
+spi for LCD control
+ADC for battery
+
+RTC from LSE can be on from just VBAT, ~1 uA 
+	get directly from battery LDO

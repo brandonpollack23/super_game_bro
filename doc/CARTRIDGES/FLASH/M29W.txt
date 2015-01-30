@@ -1,0 +1,16 @@
+Software Driver ReadMe File for:
+
+- M29W
+
+Release history:
+
+- Release Version 1.0 (24 February 2014)
+
+  M29W_device_driver.h   v1.0
+  M29W_device_driver.c   v1.0
+	Initial release of device-specific code.  In reality this device 
+	driver is compatible with all other Micron Spansion-style devices 
+	and is provided for completeness.  It does have code which will 
+	handle multiple-die parts which some of the other drivers do not, 
+	and it also has code to read the program buffer size from the CFI, 
+	which older versions of this driver do not do.

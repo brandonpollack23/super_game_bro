@@ -1,0 +1,39 @@
+Added Component: Designator=*(Inductor)
+Added Component: Designator=C1(CAPR5-4X5)
+Added Component: Designator=C2(CAPR5-4X5)
+Added Component: Designator=D1(RAD-0.2)
+Added Component: Designator=P1(HDR1X3)
+Added Component: Designator=P2(HDR1X3)
+Added Component: Designator=P3(HDR1X3)
+Added Component: Designator=U1(SOT6)
+Added Pin To Net: NetName=GROUND Pin=C1-2
+Added Pin To Net: NetName=GROUND Pin=C2-2
+Added Pin To Net: NetName=GROUND Pin=P1-1
+Added Pin To Net: NetName=GROUND Pin=P2-2
+Added Pin To Net: NetName=GROUND Pin=U1-2
+Added Net: Name=GROUND
+Added Pin To Net: NetName=Net*_1 Pin=*-1
+Added Pin To Net: NetName=Net*_1 Pin=D1-1
+Added Pin To Net: NetName=Net*_1 Pin=P2-3
+Added Pin To Net: NetName=Net*_1 Pin=U1-1
+Added Net: Name=Net*_1
+Added Pin To Net: NetName=NetC1_1 Pin=C1-1
+Added Pin To Net: NetName=NetC1_1 Pin=D1-2
+Added Pin To Net: NetName=NetC1_1 Pin=P1-3
+Added Net: Name=NetC1_1
+Added Pin To Net: NetName=NetP2_1 Pin=P2-1
+Added Pin To Net: NetName=NetP2_1 Pin=U1-3
+Added Net: Name=NetP2_1
+Added Pin To Net: NetName=NetP3_2 Pin=P3-2
+Added Pin To Net: NetName=NetP3_2 Pin=U1-5
+Added Net: Name=NetP3_2
+Added Pin To Net: NetName=NetP3_3 Pin=P3-3
+Added Pin To Net: NetName=NetP3_3 Pin=U1-4
+Added Net: Name=NetP3_3
+Added Pin To Net: NetName=VIN Pin=*-2
+Added Pin To Net: NetName=VIN Pin=C2-1
+Added Pin To Net: NetName=VIN Pin=P1-2
+Added Pin To Net: NetName=VIN Pin=P3-1
+Added Pin To Net: NetName=VIN Pin=U1-6
+Added Net: Name=VIN
+Added Class: Name=Backlight

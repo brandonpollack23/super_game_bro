@@ -1,0 +1,30 @@
+Net Status Report
+Filename     : C:\Users\User\Dropbox\SENIORDESIGN\Altium\Audio Breakout\Audio.PcbDoc
+Date         : 1/29/2015
+Time         : 2:28:10 AM
+Time Elapsed : 00:00:00
+
+Nets, Layer, Length
+    3.3V, Signal Layers Only, 11897.119mils
+    FILT, Signal Layers Only, 1178.635mils
+    GROUND, Signal Layers Only, 9762.47mils
+    LCKT, Signal Layers Only, 1896.016mils
+    MCLK, Signal Layers Only, 1824.178mils
+    NetC7_2, Signal Layers Only, 202.071mils
+    NetP1_10, Signal Layers Only, 332.696mils
+    NetP1_11, Signal Layers Only, 395.919mils
+    NetP1_7, Signal Layers Only, 269.142mils
+    NetP1_9, Signal Layers Only, 310.564mils
+    NetP2_1, Signal Layers Only, 499.726mils
+    NetP2_3, Signal Layers Only, 399.726mils
+    NetP2_8, Signal Layers Only, 282.741mils
+    NetP2_9, Signal Layers Only, 303.452mils
+    NetP5_1, Signal Layers Only, 379.35mils
+    NetP5_4, Signal Layers Only, 362.782mils
+    PVDD, Signal Layers Only, 1893.424mils
+    PVSS, Signal Layers Only, 1702.777mils
+    SCKT, Signal Layers Only, 1952.168mils
+    SDA, Signal Layers Only, 904.558mils
+    SDO, Signal Layers Only, 1890.036mils
+    VA, Signal Layers Only, 5693.036mils
+count : 22

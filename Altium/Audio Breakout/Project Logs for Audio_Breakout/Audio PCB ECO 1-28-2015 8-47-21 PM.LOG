@@ -1,0 +1,64 @@
+Removed Pin From Net: NetName=3.3V Pin=*-1
+Removed Pin From Net: NetName=GROUND Pin=*-2
+Removed Pin From Net: NetName=SDA Pin=*-3
+Removed Pin From Net: NetName=3.3V Pin=*-7
+Change Component Designator: OldDesignator=* NewDesignator=U1
+Change Component Designator: OldDesignator=* NewDesignator=U2
+Added Pin To Net: NetName=3.3V Pin=U1-1
+Added Pin To Net: NetName=GROUND Pin=U1-2
+Added Pin To Net: NetName=SDA Pin=U1-3
+Added Pin To Net: NetName=3.3V Pin=U1-7
+Added Pin To Net: NetName=SDO Pin=U1-9
+Added Pin To Net: NetName=SCKT Pin=U1-10
+Added Pin To Net: NetName=LCKT Pin=U1-11
+Added Pin To Net: NetName=MCLK Pin=U1-12
+Added Pin To Net: NetName=GROUND Pin=U1-13
+Added Pin To Net: NetName=3.3V Pin=U1-14
+Added Pin To Net: NetName=GROUND Pin=U1-15
+Added Pin To Net: NetName=3.3V Pin=U1-16
+Added Pin To Net: NetName=PVDD Pin=U1-17
+Added Pin To Net: NetName=PVSS Pin=U1-18
+Added Pin To Net: NetName=FILT Pin=U1-19
+Added Pin To Net: NetName=GROUND Pin=U1-22
+Added Pin To Net: NetName=3.3V Pin=U1-23
+Added Pin To Net: NetName=3.3V Pin=U1-24
+Added Pin To Net: NetName=GROUND Pin=U1-25
+Added Pin To Net: NetName=GROUND Pin=U1-27
+Added Pin To Net: NetName=SDO Pin=U2-1
+Added Pin To Net: NetName=SCKT Pin=U2-2
+Added Pin To Net: NetName=LCKT Pin=U2-3
+Added Pin To Net: NetName=MCLK Pin=U2-4
+Added Pin To Net: NetName=GROUND Pin=U2-6
+Added Pin To Net: NetName=VA Pin=U2-7
+Added Pin To Net: NetName=NetP1_7 Pin=P1-7
+Added Pin To Net: NetName=NetP1_7 Pin=U1-8
+Added Net: Name=NetP1_7
+Added Pin To Net: NetName=NetP1_9 Pin=P1-9
+Added Pin To Net: NetName=NetP1_9 Pin=U1-6
+Added Net: Name=NetP1_9
+Added Pin To Net: NetName=NetP1_10 Pin=P1-10
+Added Pin To Net: NetName=NetP1_10 Pin=U1-5
+Added Net: Name=NetP1_10
+Added Pin To Net: NetName=NetP1_11 Pin=P1-11
+Added Pin To Net: NetName=NetP1_11 Pin=U1-4
+Added Net: Name=NetP1_11
+Added Pin To Net: NetName=NetP2_1 Pin=P2-1
+Added Pin To Net: NetName=NetP2_1 Pin=U1-28
+Added Net: Name=NetP2_1
+Added Pin To Net: NetName=NetP2_3 Pin=P2-3
+Added Pin To Net: NetName=NetP2_3 Pin=U1-26
+Added Net: Name=NetP2_3
+Added Pin To Net: NetName=NetP2_8 Pin=P2-8
+Added Pin To Net: NetName=NetP2_8 Pin=U1-21
+Added Net: Name=NetP2_8
+Added Pin To Net: NetName=NetP2_9 Pin=P2-9
+Added Pin To Net: NetName=NetP2_9 Pin=U1-20
+Added Net: Name=NetP2_9
+Added Pin To Net: NetName=NetP5_1 Pin=P5-1
+Added Pin To Net: NetName=NetP5_1 Pin=U2-8
+Added Net: Name=NetP5_1
+Added Pin To Net: NetName=NetP5_4 Pin=P5-4
+Added Pin To Net: NetName=NetP5_4 Pin=U2-5
+Added Net: Name=NetP5_4
+Added Member To Class: ClassName=Audio Member=Component U2 MAX5556ESA+-ND
+Added Room: Name=Audio

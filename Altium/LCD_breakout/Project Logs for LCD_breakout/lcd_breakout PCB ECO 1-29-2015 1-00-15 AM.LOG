@@ -1,0 +1,146 @@
+Added Component: Designator=C1(Molex54 - duplicate2)
+Added Component: Designator=C2(Molex6)
+Added Component: Designator=P?(HDR2X25)
+Added Pin To Net: NetName=GND Pin=C1-A1
+Added Pin To Net: NetName=GND Pin=C1-A2
+Added Pin To Net: NetName=GND Pin=C1-A53
+Added Pin To Net: NetName=GND Pin=C1-A54
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=GND Pin=P?-1
+Added Pin To Net: NetName=GND Pin=P?-2
+Added Pin To Net: NetName=GND Pin=P?-46
+Added Net: Name=GND
+Added Pin To Net: NetName=LCD3 Pin=C1-A3
+Added Pin To Net: NetName=LCD3 Pin=P?-3
+Added Net: Name=LCD3
+Added Pin To Net: NetName=LCD4 Pin=C1-A4
+Added Pin To Net: NetName=LCD4 Pin=P?-4
+Added Net: Name=LCD4
+Added Pin To Net: NetName=LCD5 Pin=P?-5
+Added Net: Name=LCD5
+Added Pin To Net: NetName=LCD6 Pin=P?-6
+Added Net: Name=LCD6
+Added Pin To Net: NetName=LCD7 Pin=P?-7
+Added Net: Name=LCD7
+Added Pin To Net: NetName=LCD8 Pin=C1-A8
+Added Pin To Net: NetName=LCD8 Pin=P?-8
+Added Net: Name=LCD8
+Added Pin To Net: NetName=LCD9 Pin=C1-A9
+Added Pin To Net: NetName=LCD9 Pin=P?-9
+Added Net: Name=LCD9
+Added Pin To Net: NetName=LCD10 Pin=C1-A10
+Added Pin To Net: NetName=LCD10 Pin=P?-10
+Added Net: Name=LCD10
+Added Pin To Net: NetName=LCD11 Pin=C1-A11
+Added Pin To Net: NetName=LCD11 Pin=P?-11
+Added Net: Name=LCD11
+Added Pin To Net: NetName=LCD12 Pin=C1-A12
+Added Pin To Net: NetName=LCD12 Pin=P?-12
+Added Net: Name=LCD12
+Added Pin To Net: NetName=LCD13 Pin=C1-A13
+Added Pin To Net: NetName=LCD13 Pin=P?-13
+Added Net: Name=LCD13
+Added Pin To Net: NetName=LCD14 Pin=C1-A14
+Added Pin To Net: NetName=LCD14 Pin=P?-14
+Added Net: Name=LCD14
+Added Pin To Net: NetName=LCD15 Pin=C1-A15
+Added Pin To Net: NetName=LCD15 Pin=P?-15
+Added Net: Name=LCD15
+Added Pin To Net: NetName=LCD16 Pin=C1-A16
+Added Pin To Net: NetName=LCD16 Pin=P?-16
+Added Net: Name=LCD16
+Added Pin To Net: NetName=LCD17 Pin=C1-A17
+Added Pin To Net: NetName=LCD17 Pin=P?-17
+Added Net: Name=LCD17
+Added Pin To Net: NetName=LCD18 Pin=C1-A18
+Added Pin To Net: NetName=LCD18 Pin=P?-18
+Added Net: Name=LCD18
+Added Pin To Net: NetName=LCD19 Pin=C1-A19
+Added Pin To Net: NetName=LCD19 Pin=P?-19
+Added Net: Name=LCD19
+Added Pin To Net: NetName=LCD20 Pin=C1-A20
+Added Pin To Net: NetName=LCD20 Pin=P?-20
+Added Net: Name=LCD20
+Added Pin To Net: NetName=LCD21 Pin=C1-A21
+Added Pin To Net: NetName=LCD21 Pin=P?-21
+Added Net: Name=LCD21
+Added Pin To Net: NetName=LCD22 Pin=C1-A22
+Added Pin To Net: NetName=LCD22 Pin=P?-22
+Added Net: Name=LCD22
+Added Pin To Net: NetName=LCD23 Pin=C1-A23
+Added Pin To Net: NetName=LCD23 Pin=P?-23
+Added Net: Name=LCD23
+Added Pin To Net: NetName=LCD24 Pin=C1-A24
+Added Pin To Net: NetName=LCD24 Pin=P?-24
+Added Net: Name=LCD24
+Added Pin To Net: NetName=LCD25 Pin=C1-A25
+Added Pin To Net: NetName=LCD25 Pin=P?-25
+Added Net: Name=LCD25
+Added Pin To Net: NetName=LCD26 Pin=C1-A26
+Added Pin To Net: NetName=LCD26 Pin=P?-26
+Added Net: Name=LCD26
+Added Pin To Net: NetName=LCD27 Pin=C1-A27
+Added Pin To Net: NetName=LCD27 Pin=P?-27
+Added Net: Name=LCD27
+Added Pin To Net: NetName=LCD28 Pin=C1-A28
+Added Pin To Net: NetName=LCD28 Pin=P?-28
+Added Net: Name=LCD28
+Added Pin To Net: NetName=LCD29 Pin=C1-A29
+Added Pin To Net: NetName=LCD29 Pin=P?-29
+Added Net: Name=LCD29
+Added Pin To Net: NetName=LCD30 Pin=C1-A30
+Added Pin To Net: NetName=LCD30 Pin=P?-30
+Added Net: Name=LCD30
+Added Pin To Net: NetName=LCD31 Pin=C1-A31
+Added Pin To Net: NetName=LCD31 Pin=P?-31
+Added Net: Name=LCD31
+Added Pin To Net: NetName=LCD32 Pin=C1-A32
+Added Pin To Net: NetName=LCD32 Pin=P?-32
+Added Net: Name=LCD32
+Added Pin To Net: NetName=LCD33 Pin=C1-A33
+Added Pin To Net: NetName=LCD33 Pin=P?-33
+Added Net: Name=LCD33
+Added Pin To Net: NetName=LCD34 Pin=C1-A34
+Added Pin To Net: NetName=LCD34 Pin=P?-34
+Added Net: Name=LCD34
+Added Pin To Net: NetName=LCD35 Pin=C1-A35
+Added Pin To Net: NetName=LCD35 Pin=P?-35
+Added Net: Name=LCD35
+Added Pin To Net: NetName=LCD36 Pin=C1-A36
+Added Pin To Net: NetName=LCD36 Pin=P?-36
+Added Net: Name=LCD36
+Added Pin To Net: NetName=LCD37 Pin=C1-A37
+Added Pin To Net: NetName=LCD37 Pin=P?-37
+Added Net: Name=LCD37
+Added Pin To Net: NetName=LCD38 Pin=C1-A38
+Added Pin To Net: NetName=LCD38 Pin=P?-38
+Added Net: Name=LCD38
+Added Pin To Net: NetName=LCD39 Pin=P?-39
+Added Net: Name=LCD39
+Added Pin To Net: NetName=LCD43 Pin=C1-A52
+Added Pin To Net: NetName=LCD43 Pin=P?-43
+Added Net: Name=LCD43
+Added Pin To Net: NetName=LCD44 Pin=P?-44
+Added Net: Name=LCD44
+Added Pin To Net: NetName=LCD45 Pin=P?-45
+Added Net: Name=LCD45
+Added Pin To Net: NetName=TOUCH3 Pin=C2-3
+Added Pin To Net: NetName=TOUCH3 Pin=P?-47
+Added Net: Name=TOUCH3
+Added Pin To Net: NetName=TOUCH4 Pin=C2-4
+Added Pin To Net: NetName=TOUCH4 Pin=P?-48
+Added Net: Name=TOUCH4
+Added Pin To Net: NetName=TOUCH5 Pin=C2-5
+Added Pin To Net: NetName=TOUCH5 Pin=P?-49
+Added Net: Name=TOUCH5
+Added Pin To Net: NetName=TOUCH6 Pin=C2-6
+Added Pin To Net: NetName=TOUCH6 Pin=P?-50
+Added Net: Name=TOUCH6
+Added Pin To Net: NetName=VCC Pin=C1-A41
+Added Pin To Net: NetName=VCC Pin=C1-A42
+Added Pin To Net: NetName=VCC Pin=C2-1
+Added Pin To Net: NetName=VCC Pin=P?-40
+Added Pin To Net: NetName=VCC Pin=P?-41
+Added Pin To Net: NetName=VCC Pin=P?-42
+Added Net: Name=VCC
+Added Class: Name=lcd_breakout

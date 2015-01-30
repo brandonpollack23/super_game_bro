@@ -1,0 +1,65 @@
+FILESTOCREATE:
+Update GameMan_nor.h/c from the eval board to our boards information
+
+LinkedList (for render/update queue)
+	draw/update priority by location in queue
+	
+every game has Game header file that includes all gameobjects it needs and defines game flow state machine
+
+gameobject/drawable object files contain gameobject struct definition who has update void pointer and function for that defined in this file, on all updates be sure to do input/AI updates before status changes
+	gameobject struct contents: ex. moving sprite gameobject which contains mario, or a goomba
+		image pointer
+		related information needed (location, velocity, sizexy, etc)
+		animation frame
+		whether or not to draw it
+
+Drawable/GameObjects to create:
+	Rectangular_Object
+	Text
+	solid shape examples
+		
+Renderable struct with render f_pointer, void pointer to gameobject/drawable object
+
+Board Support Package for GameMan board (maps between system_stm32f4xxx.h and my files) with memory copied input definitions of locations
+	I2C get touch routines
+	get input routines
+	memory module definitions
+	port and pin definitions
+	
+
+CARTDRIDGE STUFF:
+http://www.keil.com/support/man/docs/gsac/gsac_specificmemoryareas.htm
+https://my.st.com/public/STe2ecommunities/mcu/Lists/cortex_mx_stm32/Flat.aspx?RootFolder=https%3a%2f%2fmy%2est%2ecom%2fpublic%2fSTe2ecommunities%2fmcu%2fLists%2fcortex_mx_stm32%2fJumping%20to%20program%20from%20custom%20bootloader&FolderCTID=0x01200200770978C69A1141439FE559EB459D7580009C4E14902C3CDE46A77F0FFD06506F5B&currentviews=1211
+write flash driver, follow this guide, use http://www.keil.com/support/man/docs/ulinkpro/ulinkpro_su_newalgorithms.htm
+Set program location under the tab with all the memories to external flash location
+load flash programming driver in the last tab, maybe you can steal some stuff from the EVAL BSP, it has all 3 of these functions implemented
+Set Linker location to the start location of game for cartridge when compiling, change value of vector_table offset (IAP driver app note pg 11)
+don't forget to jump to an odd address, disable irq first, initialize memory, renable in application
+right click a file to see how many bytes it is, do this to figure out how many bytes to bootload
+
+for the game ID constant, http://stackoverflow.com/questions/19781375/how-to-place-constant-at-specific-address-with-ld-linker-command-file
+
+for "game saves" use a write to demonstrate writing a random number or something
+
+
+MALLOC STUFF:
+NOT POSSIBLE--How to place heap in multiple locations (internal first external after)
+how to use new/malloc -- TRY init_mempool and just mallocing...? http://www.keil.com/support/man/docs/ca/ca_init_mempool.htm
+
+
+Parts for external stuff:
+debug USART
+"multiplayer" UART
+I2c for touch screen and mp3
+FMC
+PWM for brightness
+PWM for vibration
+GPIO latch for inputs
+spi for buttons
+spi for mp3
+GPIO for mp3
+spi for LCD control?
+ADC for battery
+
+RTC from LSE can be on from just VBAT, ~1 uA 
+	get directly from battery LDO

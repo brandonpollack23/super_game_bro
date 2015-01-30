@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [shift_reg_breakout.PrjPcb]
+   Generated File[shift_reg_breakout.TXT]
+   Generated File[shift_reg_breakout.LDP]
+   Generated File[shift_reg_breakout.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 12:41:50 AM On 1/29/2015

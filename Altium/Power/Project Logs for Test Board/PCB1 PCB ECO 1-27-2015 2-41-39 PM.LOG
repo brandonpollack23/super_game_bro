@@ -1,0 +1,45 @@
+Added Component: Designator=*(Inductor)
+Added Component: Designator=C1(RB7.6-15)
+Added Component: Designator=P1(HDR1X6)
+Added Component: Designator=P2(HDR1X6)
+Added Component: Designator=Regualtor(MSOP12 - duplicate1)
+Added Pin To Net: NetName=Net*_1 Pin=*-1
+Added Pin To Net: NetName=Net*_1 Pin=P1-5
+Added Pin To Net: NetName=Net*_1 Pin=Regualtor-2
+Added Net: Name=Net*_1
+Added Pin To Net: NetName=Net*_2 Pin=*-2
+Added Pin To Net: NetName=Net*_2 Pin=P2-2
+Added Pin To Net: NetName=Net*_2 Pin=Regualtor-11
+Added Net: Name=Net*_2
+Added Pin To Net: NetName=NetC1_1 Pin=C1-1
+Added Pin To Net: NetName=NetC1_1 Pin=P2-3
+Added Pin To Net: NetName=NetC1_1 Pin=Regualtor-10
+Added Net: Name=NetC1_1
+Added Pin To Net: NetName=NetP1_1 Pin=P1-1
+Added Pin To Net: NetName=NetP1_1 Pin=Regualtor-6
+Added Net: Name=NetP1_1
+Added Pin To Net: NetName=NetP1_3 Pin=P1-3
+Added Pin To Net: NetName=NetP1_3 Pin=Regualtor-4
+Added Net: Name=NetP1_3
+Added Pin To Net: NetName=NetP1_4 Pin=P1-4
+Added Pin To Net: NetName=NetP1_4 Pin=Regualtor-3
+Added Net: Name=NetP1_4
+Added Pin To Net: NetName=NetP2_4 Pin=P2-4
+Added Pin To Net: NetName=NetP2_4 Pin=Regualtor-9
+Added Net: Name=NetP2_4
+Added Pin To Net: NetName=NetP2_5 Pin=P2-5
+Added Pin To Net: NetName=NetP2_5 Pin=Regualtor-8
+Added Net: Name=NetP2_5
+Added Pin To Net: NetName=PGRND Pin=C1-2
+Added Pin To Net: NetName=PGRND Pin=P1-2
+Added Pin To Net: NetName=PGRND Pin=P1-6
+Added Pin To Net: NetName=PGRND Pin=P2-1
+Added Pin To Net: NetName=PGRND Pin=P2-6
+Added Pin To Net: NetName=PGRND Pin=Regualtor-1
+Added Pin To Net: NetName=PGRND Pin=Regualtor-5
+Added Pin To Net: NetName=PGRND Pin=Regualtor-7
+Added Pin To Net: NetName=PGRND Pin=Regualtor-12
+Added Pin To Net: NetName=PGRND Pin=Regualtor-13
+Added Net: Name=PGRND
+Added Class: Name=Regulator
+Added Room: Name=Regulator
