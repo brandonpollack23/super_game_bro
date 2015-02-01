@@ -1,0 +1,50 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.13.0.0
+Copyright (C) 2014 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Brandon Pollack, UofF, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.13.0.0
+Toolchain Path:  C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.13.0.0
+Dialog DLL:      DCM.DLL V1.13.1.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.14.0_KEIL
+Dialog DLL:      TCM.DLL V1.14.4.0
+ 
+<h2>Project:</h2>
+D:\Dropbox\school\SENIORDESIGN\SW\GameMan_Template\Projects\MDK-ARM\GameMan_Template.uvprojx
+Project File Date:  02/01/2015
+
+<h2>Output:</h2>
+Build target 'GameMan_Template Configuration'
+compiling TestGame.c...
+..\..\Src\TestGame.c(44): warning:  #177-D: variable "tempHead" was declared but never referenced
+        uint8_t tempHead = drawableObjects.head; //iterate with this "head"
+..\..\Src\TestGame.c(69): warning:  #111-D: statement is unreachable
+                                        free(mainMenu); //no longer need to store info about the menu
+..\..\Src\TestGame.c: 2 warnings, 0 errors
+compiling MainMenu.c...
+linking...
+.\GameMan_Template Configuration\GameMan_Template.axf: Error: L6218E: Undefined symbol swap (referred from testgame.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 1 error messages.
+".\GameMan_Template Configuration\GameMan_Template.axf" - 1 Error(s), 2 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  D:\Dropbox\school\SENIORDESIGN\SW\GameMan_Template\Projects\MDK-ARM\RTE
+  C:\Program Files (x86)\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+Target not created.
+</pre>
+</body>
+</html>

@@ -37,6 +37,7 @@
 
 /* USER CODE BEGIN Includes */
 #include "GameMan_RevA0.h"
+#include "TestGame.h"
 #include "stdio.h"
 #include "stdlib.h"
 
@@ -73,7 +74,7 @@ SRAM_HandleTypeDef hsram1;
 NOR_HandleTypeDef hnor2;
 
 /* USER CODE BEGIN PV */
-uint16_t framebuffer[320][240]; //framebuffer for writing to
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -107,11 +108,7 @@ int main(void)
 
   /* USER CODE BEGIN 1 */
 	//Declarations
-	DrawQueue drawQueue;
-	initQueue(&drawQueue);
 	
-	DrawableObject dObjs[20];
-	DrawableObject* currentObj;
   /* USER CODE END 1 */
 
   /* MCU Configuration----------------------------------------------------------*/
@@ -144,31 +141,7 @@ int main(void)
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN 3 */
-	//init display buffer to black
-	for(int i = 0; i < 320; ++i)
-	{
-		for(int j = 0; j < 240; ++j)
-		{
-			framebuffer[i][j] = 127 << 5; //init to green
-		}
-	}
 	
-	
-	// QUEUE TEST
-	for(int i = 0; i < 10; ++i)
-	{
-		enqueue(&drawQueue,dObjs + i);
-	}
-	
-	for(int i = 0; i < 5; ++i)
-	{
-		currentObj = dequeue(&drawQueue);
-	}
-	
-	for(int i = 5; i < 20; ++i)
-	{
-		if(!(enqueue(&drawQueue,dObjs + i))) break;
-	}
   /* Infinite loop */
   while(1)
   {
@@ -584,8 +557,7 @@ HAL_StatusTypeDef print_debug(uint8_t *pData, uint16_t Size, uint32_t Timeout)
 	return HAL_UART_Transmit(DEBUG_UART,pData,Size, Timeout);
 }
 
-//printf configuration from forums
- 
+//printf configuration from forums 
 #pragma import(__use_no_semihosting_swi)
  
 struct __FILE { int handle; /* Add whatever you need here */ };

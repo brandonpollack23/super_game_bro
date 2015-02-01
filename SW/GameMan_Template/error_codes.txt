@@ -1,0 +1,2 @@
+1: No such game state
+2: Menu Option defaulted (no such option) --shouldn't be possible

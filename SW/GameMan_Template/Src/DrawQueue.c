@@ -12,14 +12,52 @@ void clearQueue(DrawQueue* q) //clear the queue
 	q->head = q->tail = -1;
 }
 
-int enqueue(DrawQueue* q, DrawableObject* obj) //put something in queue, 0 returns success, else fail
+int enqueue(DrawQueue* q, DrawableObject* obj, uint8_t prio) //put something in queue, 0 returns success, else fail
 {
 	if(isFull(q)) return FALSE;
 	
-	q->tail++;
+	obj->prio = prio;
 	
-	q->drawQueue[q->tail % QUEUE_MAX] = obj;
-	return TRUE;
+	for(int i = q->head; i <= q->tail; ++i)
+	{
+		if(q->drawQueue[i]->prio < prio) //smaller numbers have lower priority, if we find one less, we found our spot
+		{
+			for(int j = q->tail; j >= i; --j)
+			{
+				q->drawQueue[j+1 % QUEUE_MAX] = q->drawQueue[j % QUEUE_MAX]; //move everything over one
+			}
+			
+			q->drawQueue[i] = obj;
+			
+			q->tail++;//one more added
+			
+			return TRUE;
+		}
+	}
+		
+	return FALSE; //shouldn't get here
+}
+
+int removeItem(DrawQueue* q, DrawableObject* obj)
+{
+	if(isEmpty(q)) return FALSE;
+	
+	for(int i = q->head; i <= q->tail; ++i)
+	{
+		if(q->drawQueue[i] == obj)
+		{
+			for(int j = i; j < q->tail; ++j)
+			{
+				q->drawQueue[j] = q->drawQueue[j+1];
+			}
+			
+			q->tail--; //like we had one less thing
+			
+			return 0; //completed successfully
+		}
+	}
+	
+	return FALSE; //no such item in queue
 }
 
 

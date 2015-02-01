@@ -1,18 +1,9 @@
 TESTS TO DO:
-	get ili pack for tests to configure lcd, see if there is a driver for our display driver to save a headache
-	simple write gradient direct to FB
-	write to 2 FB's and swap simply every 1000 ticks
-	
-	game(application) header file which calls all gameobjects and defines all game logic functions
-	Framebuffer headerfile definitions, called from game header file -- includes defines of all framebuffers and windows (bg and fg buffers 0 and 1), Write updateWindows() called inside swap(), references swap objects
-	rectangularImage object/draw function with headerfile
-	Write to both FB's (define them in game) and swap after 1000 ticks
-		
 	Send MP3 File
+	Retrieve inputs
 
 FILESTOCREATE:
 NV3035C DRIVERS
-
 
 Board Support Package for GameMan board (maps between system_stm32f4xxx.h and my files) with memory copied input definitions of locations
 	I2C get touch routines
@@ -21,9 +12,6 @@ Board Support Package for GameMan board (maps between system_stm32f4xxx.h and my
 	port and pin definitions
 	Nor Flash writing/reading routines (draw inspiration from EVAL board's)
 
-LinkedList (for render/update queue)
-	draw/update priority by location in queue
-	
 every game has Game header file that includes all gameobjects it needs and defines game flow state machine
 	
 gameobject/drawable object files contain gameobject struct definition who has update void pointer and function for that defined in this file, on all updates be sure to do input/AI updates before status changes

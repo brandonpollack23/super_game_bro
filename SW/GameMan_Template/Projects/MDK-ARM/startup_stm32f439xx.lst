@@ -905,19 +905,21 @@ ARM Macro Assembler    Page 14
   465 0000001C                 END
               00000000 
               00000000 
-Command Line: --debug --xref --cpu=Cortex-M4.fp --apcs=interwork --depend="game
-man_template configuration\startup_stm32f439xx.d" -o"gameman_template configura
-tion\startup_stm32f439xx.o" -I..\..\Inc -I"C:\Program Files (x86)\keil_v5\ARM\R
+Command Line: --debug --xref --cpu=Cortex-M4.fp --apcs=interwork --depend=".\ga
+meman_template configuration\startup_stm32f439xx.d" -o".\gameman_template confi
+guration\startup_stm32f439xx.o" -I..\..\Inc -ID:\Dropbox\school\SENIORDESIGN\SW
 
 
 
 ARM Macro Assembler    Page 15 
 
 
-V31\INC" -I"C:\Program Files (x86)\keil_v5\ARM\CMSIS\Include" --predefine="__EV
-AL SETA 1" --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 
-513" --list=startup_stm32f439xx.lst ..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Sou
-rce\Templates\arm\startup_stm32f439xx.s
+\GameMan_Template\Projects\MDK-ARM\RTE -I"C:\Program Files (x86)\Keil_v5\ARM\PA
+CK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include" -I"C:\Pr
+ogram Files (x86)\Keil_v5\ARM\CMSIS\Include" --predefine="__EVAL SETA 1" --pred
+efine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 513" --predefine=
+"STM32F429xx SETA 1" --list=startup_stm32f439xx.lst ..\..\Drivers\CMSIS\Device\
+ST\STM32F4xx\Source\Templates\arm\startup_stm32f439xx.s
 
 
 
@@ -2461,4 +2463,4 @@ tes\arm\startup_stm32f439xx.s
 tes\arm\startup_stm32f439xx.s
 Comment: __main used once
 2 symbols
-454 symbols in table
+455 symbols in table
