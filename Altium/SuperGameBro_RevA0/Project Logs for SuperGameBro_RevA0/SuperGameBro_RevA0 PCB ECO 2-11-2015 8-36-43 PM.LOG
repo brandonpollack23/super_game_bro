@@ -1,0 +1,3 @@
+Added Pin To Net: NetName=AUDIO_DAC1 Pin=C49-1
+Added Pin To Net: NetName=AUDIO_DAC2 Pin=C55-1
+Added Pin To Net: NetName=FMC_A11 Pin=U1-67

@@ -1,0 +1,9 @@
+Added Component: Designator=CP1(RB7.6-15)
+Added Component: Designator=CP2(RB7.6-15)
+Added Pin To Net: NetName=3V3P Pin=CP1-1
+Added Pin To Net: NetName=GND Pin=CP1-2
+Added Pin To Net: NetName=5V0P Pin=CP2-1
+Added Pin To Net: NetName=GND Pin=CP2-2
+Added Pin To Net: NetName=FMC_D4 Pin=U1-67
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component CP1 47uF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component CP2 68uF

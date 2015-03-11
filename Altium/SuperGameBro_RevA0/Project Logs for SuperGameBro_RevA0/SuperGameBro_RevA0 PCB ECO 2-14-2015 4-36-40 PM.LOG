@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=INPUT_LATCH Pin=U1-1
+Removed Pin From Net: NetName=MP3_DR Pin=U1-4
+Removed Pin From Net: NetName=BATTERY_LOW_LED Pin=U1-5
+Added Pin To Net: NetName=INPUT_LATCH Pin=U1-112
+Added Pin To Net: NetName=BATTERY_LOW_LED Pin=U1-130
+Added Pin To Net: NetName=MP3_DR Pin=U1-131

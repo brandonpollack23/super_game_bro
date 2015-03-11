@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=UART1_DEBUG_RX Pin=P_Debug-1
+Removed Pin From Net: NetName=UART1_DEBUG_TX Pin=P_Debug-2
+Removed Pin From Net: NetName=UART6_MULTI_RX Pin=P_Multi-1
+Removed Pin From Net: NetName=UART6_MULTI_TX Pin=P_Multi-2
+Change Component DesignItemId : Designator=P_Debug Old DesignItemId=Header 2 New DesignItemId=Header 3
+Change Component DesignItemId : Designator=P_Multi Old DesignItemId=Header 2 New DesignItemId=Header 3
+Change Component Footprint: Designator=P_Debug Old Footprint=HDR1X2 New Footprint=HDR1X3
+Change Component Footprint: Designator=P_Multi Old Footprint=HDR1X2 New Footprint=HDR1X3
+Change Component Comment : Designator=P_Debug Old Comment=Header 2 New Comment=Header 3
+Change Component Comment : Designator=P_Multi Old Comment=Header 2 New Comment=Header 3
+Added Pin To Net: NetName=GND Pin=P_Debug-1
+Added Pin To Net: NetName=UART1_DEBUG_RX Pin=P_Debug-2
+Added Pin To Net: NetName=UART1_DEBUG_TX Pin=P_Debug-3
+Added Pin To Net: NetName=GND Pin=P_Multi-1
+Added Pin To Net: NetName=UART6_MULTI_RX Pin=P_Multi-2
+Added Pin To Net: NetName=UART6_MULTI_TX Pin=P_Multi-3

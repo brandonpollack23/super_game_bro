@@ -1,0 +1,56 @@
+Change Component Footprint: Designator=C17 Old Footprint=6-0805_L New Footprint=C0805
+Change Component Footprint: Designator=R1 Old Footprint=6-0805_N New Footprint=AXIAL-0.3
+Change Component Footprint: Designator=R2 Old Footprint=6-0805_N New Footprint=AXIAL-0.3
+Change Component Footprint: Designator=R3 Old Footprint=6-0805_N New Footprint=AXIAL-0.3
+Change Component Footprint: Designator=R4 Old Footprint=6-0805_N New Footprint=AXIAL-0.3
+Change Component Comment : Designator=C26 Old Comment=.1uF New Comment=Cap
+Change Component Comment : Designator=R1 Old Comment=0 New Comment=Res1
+Change Component Comment : Designator=R2 Old Comment=0 New Comment=Res1
+Change Component Comment : Designator=R3 Old Comment=0 New Comment=Res1
+Change Component Comment : Designator=R4 Old Comment=0 New Comment=Res1
+Change Component Comment : Designator=C16 Old Comment=1 uF New Comment=Cap
+Change Component Comment : Designator=C14 Old Comment=2.2 uF New Comment=Cap
+Change Component Comment : Designator=C15 Old Comment=2.2 uF New Comment=Cap
+Change Component Comment : Designator=C3 Old Comment=10 pF New Comment=Cap
+Change Component Comment : Designator=C4 Old Comment=10 pF New Comment=Cap
+Change Component Comment : Designator=C17 Old Comment=10 uF New Comment=Cap
+Change Component Comment : Designator=C1 Old Comment=25 pF New Comment=Cap
+Change Component Comment : Designator=C2 Old Comment=25 pF New Comment=Cap
+Change Component Comment : Designator=C5 Old Comment=100nF New Comment=Cap
+Change Component Comment : Designator=C6 Old Comment=100nF New Comment=Cap
+Change Component Comment : Designator=C7 Old Comment=100nF New Comment=Cap
+Change Component Comment : Designator=C8 Old Comment=100nF New Comment=Cap
+Change Component Comment : Designator=C9 Old Comment=100nF New Comment=Cap
+Change Component Comment : Designator=C10 Old Comment=100nF New Comment=Cap
+Change Component Comment : Designator=C11 Old Comment=100nF New Comment=Cap
+Change Component Comment : Designator=C12 Old Comment=100nF New Comment=Cap
+Change Component Comment : Designator=C13 Old Comment=100nF New Comment=Cap
+Change Component Comment : Designator=C18 Old Comment=100nF New Comment=Cap
+Change Component Comment : Designator=C19 Old Comment=100nF New Comment=Cap
+Change Component Comment : Designator=C20 Old Comment=100nF New Comment=Cap
+Change Component Comment : Designator=C21 Old Comment=100nF New Comment=Cap
+Change Component Comment : Designator=C22 Old Comment=100nF New Comment=Cap
+Change Component Comment : Designator=C23 Old Comment=100nF New Comment=Cap
+Change Component Comment : Designator=C24 Old Comment=100nF New Comment=Cap
+Change Component Comment : Designator=C25 Old Comment=100nF New Comment=Cap
+Added Component: Designator=CON1(SD_card_fp)
+Added Component: Designator=R5(AXIAL-0.3)
+Added Component: Designator=R6(AXIAL-0.3)
+Added Component: Designator=R7(AXIAL-0.3)
+Added Component: Designator=R8(AXIAL-0.3)
+Added Component: Designator=R9(AXIAL-0.3)
+Added Component: Designator=U2(ISSI-TSOP-1-48-12000X20000DE_N)
+Added Pin To Net: NetName=BATTERY_LOW_LED Pin=U1-5
+Added Net: Name=BATTERY_LOW_LED
+Added Pin To Net: NetName=FMC_A11 Pin=U1-67
+Added Pin To Net: NetName=FMC_A11 Pin=U2-28
+Added Net: Name=FMC_A11
+Added Pin To Net: NetName=INPUT_LATCH Pin=U1-1
+Added Net: Name=INPUT_LATCH
+Added Pin To Net: NetName=MP3_DR Pin=U1-4
+Added Net: Name=MP3_DR
+Added Pin To Net: NetName=SD_DETECT Pin=CON1-10
+Added Pin To Net: NetName=SD_DETECT Pin=U1-3
+Added Net: Name=SD_DETECT
+Added Class: Name=sdcard_ram
+Added Room: Name=sdcard_ram

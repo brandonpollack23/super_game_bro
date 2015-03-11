@@ -6,7 +6,7 @@
 .\gameman_template configuration\stm32f4xx_hal_nor.o: ..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
 .\gameman_template configuration\stm32f4xx_hal_nor.o: ..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f429xx.h
 .\gameman_template configuration\stm32f4xx_hal_nor.o: ..\..\Drivers\CMSIS\Include\core_cm4.h
-.\gameman_template configuration\stm32f4xx_hal_nor.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\gameman_template configuration\stm32f4xx_hal_nor.o: C:\Program Files (x86)\keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\gameman_template configuration\stm32f4xx_hal_nor.o: ..\..\Drivers\CMSIS\Include\core_cmInstr.h
 .\gameman_template configuration\stm32f4xx_hal_nor.o: ..\..\Drivers\CMSIS\Include\core_cmFunc.h
 .\gameman_template configuration\stm32f4xx_hal_nor.o: ..\..\Drivers\CMSIS\Include\core_cm4_simd.h

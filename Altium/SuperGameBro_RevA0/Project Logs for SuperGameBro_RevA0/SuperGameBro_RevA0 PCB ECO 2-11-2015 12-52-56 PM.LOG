@@ -1,0 +1,54 @@
+Removed Pin From Net: NetName=OSC_MAIN_IN Pin=R1-1
+Removed Pin From Net: NetName=OSC_MAIN_OUT Pin=R2-2
+Removed Pin From Net: NetName=OSC_RTC_IN Pin=R3-1
+Removed Pin From Net: NetName=OSC_RTC_OUT Pin=R4-2
+Removed Member From Class: ClassName=Audio Member=R14
+Removed Member From Class: ClassName=Audio Member=R15
+Removed Member From Class: ClassName=Audio Member=R16
+Removed Member From Class: ClassName=LCD_touch_conn Member=R16
+Removed Member From Class: ClassName=Audio Member=R17
+Removed Member From Class: ClassName=LCD_touch_conn Member=R17
+Removed Member From Class: ClassName=Audio Member=R19
+Removed Member From Class: ClassName=Audio Member=R20
+Removed Member From Class: ClassName=Audio Member=R21
+Change Component Designator: OldDesignator=LEFT_SHOULDER1 NewDesignator=LEFT_SHOULDER
+Change Component Designator: OldDesignator=RIGHT_SHOULDER1 NewDesignator=RIGHT_SHOULDER
+Change Component Designator: OldDesignator=SELECT1 NewDesignator=SELECT
+Change Component Designator: OldDesignator=START1 NewDesignator=START
+Added Component: Designator=Y3(HC-49U)
+Added Pin To Net: NetName=OSC_MAIN_IN Pin=C1-2
+Added Pin To Net: NetName=OSC_MAIN_OUT Pin=C2-2
+Added Pin To Net: NetName=OSC_RTC_IN Pin=C3-2
+Added Pin To Net: NetName=OSC_RTC_OUT Pin=C4-2
+Added Pin To Net: NetName=FMC_D4 Pin=U1-67
+Added Pin To Net: NetName=OSC_MAIN_IN Pin=Y1-1
+Added Pin To Net: NetName=OSC_MAIN_OUT Pin=Y1-2
+Added Pin To Net: NetName=OSC_RTC_IN Pin=Y2-1
+Added Pin To Net: NetName=OSC_RTC_OUT Pin=Y2-2
+Added Pin To Net: NetName=XTO Pin=Y3-1
+Added Pin To Net: NetName=XTI Pin=Y3-2
+Change Net Name : Old Net Name=NetR34_1 New Net Name=NetR30_1
+Change Net Name : Old Net Name=NetR38_2 New Net Name=NetR34_2
+Change Net Name : Old Net Name=NetR41_1 New Net Name=NetR37_1
+Added Member To Class: ClassName=Buttons Member=Component A 12mmBTN
+Added Member To Class: ClassName=Buttons Member=Component B 12mmBTN
+Added Member To Class: ClassName=Buttons Member=Component DOWN 12mmBTN
+Added Member To Class: ClassName=Buttons Member=Component LEFT 12mmBTN
+Added Member To Class: ClassName=sdcard_ram Member=Component R4 Res1
+Added Member To Class: ClassName=sdcard_ram Member=Component R5 Res1
+Added Member To Class: ClassName=sdcard_ram Member=Component R6 Res1
+Added Member To Class: ClassName=sdcard_ram Member=Component R7 Res1
+Added Member To Class: ClassName=LCD_touch_conn Member=Component R20 10K
+Added Member To Class: ClassName=LCD_touch_conn Member=Component R21 10K
+Added Member To Class: ClassName=Audio Member=Component R23 Res1
+Added Member To Class: ClassName=Audio Member=Component R24 Res1
+Added Member To Class: ClassName=Audio Member=Component R25 Res1
+Added Member To Class: ClassName=Audio Member=Component R37 400k
+Added Member To Class: ClassName=Audio Member=Component R38 700k
+Added Member To Class: ClassName=Audio Member=Component R39 700K
+Added Member To Class: ClassName=Audio Member=Component R40 1K
+Added Member To Class: ClassName=Buttons Member=Component RIGHT 12mmBTN
+Added Member To Class: ClassName=Buttons Member=Component UP 12mmBTN
+Added Member To Class: ClassName=Buttons Member=Component X 12mmBTN
+Added Member To Class: ClassName=Audio Member=Component Y3 14.756Mhz
+Added Member To Class: ClassName=Buttons Member=Component Y 12mmBTN

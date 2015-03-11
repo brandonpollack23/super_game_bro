@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=VBAT Pin=D6-1
+Removed Pin From Net: NetName=VWALL Pin=D6-2
+Added Pin To Net: NetName=VWALL Pin=D6-1
+Added Pin To Net: NetName=VBAT Pin=D6-2
+Added Pin To Net: NetName=VWALL Pin=U8-14

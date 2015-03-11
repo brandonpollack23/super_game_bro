@@ -5,27 +5,37 @@
 
 #include "TestGame.h"
 
-//Inputs
-uint16_t buttonInput; //let the compiler reserve this location at the beginning so I can't fuck it up
-
 //Game Globals
-DrawQueue drawableObjects, drawQueue;
+DrawQueue drawQueue;
 GameState gameState = INIT;
 uint32_t delay_timestamp; //keeping track of time (delays) at the game logic level
 
 //GameObjects
-menuDObj* mainMenu;
+DrawableObject* mainMenu;
+const char main_menu_header[] = "Please Select One of the Following Tests:";
+const char* main_menu_options[] = { "0) Test A Simple Mario Sprite", "1) Scrolling Background Test", "2) Sprite Render Test", "3) MP3 Playback Test" };
+
+//RenderStyle
+RenderStyle renderstyle = CPU_RENDER;
 
 void runGame(void)
 {
 	uint32_t game_err = 0;
-	initQueue(&drawableObjects); //initialize the queue of drawable objects (starts with nothing in it)
-	initQueue(&drawQueue);
+	initQueue(&drawQueue); //initialize queue of drawable objects
 	
-	//TODO write welcome to screen press any key to continue
+	clearFrameBuffer();
+	writeStringToScreen(0,0,"Welcome! Press Any Key to Begin!",0xFFFF,0,3,2);
+	swap();
+	clearFrameBuffer();
+	writeStringToScreen(0,0,"Welcome! Press Any Key to Begin!",0xFFFF,0,3,2); //write welcome screen on both frames
+	
+	_GET_NEXT_BUTTON_INPUT(); //throw out first input for some reason
+	while(input_spi.Instance->SR == (input_spi.Instance->SR & SPI_SR_BSY)); //wait for busy flag
 	
 	while(1)
 	{
+		_GET_NEXT_BUTTON_INPUT();
+		
 		game_err = updateObjects();
 		if(game_err != 0) break;
 		game_err = updateGame();
@@ -41,7 +51,14 @@ void runGame(void)
 
 uint32_t updateObjects(void) //TODO
 {
-	uint8_t tempHead = drawableObjects.head; //iterate with this "head"
+	DrawableObject** draw = drawQueue.drawQueue;
+	
+	for(int i = (drawQueue.head + 1); i <= drawQueue.tail; ++i)
+	{
+		
+		draw[i]->update((void*) draw[i]);
+		draw[i]->render((void*) draw[i]);
+	}
 	
 	return 0;
 }
@@ -51,23 +68,22 @@ uint32_t updateGame(void) //TODO
 	switch(gameState)
 	{
 		case INIT:
-			if(buttonInput != 0)
+			if(_CURRENT_BUTTON_INPUT() != BUTTON_NONE)
 			{
 				gameState = MENU; //if any key is pressed, continue to the menu
 				delay_timestamp = HAL_GetTick(); //take timestamp for delay to prevent double input
 				
-				mainMenu = malloc(sizeof(menuDObj));
-				*mainMenu = createMenu(100,10,menu_header,menu_options);
+				mainMenu = constructMenu(0,0,(char*)main_menu_header,(char**)main_menu_options,sizeof(main_menu_options)/sizeof(char*), renderstyle);
+				enqueue(&drawQueue,mainMenu,255);
+				clearBothFrameBuffers();
 			}
 			break;
 			
 		case MENU:
-			if(HAL_GetTick() - delay_timestamp > 1000 && mainMenu->option_selected != 0) //if it has been a second since we got to the menu
+			if(HAL_GetTick() - delay_timestamp > 500 && MAIN_MENU->option_selected != 0) //if it has been a half second since we got to the menu
 			{
-				switch(mainMenu->highlighted_option)
+				switch(MAIN_MENU->highlighted_option)
 				{
-					free(mainMenu); //no longer need to store info about the menu
-					
 					case 0:
 						gameState = MARIO_TEST;
 						break;
@@ -83,7 +99,10 @@ uint32_t updateGame(void) //TODO
 					default:
 						return 2;
 				}
+				removeItem(&drawQueue,mainMenu);
+				deconstructMenu(mainMenu);
 			}
+			break;
 				
 		case MARIO_TEST:
 		case SCROLLING_TEST:
@@ -95,4 +114,3 @@ uint32_t updateGame(void) //TODO
 	
 	return 0;
 }
-

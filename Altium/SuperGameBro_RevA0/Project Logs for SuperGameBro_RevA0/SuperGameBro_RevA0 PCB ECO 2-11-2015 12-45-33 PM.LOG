@@ -1,0 +1,156 @@
+Removed Pin From Net: NetName=GND Pin=A-0
+Removed Pin From Net: NetName=GND Pin=A-0
+Removed Pin From Net: NetName=BTN_A Pin=A-1
+Removed Pin From Net: NetName=BTN_A Pin=A-1
+Removed Pin From Net: NetName=GND Pin=B-0
+Removed Pin From Net: NetName=GND Pin=B-0
+Removed Pin From Net: NetName=BTN_B Pin=B-1
+Removed Pin From Net: NetName=BTN_B Pin=B-1
+Removed Pin From Net: NetName=GND Pin=DOWN-0
+Removed Pin From Net: NetName=GND Pin=DOWN-0
+Removed Pin From Net: NetName=BTN_DWN Pin=DOWN-1
+Removed Pin From Net: NetName=BTN_DWN Pin=DOWN-1
+Removed Pin From Net: NetName=GND Pin=LEFT-0
+Removed Pin From Net: NetName=GND Pin=LEFT-0
+Removed Pin From Net: NetName=BTN_LFT Pin=LEFT-1
+Removed Pin From Net: NetName=BTN_LFT Pin=LEFT-1
+Removed Pin From Net: NetName=OSC_MAIN_IN Pin=R1-1
+Removed Pin From Net: NetName=OSC_MAIN_OUT Pin=R2-2
+Removed Pin From Net: NetName=OSC_RTC_IN Pin=R3-1
+Removed Pin From Net: NetName=OSC_RTC_OUT Pin=R4-2
+Removed Pin From Net: NetName=GND Pin=RIGHT-0
+Removed Pin From Net: NetName=GND Pin=RIGHT-0
+Removed Pin From Net: NetName=BTN_RIGHT Pin=RIGHT-1
+Removed Pin From Net: NetName=BTN_RIGHT Pin=RIGHT-1
+Removed Pin From Net: NetName=GND Pin=UP-0
+Removed Pin From Net: NetName=GND Pin=UP-0
+Removed Pin From Net: NetName=BTN_UP Pin=UP-1
+Removed Pin From Net: NetName=BTN_UP Pin=UP-1
+Removed Pin From Net: NetName=GND Pin=X-0
+Removed Pin From Net: NetName=GND Pin=X-0
+Removed Pin From Net: NetName=BTN_X Pin=X-1
+Removed Pin From Net: NetName=BTN_X Pin=X-1
+Removed Pin From Net: NetName=GND Pin=Y-0
+Removed Pin From Net: NetName=GND Pin=Y-0
+Removed Pin From Net: NetName=BTN_Y Pin=Y-1
+Removed Pin From Net: NetName=BTN_Y Pin=Y-1
+Removed Member From Class: ClassName=Buttons Member=A
+Removed Member From Class: ClassName=Buttons Member=B
+Removed Member From Class: ClassName=Buttons Member=DOWN
+Removed Member From Class: ClassName=Buttons Member=LEFT
+Removed Member From Class: ClassName=CPU_Power_XTAL_Prog Member=R1
+Removed Member From Class: ClassName=CPU_Power_XTAL_Prog Member=R2
+Removed Member From Class: ClassName=CPU_Power_XTAL_Prog Member=R3
+Removed Member From Class: ClassName=CPU_Power_XTAL_Prog Member=R4
+Removed Member From Class: ClassName=Buttons Member=RIGHT
+Removed Member From Class: ClassName=Buttons Member=UP
+Removed Member From Class: ClassName=Buttons Member=X
+Removed Member From Class: ClassName=Buttons Member=Y
+Change Component Comment : Designator=C1 Old Comment=10 pF New Comment=25 pF
+Change Component Comment : Designator=C2 Old Comment=10 pF New Comment=25 pF
+Change Component Comment : Designator=Y1 Old Comment=Value New Comment=8 Mhz
+Change Component Comment : Designator=Y2 Old Comment=Value New Comment=32.768Khz
+Change Component Designator: OldDesignator=LEFT_SHOULDER NewDesignator=LEFT_SHOULDER1
+Change Component Designator: OldDesignator=R5 NewDesignator=R1
+Change Component Designator: OldDesignator=R6 NewDesignator=R2
+Change Component Designator: OldDesignator=R7 NewDesignator=R3
+Change Component Designator: OldDesignator=R8 NewDesignator=R4
+Change Component Designator: OldDesignator=R9 NewDesignator=R5
+Change Component Designator: OldDesignator=R10 NewDesignator=R6
+Change Component Designator: OldDesignator=R11 NewDesignator=R7
+Change Component Designator: OldDesignator=R12 NewDesignator=R8
+Change Component Designator: OldDesignator=R13 NewDesignator=R9
+Change Component Designator: OldDesignator=R14 NewDesignator=R10
+Change Component Designator: OldDesignator=R15 NewDesignator=R11
+Change Component Designator: OldDesignator=R16 NewDesignator=R12
+Change Component Designator: OldDesignator=R17 NewDesignator=R13
+Change Component Designator: OldDesignator=R18 NewDesignator=R14
+Change Component Designator: OldDesignator=R19 NewDesignator=R15
+Change Component Designator: OldDesignator=R20 NewDesignator=R16
+Change Component Designator: OldDesignator=R21 NewDesignator=R17
+Change Component Designator: OldDesignator=R22 NewDesignator=R18
+Change Component Designator: OldDesignator=R23 NewDesignator=R19
+Change Component Designator: OldDesignator=R24 NewDesignator=R20
+Change Component Designator: OldDesignator=R25 NewDesignator=R21
+Change Component Designator: OldDesignator=R26 NewDesignator=R22
+Change Component Designator: OldDesignator=R27 NewDesignator=R23
+Change Component Designator: OldDesignator=R28 NewDesignator=R24
+Change Component Designator: OldDesignator=R29 NewDesignator=R25
+Change Component Designator: OldDesignator=R30 NewDesignator=R26
+Change Component Designator: OldDesignator=R31 NewDesignator=R27
+Change Component Designator: OldDesignator=R32 NewDesignator=R28
+Change Component Designator: OldDesignator=R33 NewDesignator=R29
+Change Component Designator: OldDesignator=R34 NewDesignator=R30
+Change Component Designator: OldDesignator=R35 NewDesignator=R31
+Change Component Designator: OldDesignator=R36 NewDesignator=R32
+Change Component Designator: OldDesignator=R37 NewDesignator=R33
+Change Component Designator: OldDesignator=R38 NewDesignator=R34
+Change Component Designator: OldDesignator=R39 NewDesignator=R35
+Change Component Designator: OldDesignator=R40 NewDesignator=R36
+Change Component Designator: OldDesignator=R41 NewDesignator=R37
+Change Component Designator: OldDesignator=R42 NewDesignator=R38
+Change Component Designator: OldDesignator=R43 NewDesignator=R39
+Change Component Designator: OldDesignator=R44 NewDesignator=R40
+Change Component Designator: OldDesignator=RIGHT_SHOULDER NewDesignator=RIGHT_SHOULDER1
+Change Component Designator: OldDesignator=SELECT NewDesignator=SELECT1
+Change Component Designator: OldDesignator=START NewDesignator=START1
+Added Component: Designator=A1(SMT12mmbutton)
+Added Component: Designator=B1(SMT12mmbutton)
+Added Component: Designator=DOWN1(SMT12mmbutton)
+Added Component: Designator=LEFT1(SMT12mmbutton)
+Added Component: Designator=RIGHT1(SMT12mmbutton)
+Added Component: Designator=UP1(SMT12mmbutton)
+Added Component: Designator=X1(SMT12mmbutton)
+Added Component: Designator=Y3(SMT12mmbutton)
+Added Pin To Net: NetName=GND Pin=A1-0
+Added Pin To Net: NetName=GND Pin=A1-0
+Added Pin To Net: NetName=BTN_A Pin=A1-1
+Added Pin To Net: NetName=BTN_A Pin=A1-1
+Added Pin To Net: NetName=GND Pin=B1-0
+Added Pin To Net: NetName=GND Pin=B1-0
+Added Pin To Net: NetName=BTN_B Pin=B1-1
+Added Pin To Net: NetName=BTN_B Pin=B1-1
+Added Pin To Net: NetName=OSC_MAIN_IN Pin=C1-2
+Added Pin To Net: NetName=OSC_MAIN_OUT Pin=C2-2
+Added Pin To Net: NetName=OSC_RTC_IN Pin=C3-2
+Added Pin To Net: NetName=OSC_RTC_OUT Pin=C4-2
+Added Pin To Net: NetName=GND Pin=DOWN1-0
+Added Pin To Net: NetName=GND Pin=DOWN1-0
+Added Pin To Net: NetName=BTN_DWN Pin=DOWN1-1
+Added Pin To Net: NetName=BTN_DWN Pin=DOWN1-1
+Added Pin To Net: NetName=GND Pin=LEFT1-0
+Added Pin To Net: NetName=GND Pin=LEFT1-0
+Added Pin To Net: NetName=BTN_LFT Pin=LEFT1-1
+Added Pin To Net: NetName=BTN_LFT Pin=LEFT1-1
+Added Pin To Net: NetName=GND Pin=RIGHT1-0
+Added Pin To Net: NetName=GND Pin=RIGHT1-0
+Added Pin To Net: NetName=BTN_RIGHT Pin=RIGHT1-1
+Added Pin To Net: NetName=BTN_RIGHT Pin=RIGHT1-1
+Added Pin To Net: NetName=FMC_D4 Pin=U1-67
+Added Pin To Net: NetName=GND Pin=UP1-0
+Added Pin To Net: NetName=GND Pin=UP1-0
+Added Pin To Net: NetName=BTN_UP Pin=UP1-1
+Added Pin To Net: NetName=BTN_UP Pin=UP1-1
+Added Pin To Net: NetName=GND Pin=X1-0
+Added Pin To Net: NetName=GND Pin=X1-0
+Added Pin To Net: NetName=BTN_X Pin=X1-1
+Added Pin To Net: NetName=BTN_X Pin=X1-1
+Added Pin To Net: NetName=OSC_MAIN_IN Pin=Y1-1
+Added Pin To Net: NetName=OSC_MAIN_OUT Pin=Y1-2
+Added Pin To Net: NetName=OSC_RTC_IN Pin=Y2-1
+Added Pin To Net: NetName=OSC_RTC_OUT Pin=Y2-2
+Added Pin To Net: NetName=GND Pin=Y3-0
+Added Pin To Net: NetName=GND Pin=Y3-0
+Added Pin To Net: NetName=BTN_Y Pin=Y3-1
+Added Pin To Net: NetName=BTN_Y Pin=Y3-1
+Change Net Name : Old Net Name=NetR34_1 New Net Name=NetR30_1
+Change Net Name : Old Net Name=NetR38_2 New Net Name=NetR34_2
+Change Net Name : Old Net Name=NetR41_1 New Net Name=NetR37_1
+Added Member To Class: ClassName=Buttons Member=Component A1 12mmBTN
+Added Member To Class: ClassName=Buttons Member=Component B1 12mmBTN
+Added Member To Class: ClassName=Buttons Member=Component DOWN1 12mmBTN
+Added Member To Class: ClassName=Buttons Member=Component LEFT1 12mmBTN
+Added Member To Class: ClassName=Buttons Member=Component RIGHT1 12mmBTN
+Added Member To Class: ClassName=Buttons Member=Component UP1 12mmBTN
+Added Member To Class: ClassName=Buttons Member=Component X1 12mmBTN
+Added Member To Class: ClassName=Buttons Member=Component Y3 12mmBTN

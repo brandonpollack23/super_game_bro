@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=NetPot0_1 Pin=Pot0-1
+Removed Pin From Net: NetName=NetC45_1 Pin=Pot0-2
+Removed Pin From Net: NetName=GND Pin=Pot0-3
+Removed Pin From Net: NetName=GND Pin=Pot0-4
+Removed Pin From Net: NetName=NetC52_1 Pin=Pot0-5
+Removed Pin From Net: NetName=NetPot0_6 Pin=Pot0-6
+Change Component Comment : Designator=C26 Old Comment=.1 uF New Comment=100nF
+Change Component Comment : Designator=C47 Old Comment=.1uF New Comment=100nF
+Change Component Comment : Designator=C31 Old Comment=100 nF New Comment=100nF
+Change Component Comment : Designator=C32 Old Comment=100 nF New Comment=100nF
+Change Component Comment : Designator=C60 Old Comment=100pF New Comment=100nF
+Change Component Comment : Designator=C61 Old Comment=100pF New Comment=100nF
+Change Component Comment : Designator=C62 Old Comment=100pF New Comment=100nF
+Change Component Comment : Designator=C63 Old Comment=100pF New Comment=100nF
+Change Component Comment : Designator=C64 Old Comment=100pF New Comment=100nF

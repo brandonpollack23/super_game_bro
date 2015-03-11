@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=ON/OFF Pin=U8-5
+Added Component: Designator=D?(Zener)
+Added Pin To Net: NetName=LEDK Pin=D?-1
+Added Pin To Net: NetName=LEDA Pin=D?-2
+Added Pin To Net: NetName=CHARGE CONNECT Pin=R26-1
+Added Pin To Net: NetName=CHARGE CONNECT Pin=R27-2
+Added Pin To Net: NetName=CHARGE CONNECT Pin=R28-2
+Added Pin To Net: NetName=VBATCHECK Pin=U8-5
+Added Pin To Net: NetName=VWALL Pin=U8-14
+Added Pin To Net: NetName=CHARGE CONNECT Pin=U9-3
+Added Member To Class: ClassName=Power Member=Component D? D Zener

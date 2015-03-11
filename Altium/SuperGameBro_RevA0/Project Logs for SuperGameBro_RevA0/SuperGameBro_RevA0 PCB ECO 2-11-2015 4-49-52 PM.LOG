@@ -1,0 +1,54 @@
+Removed Pin From Net: NetName=GND Pin=C51-1
+Removed Pin From Net: NetName=5V0P Pin=C51-2
+Removed Pin From Net: NetName=NetC48_1 Pin=Q1-1
+Removed Pin From Net: NetName=NetC45_2 Pin=Q1-2
+Removed Pin From Net: NetName=5V0P Pin=Q1-3
+Removed Pin From Net: NetName=NetC48_1 Pin=Q2-1
+Removed Pin From Net: NetName=NetC50_2 Pin=Q2-2
+Removed Pin From Net: NetName=GND Pin=Q2-3
+Removed Pin From Net: NetName=NetC52_2 Pin=Q3-2
+Removed Pin From Net: NetName=5V0P Pin=Q3-3
+Removed Pin From Net: NetName=NetC56_2 Pin=Q4-2
+Removed Pin From Net: NetName=GND Pin=Q4-3
+Removed Member From Class: ClassName=Audio Member=C54
+Removed Member From Class: ClassName=Audio Member=Q1
+Removed Member From Class: ClassName=Audio Member=Q2
+Removed Member From Class: ClassName=Audio Member=Q3
+Removed Member From Class: ClassName=Audio Member=Q4
+Change Component DesignItemId : Designator=C51 Old DesignItemId=Cap New DesignItemId=Cap Pol1
+Change Component Footprint: Designator=C51 Old Footprint=C0805 New Footprint=C2917
+Change Component Comment : Designator=C51 Old Comment=10uF New Comment=Cap Pol1
+Added Component: Designator=C57(C0805)
+Added Component: Designator=U8(BJT_SOT6)
+Added Component: Designator=U9(BJT_SOT6)
+Added Pin To Net: NetName=GND Pin=C57-1
+Added Pin To Net: NetName=5V0P Pin=C57-2
+Added Pin To Net: NetName=NetC45_2 Pin=D1-1
+Added Pin To Net: NetName=NetC50_2 Pin=D2-2
+Added Pin To Net: NetName=NetC52_2 Pin=D3-1
+Added Pin To Net: NetName=NetC56_2 Pin=D4-2
+Added Pin To Net: NetName=NetC45_2 Pin=R29-2
+Added Pin To Net: NetName=NetC50_2 Pin=R33-1
+Added Pin To Net: NetName=NetC52_2 Pin=R36-2
+Added Pin To Net: NetName=NetC56_2 Pin=R40-1
+Added Pin To Net: NetName=FMC_A11 Pin=U1-67
+Added Pin To Net: NetName=NetC48_1 Pin=U8-1
+Added Pin To Net: NetName=NetC45_2 Pin=U8-2
+Added Pin To Net: NetName=GND Pin=U8-3
+Added Pin To Net: NetName=NetC48_1 Pin=U8-4
+Added Pin To Net: NetName=NetC50_2 Pin=U8-5
+Added Pin To Net: NetName=5V0P Pin=U8-6
+Added Pin To Net: NetName=NetC52_2 Pin=U9-2
+Added Pin To Net: NetName=GND Pin=U9-3
+Added Pin To Net: NetName=NetC56_2 Pin=U9-5
+Added Pin To Net: NetName=5V0P Pin=U9-6
+Added Pin To Net: NetName=NetC51_1 Pin=C51-1
+Added Pin To Net: NetName=NetC51_1 Pin=U9-1
+Added Pin To Net: NetName=NetC51_1 Pin=U9-4
+Added Net: Name=NetC51_1
+Added Pin To Net: NetName=NetC51_2 Pin=C51-2
+Added Pin To Net: NetName=NetC51_2 Pin=LS2-1
+Added Net: Name=NetC51_2
+Added Member To Class: ClassName=Audio Member=Component C57 10u
+Added Member To Class: ClassName=Audio Member=Component U8 BJT
+Added Member To Class: ClassName=Audio Member=Component U9 BJT

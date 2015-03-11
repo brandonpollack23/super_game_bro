@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=SDA Pin=U5-3
+Removed Pin From Net: NetName=SCL Pin=U5-4
+Added Pin To Net: NetName=I2C1_SDA Pin=U5-3
+Added Pin To Net: NetName=I2C1_SCL Pin=U5-4
+Added Pin To Net: NetName=SPI3_MUSIC_MOSI Pin=U5-5
+Added Pin To Net: NetName=SPI3_MUSIC_SCK Pin=U5-6

@@ -1,0 +1,21 @@
+Added Pin To Net: NetName=GND Pin=A-0
+Added Pin To Net: NetName=GND Pin=A-0
+Added Pin To Net: NetName=BTN_A Pin=A-1
+Added Pin To Net: NetName=BTN_A Pin=A-1
+Added Pin To Net: NetName=GND Pin=B-0
+Added Pin To Net: NetName=GND Pin=B-0
+Added Pin To Net: NetName=BTN_B Pin=B-1
+Added Pin To Net: NetName=BTN_B Pin=B-1
+Added Pin To Net: NetName=FMC_D4 Pin=U1-67
+Added Pin To Net: NetName=GND Pin=X-0
+Added Pin To Net: NetName=GND Pin=X-0
+Added Pin To Net: NetName=BTN_X Pin=X-1
+Added Pin To Net: NetName=BTN_X Pin=X-1
+Added Pin To Net: NetName=GND Pin=Y-0
+Added Pin To Net: NetName=GND Pin=Y-0
+Added Pin To Net: NetName=BTN_Y Pin=Y-1
+Added Pin To Net: NetName=BTN_Y Pin=Y-1
+Added Member To Class: ClassName=Buttons Member=Component A 12mmBTN
+Added Member To Class: ClassName=Buttons Member=Component B 12mmBTN
+Added Member To Class: ClassName=Buttons Member=Component X 12mmBTN
+Added Member To Class: ClassName=Buttons Member=Component Y 12mmBTN

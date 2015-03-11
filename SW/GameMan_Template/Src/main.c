@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * File Name          : main.c
-  * Date               : 21/01/2015 16:06:52
+  * Date               : 02/03/2015 17:16:37
   * Description        : Main program body
   ******************************************************************************
   *
@@ -34,6 +34,9 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
+#include "ff.h"
+#include "ff_gen_drv.h"
+#include "sd_diskio.h" /* defines SD_Driver as external */
 
 /* USER CODE BEGIN Includes */
 #include "GameMan_RevA0.h"
@@ -48,8 +51,6 @@
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
-ADC_HandleTypeDef hadc1;
-
 DAC_HandleTypeDef hdac;
 
 DMA2D_HandleTypeDef hdma2d;
@@ -60,19 +61,21 @@ LTDC_HandleTypeDef hltdc;
 
 RNG_HandleTypeDef hrng;
 
-SPI_HandleTypeDef hspi2;
-SPI_HandleTypeDef hspi3;
-SPI_HandleTypeDef hspi5;
+SD_HandleTypeDef hsd;
+HAL_SD_CardInfoTypedef SDCardInfo;
 
-TIM_HandleTypeDef htim1;
-TIM_HandleTypeDef htim2;
-TIM_HandleTypeDef htim3;
+SPI_HandleTypeDef input_spi;
+SPI_HandleTypeDef mp3_spi;
+SPI_HandleTypeDef lcd_spi;
 
 UART_HandleTypeDef huart1;
+UART_HandleTypeDef huart6;
 
 SRAM_HandleTypeDef hsram1;
-NOR_HandleTypeDef hnor2;
 
+uint8_t retSD;    /* Return value for SD */
+char SD_Path[4];  /* SD logical drive path */
+FIL file;
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -80,22 +83,21 @@ NOR_HandleTypeDef hnor2;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_ADC1_Init(void);
 static void MX_DAC_Init(void);
 static void MX_DMA2D_Init(void);
 static void MX_FMC_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_LTDC_Init(void);
 static void MX_RNG_Init(void);
+static void MX_SDIO_SD_Init(void);
 static void MX_SPI2_Init(void);
 static void MX_SPI3_Init(void);
 static void MX_SPI5_Init(void);
-static void MX_TIM1_Init(void);
-static void MX_TIM2_Init(void);
-static void MX_TIM3_Init(void);
 static void MX_USART1_UART_Init(void);
+static void MX_USART6_UART_Init(void);
 
 /* USER CODE BEGIN PFP */
+void configureMP3(uint16_t addr);
 
 /* USER CODE END PFP */
 
@@ -108,7 +110,9 @@ int main(void)
 
   /* USER CODE BEGIN 1 */
 	//Declarations
+	FATFS sdcard;
 	
+	LTDC_LayerCfgTypeDef layer1;
   /* USER CODE END 1 */
 
   /* MCU Configuration----------------------------------------------------------*/
@@ -121,32 +125,40 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_ADC1_Init();
   MX_DAC_Init();
   MX_DMA2D_Init();
   MX_FMC_Init();
   MX_I2C1_Init();
   MX_LTDC_Init();
   MX_RNG_Init();
+  MX_SDIO_SD_Init();
   MX_SPI2_Init();
   MX_SPI3_Init();
   MX_SPI5_Init();
-  MX_TIM1_Init();
-  MX_TIM2_Init();
-  MX_TIM3_Init();
   MX_USART1_UART_Init();
+  MX_USART6_UART_Init();
 
   /* USER CODE BEGIN 2 */
-
+	framebuffer_layer_init(&layer1,SPRITE_LAYER_NUM,framebuffer_1);
+	NV3035_init();
   /* USER CODE END 2 */
 
+  /*## FatFS: Link the SD driver ###########################*/
+  if(FATFS_LinkDriver(&SD_Driver, SD_Path) != 0) //prepare SD card
+	{
+		if(f_mount(&sdcard,(TCHAR const*)SD_Path,0) != FR_OK)
+		{
+			Error_Handler();
+		}
+		else
+		{
+			//TODO change to 4 bit mode
+			runGame();
+		}
+	}
+	
   /* USER CODE BEGIN 3 */
 	
-  /* Infinite loop */
-  while(1)
-  {
-		
-  }
   /* USER CODE END 3 */
 
 }
@@ -164,11 +176,13 @@ void SystemClock_Config(void)
 
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
 
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = 6;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLM = 25;
+  RCC_OscInitStruct.PLL.PLLM = 10;
   RCC_OscInitStruct.PLL.PLLN = 360;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 8;
@@ -190,35 +204,7 @@ void SystemClock_Config(void)
   PeriphClkInitStruct.PLLSAIDivR = RCC_PLLSAIDIVR_8;
   HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct);
 
-}
-
-/* ADC1 init function */
-void MX_ADC1_Init(void)
-{
-
-  ADC_ChannelConfTypeDef sConfig;
-
-    /**Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion) 
-    */
-  hadc1.Instance = ADC1;
-  hadc1.Init.ClockPrescaler = ADC_CLOCKPRESCALER_PCLK_DIV2;
-  hadc1.Init.Resolution = ADC_RESOLUTION12b;
-  hadc1.Init.ScanConvMode = DISABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
-  hadc1.Init.DiscontinuousConvMode = DISABLE;
-  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
-  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.NbrOfConversion = 1;
-  hadc1.Init.DMAContinuousRequests = DISABLE;
-  hadc1.Init.EOCSelection = EOC_SINGLE_CONV;
-  HAL_ADC_Init(&hadc1);
-
-    /**Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
-    */
-  sConfig.Channel = ADC_CHANNEL_0;
-  sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
-  HAL_ADC_ConfigChannel(&hadc1, &sConfig);
+  HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSI, RCC_MCODIV_1);
 
 }
 
@@ -251,8 +237,8 @@ void MX_DMA2D_Init(void)
 
   hdma2d.Instance = DMA2D;
   hdma2d.Init.Mode = DMA2D_M2M;
-  hdma2d.Init.ColorMode = DMA2D_RGB565;
-  hdma2d.Init.OutputOffset = 320;
+  hdma2d.Init.ColorMode = DMA2D_ARGB8888;
+  hdma2d.Init.OutputOffset = 0;
   HAL_DMA2D_Init(&hdma2d);
 
 }
@@ -269,7 +255,7 @@ void MX_I2C1_Init(void)
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLED;
   hi2c1.Init.OwnAddress2 = 0;
   hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLED;
-  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_ENABLED;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLED;
   HAL_I2C_Init(&hi2c1);
 
 }
@@ -277,20 +263,19 @@ void MX_I2C1_Init(void)
 /* LTDC init function */
 void MX_LTDC_Init(void)
 {
-
   hltdc.Instance = LTDC;
   hltdc.Init.HSPolarity = LTDC_HSPOLARITY_AL;
   hltdc.Init.VSPolarity = LTDC_VSPOLARITY_AL;
-  hltdc.Init.DEPolarity = LTDC_DEPOLARITY_AH;
+  hltdc.Init.DEPolarity = LTDC_DEPOLARITY_AL;
   hltdc.Init.PCPolarity = LTDC_PCPOLARITY_IPC;
-  hltdc.Init.HorizontalSync = 7;
-  hltdc.Init.VerticalSync = 3;
-  hltdc.Init.AccumulatedHBP = 14;
-  hltdc.Init.AccumulatedVBP = 5;
-  hltdc.Init.AccumulatedActiveW = 654;
-  hltdc.Init.AccumulatedActiveH = 485;
-  hltdc.Init.TotalWidth = 660;
-  hltdc.Init.TotalHeigh = 487;
+  hltdc.Init.HorizontalSync = 0;
+  hltdc.Init.VerticalSync = 0;
+  hltdc.Init.AccumulatedHBP = 70;
+  hltdc.Init.AccumulatedVBP = 13;
+  hltdc.Init.AccumulatedActiveW = 390;
+  hltdc.Init.AccumulatedActiveH = 253;
+  hltdc.Init.TotalWidth = 408;
+  hltdc.Init.TotalHeigh = 263;
   hltdc.Init.Backcolor.Blue = 0;
   hltdc.Init.Backcolor.Green = 0;
   hltdc.Init.Backcolor.Red = 0;
@@ -307,22 +292,36 @@ void MX_RNG_Init(void)
 
 }
 
+/* SDIO init function */
+void MX_SDIO_SD_Init(void)
+{
+
+  hsd.Instance = SDIO;
+  hsd.Init.ClockEdge = SDIO_CLOCK_EDGE_RISING;
+  hsd.Init.ClockBypass = SDIO_CLOCK_BYPASS_DISABLE;
+  hsd.Init.ClockPowerSave = SDIO_CLOCK_POWER_SAVE_DISABLE;
+  hsd.Init.BusWide = SDIO_BUS_WIDE_1B;
+  hsd.Init.HardwareFlowControl = SDIO_HARDWARE_FLOW_CONTROL_DISABLE;
+  hsd.Init.ClockDiv = 0;
+
+}
+
 /* SPI2 init function */
 void MX_SPI2_Init(void)
 {
 
-  hspi2.Instance = SPI2;
-  hspi2.Init.Mode = SPI_MODE_MASTER;
-  hspi2.Init.Direction = SPI_DIRECTION_2LINES_RXONLY;
-  hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
-  hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi2.Init.NSS = SPI_NSS_SOFT;
-  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
-  hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
-  hspi2.Init.TIMode = SPI_TIMODE_DISABLED;
-  hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
-  HAL_SPI_Init(&hspi2);
+  input_spi.Instance = SPI2;
+  input_spi.Init.Mode = SPI_MODE_MASTER;
+  input_spi.Init.Direction = SPI_DIRECTION_2LINES;
+  input_spi.Init.DataSize = SPI_DATASIZE_16BIT;
+  input_spi.Init.CLKPolarity = SPI_POLARITY_LOW;
+  input_spi.Init.CLKPhase = SPI_PHASE_1EDGE;
+  input_spi.Init.NSS = SPI_NSS_SOFT;
+  input_spi.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  input_spi.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  input_spi.Init.TIMode = SPI_TIMODE_DISABLED;
+  input_spi.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
+  HAL_SPI_Init(&input_spi);
 
 }
 
@@ -330,18 +329,18 @@ void MX_SPI2_Init(void)
 void MX_SPI3_Init(void)
 {
 
-  hspi3.Instance = SPI3;
-  hspi3.Init.Mode = SPI_MODE_MASTER;
-  hspi3.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi3.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi3.Init.CLKPolarity = SPI_POLARITY_LOW;
-  hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi3.Init.NSS = SPI_NSS_SOFT;
-  hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
-  hspi3.Init.FirstBit = SPI_FIRSTBIT_MSB;
-  hspi3.Init.TIMode = SPI_TIMODE_DISABLED;
-  hspi3.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
-  HAL_SPI_Init(&hspi3);
+  mp3_spi.Instance = SPI3;
+  mp3_spi.Init.Mode = SPI_MODE_MASTER;
+  mp3_spi.Init.Direction = SPI_DIRECTION_2LINES;
+  mp3_spi.Init.DataSize = SPI_DATASIZE_8BIT;
+  mp3_spi.Init.CLKPolarity = SPI_POLARITY_HIGH;
+  mp3_spi.Init.CLKPhase = SPI_PHASE_1EDGE;
+  mp3_spi.Init.NSS = SPI_NSS_SOFT;
+  mp3_spi.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
+  mp3_spi.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  mp3_spi.Init.TIMode = SPI_TIMODE_DISABLED;
+  mp3_spi.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
+  HAL_SPI_Init(&mp3_spi);
 
 }
 
@@ -349,97 +348,18 @@ void MX_SPI3_Init(void)
 void MX_SPI5_Init(void)
 {
 
-  hspi5.Instance = SPI5;
-  hspi5.Init.Mode = SPI_MODE_MASTER;
-  hspi5.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi5.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi5.Init.CLKPolarity = SPI_POLARITY_LOW;
-  hspi5.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi5.Init.NSS = SPI_NSS_SOFT;
-  hspi5.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
-  hspi5.Init.FirstBit = SPI_FIRSTBIT_MSB;
-  hspi5.Init.TIMode = SPI_TIMODE_DISABLED;
-  hspi5.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
-  HAL_SPI_Init(&hspi5);
-
-}
-
-/* TIM1 init function */
-void MX_TIM1_Init(void)
-{
-
-  TIM_ClockConfigTypeDef sClockSourceConfig;
-  TIM_MasterConfigTypeDef sMasterConfig;
-
-  htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 0;
-  htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 0;
-  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim1.Init.RepetitionCounter = 0;
-  HAL_TIM_Base_Init(&htim1);
-
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig);
-
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig);
-
-}
-
-/* TIM2 init function */
-void MX_TIM2_Init(void)
-{
-
-  TIM_ClockConfigTypeDef sClockSourceConfig;
-  TIM_MasterConfigTypeDef sMasterConfig;
-
-  htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 0;
-  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 0;
-  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  HAL_TIM_Base_Init(&htim2);
-
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig);
-
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig);
-
-}
-
-/* TIM3 init function */
-void MX_TIM3_Init(void)
-{
-
-  TIM_ClockConfigTypeDef sClockSourceConfig;
-  TIM_MasterConfigTypeDef sMasterConfig;
-  TIM_OC_InitTypeDef sConfigOC;
-
-  htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 0;
-  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 0;
-  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  HAL_TIM_Base_Init(&htim3);
-
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig);
-
-  HAL_TIM_PWM_Init(&htim3);
-
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig);
-
-  sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 0;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-  HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1);
+  lcd_spi.Instance = SPI5;
+  lcd_spi.Init.Mode = SPI_MODE_MASTER;
+  lcd_spi.Init.Direction = SPI_DIRECTION_2LINES;
+  lcd_spi.Init.DataSize = SPI_DATASIZE_8BIT;
+  lcd_spi.Init.CLKPolarity = SPI_POLARITY_LOW;
+  lcd_spi.Init.CLKPhase = SPI_PHASE_1EDGE;
+  lcd_spi.Init.NSS = SPI_NSS_SOFT;
+  lcd_spi.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
+  lcd_spi.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  lcd_spi.Init.TIMode = SPI_TIMODE_DISABLED;
+  lcd_spi.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
+  HAL_SPI_Init(&lcd_spi);
 
 }
 
@@ -456,6 +376,22 @@ void MX_USART1_UART_Init(void)
   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
   HAL_UART_Init(&huart1);
+
+}
+
+/* USART6 init function */
+void MX_USART6_UART_Init(void)
+{
+
+  huart6.Instance = USART6;
+  huart6.Init.BaudRate = 115200;
+  huart6.Init.WordLength = UART_WORDLENGTH_8B;
+  huart6.Init.StopBits = UART_STOPBITS_1;
+  huart6.Init.Parity = UART_PARITY_NONE;
+  huart6.Init.Mode = UART_MODE_TX_RX;
+  huart6.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart6.Init.OverSampling = UART_OVERSAMPLING_16;
+  HAL_UART_Init(&huart6);
 
 }
 /* FMC initialization function */
@@ -476,54 +412,23 @@ void MX_FMC_Init(void)
   hsram1.Init.WaitSignalPolarity = FMC_WAIT_SIGNAL_POLARITY_LOW;
   hsram1.Init.WrapMode = FMC_WRAP_MODE_DISABLE;
   hsram1.Init.WaitSignalActive = FMC_WAIT_TIMING_BEFORE_WS;
-  hsram1.Init.WriteOperation = FMC_WRITE_OPERATION_DISABLE;
+  hsram1.Init.WriteOperation = FMC_WRITE_OPERATION_ENABLE;
   hsram1.Init.WaitSignal = FMC_WAIT_SIGNAL_DISABLE;
   hsram1.Init.ExtendedMode = FMC_EXTENDED_MODE_DISABLE;
   hsram1.Init.AsynchronousWait = FMC_ASYNCHRONOUS_WAIT_DISABLE;
   hsram1.Init.WriteBurst = FMC_WRITE_BURST_DISABLE;
   hsram1.Init.ContinuousClock = FMC_CONTINUOUS_CLOCK_SYNC_ONLY;
   /* Timing */
-  Timing.AddressSetupTime = 15;
+  Timing.AddressSetupTime = 0;
   Timing.AddressHoldTime = 15;
-  Timing.DataSetupTime = 255;
-  Timing.BusTurnAroundDuration = 15;
+  Timing.DataSetupTime = 6;
+  Timing.BusTurnAroundDuration = 0;
   Timing.CLKDivision = 16;
   Timing.DataLatency = 17;
   Timing.AccessMode = FMC_ACCESS_MODE_A;
   /* ExtTiming */
 
   HAL_SRAM_Init(&hsram1, &Timing, NULL);
-
-  /** Perform the NOR2 memory initialization sequence
-  */
-  hnor2.Instance = FMC_NORSRAM_DEVICE;
-  hnor2.Extended = FMC_NORSRAM_EXTENDED_DEVICE;
-  /* hnor2.Init */
-  hnor2.Init.NSBank = FMC_NORSRAM_BANK2;
-  hnor2.Init.DataAddressMux = FMC_DATA_ADDRESS_MUX_DISABLE;
-  hnor2.Init.MemoryType = FMC_MEMORY_TYPE_NOR;
-  hnor2.Init.MemoryDataWidth = FMC_NORSRAM_MEM_BUS_WIDTH_16;
-  hnor2.Init.BurstAccessMode = FMC_BURST_ACCESS_MODE_DISABLE;
-  hnor2.Init.WaitSignalPolarity = FMC_WAIT_SIGNAL_POLARITY_LOW;
-  hnor2.Init.WrapMode = FMC_WRAP_MODE_DISABLE;
-  hnor2.Init.WaitSignalActive = FMC_WAIT_TIMING_BEFORE_WS;
-  hnor2.Init.WriteOperation = FMC_WRITE_OPERATION_DISABLE;
-  hnor2.Init.WaitSignal = FMC_WAIT_SIGNAL_DISABLE;
-  hnor2.Init.ExtendedMode = FMC_EXTENDED_MODE_DISABLE;
-  hnor2.Init.AsynchronousWait = FMC_ASYNCHRONOUS_WAIT_ENABLE;
-  hnor2.Init.WriteBurst = FMC_WRITE_BURST_DISABLE;
-  hnor2.Init.ContinuousClock = FMC_CONTINUOUS_CLOCK_SYNC_ONLY;
-  /* Timing */
-  Timing.AddressSetupTime = 15;
-  Timing.AddressHoldTime = 15;
-  Timing.DataSetupTime = 255;
-  Timing.BusTurnAroundDuration = 15;
-  Timing.CLKDivision = 16;
-  Timing.DataLatency = 17;
-  Timing.AccessMode = FMC_ACCESS_MODE_A;
-  /* ExtTiming */
-
-  HAL_NOR_Init(&hnor2, &Timing, NULL);
 
 }
 
@@ -533,20 +438,79 @@ void MX_FMC_Init(void)
         * Output
         * EVENT_OUT
         * EXTI
+     PA8   ------> RCC_MCO_1
 */
 void MX_GPIO_Init(void)
 {
 
+  GPIO_InitTypeDef GPIO_InitStruct;
+
   /* GPIO Ports Clock Enable */
   __GPIOE_CLK_ENABLE();
-  __GPIOC_CLK_ENABLE();
   __GPIOI_CLK_ENABLE();
+  __GPIOC_CLK_ENABLE();
   __GPIOF_CLK_ENABLE();
   __GPIOH_CLK_ENABLE();
   __GPIOA_CLK_ENABLE();
   __GPIOB_CLK_ENABLE();
   __GPIOG_CLK_ENABLE();
   __GPIOD_CLK_ENABLE();
+
+  /*Configure GPIO pin : PE4 */
+  GPIO_InitStruct.Pin = GPIO_PIN_4;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PI8 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
+  HAL_GPIO_Init(GPIOI, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PC13 */
+  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PF8 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
+  HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+	
+	HAL_GPIO_WritePin(GPIOF,GPIO_PIN_8,GPIO_PIN_SET);
+
+  /*Configure GPIO pin : PH4 */
+  GPIO_InitStruct.Pin = GPIO_PIN_4;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PG8 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_HIGH;
+  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PA8 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF0_MCO;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PI0 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0;
+  GPIO_InitStruct.Mode = GPIO_MODE_EVT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOI, &GPIO_InitStruct);
 
 }
 

@@ -16,12 +16,13 @@
 #include "DrawableObject.h"
 #include "stdint.h"
 
-#define QUEUE_MAX 255 //change head and tail type if bigger than 255
+#define QUEUE_MAX 256 //change head and tail type if bigger than 256
 
 typedef struct {DrawableObject* drawQueue[QUEUE_MAX]; int8_t head,tail;} DrawQueue;
 
 void initQueue(DrawQueue* q); //initialize the queue
 void clearQueue(DrawQueue* q); //clear the queue
+uint32_t getSize(DrawQueue* q);
 int enqueue(DrawQueue* q, DrawableObject* obj, uint8_t prio); //put something in queue, 0 returns success, else fail
 int removeItem(DrawQueue* q, DrawableObject* obj); //remove an object (not pop)
 DrawableObject* dequeue(DrawQueue* q); //take from head of queue and return it, returns null if empty

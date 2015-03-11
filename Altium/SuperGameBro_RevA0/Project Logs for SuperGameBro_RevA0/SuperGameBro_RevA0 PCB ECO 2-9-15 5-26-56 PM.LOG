@@ -1,0 +1,373 @@
+Added Component: Designator=C1(C0805)
+Added Component: Designator=C2(C0805)
+Added Component: Designator=C3(C0805)
+Added Component: Designator=C4(C0805)
+Added Component: Designator=C5(C0805)
+Added Component: Designator=C6(C0805)
+Added Component: Designator=C7(C0805)
+Added Component: Designator=C8(C0805)
+Added Component: Designator=C9(C0805)
+Added Component: Designator=C10(C0805)
+Added Component: Designator=C11(C0805)
+Added Component: Designator=C12(C0805)
+Added Component: Designator=C13(C0805)
+Added Component: Designator=C14(C0805)
+Added Component: Designator=C15(C0805)
+Added Component: Designator=C16(C0805)
+Added Component: Designator=C17(C0805)
+Added Component: Designator=C18(C0805)
+Added Component: Designator=C19(C0805)
+Added Component: Designator=C20(C0805)
+Added Component: Designator=C21(C0805)
+Added Component: Designator=C22(C0805)
+Added Component: Designator=C23(C0805)
+Added Component: Designator=C24(C0805)
+Added Component: Designator=C25(C0805)
+Added Component: Designator=C26(C0805)
+Added Component: Designator=C27(C0805)
+Added Component: Designator=C28(C0805)
+Added Component: Designator=C29(C0805)
+Added Component: Designator=C30(C0805)
+Added Component: Designator=CON1(SD_card_fp)
+Added Component: Designator=P1(Molex MiniFit Jr10)
+Added Component: Designator=P2(HDR1X2)
+Added Component: Designator=R1(6-0805_M)
+Added Component: Designator=R2(6-0805_M)
+Added Component: Designator=R3(6-0805_M)
+Added Component: Designator=R4(6-0805_M)
+Added Component: Designator=R5(6-0805_M)
+Added Component: Designator=R6(6-0805_M)
+Added Component: Designator=R7(6-0805_M)
+Added Component: Designator=R8(6-0805_M)
+Added Component: Designator=R9(6-0805_M)
+Added Component: Designator=S1(SPST-2)
+Added Component: Designator=U1(LQFP76)
+Added Component: Designator=U2(ISSI-TSOP-1-48-12000X20000DE_N)
+Added Component: Designator=Y1(HC-49U)
+Added Component: Designator=Y2(HC-49U)
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=NetC1_2 Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=NetC2_2 Pin=C2-2
+Added Pin To Net: NetName=GND Pin=C3-1
+Added Pin To Net: NetName=NetC3_2 Pin=C3-2
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=NetC4_2 Pin=C4-2
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=3V3P Pin=C5-2
+Added Pin To Net: NetName=GND Pin=C6-1
+Added Pin To Net: NetName=3V3P Pin=C6-2
+Added Pin To Net: NetName=GND Pin=C7-1
+Added Pin To Net: NetName=3V3P Pin=C7-2
+Added Pin To Net: NetName=GND Pin=C8-1
+Added Pin To Net: NetName=3V3P Pin=C8-2
+Added Pin To Net: NetName=GND Pin=C9-1
+Added Pin To Net: NetName=3V3P Pin=C9-2
+Added Pin To Net: NetName=GND Pin=C10-1
+Added Pin To Net: NetName=3V3P Pin=C10-2
+Added Pin To Net: NetName=GND Pin=C11-1
+Added Pin To Net: NetName=3V3P Pin=C11-2
+Added Pin To Net: NetName=GND Pin=C12-1
+Added Pin To Net: NetName=3V3P Pin=C12-2
+Added Pin To Net: NetName=3V3PB Pin=C13-1
+Added Pin To Net: NetName=GND Pin=C13-2
+Added Pin To Net: NetName=VCAP1 Pin=C14-1
+Added Pin To Net: NetName=GND Pin=C14-2
+Added Pin To Net: NetName=VCAP2 Pin=C15-1
+Added Pin To Net: NetName=GND Pin=C15-2
+Added Pin To Net: NetName=GND Pin=C16-1
+Added Pin To Net: NetName=3V3P Pin=C16-2
+Added Pin To Net: NetName=GND Pin=C17-1
+Added Pin To Net: NetName=3V3P Pin=C17-2
+Added Pin To Net: NetName=GND Pin=C18-1
+Added Pin To Net: NetName=3V3P Pin=C18-2
+Added Pin To Net: NetName=GND Pin=C19-1
+Added Pin To Net: NetName=3V3P Pin=C19-2
+Added Pin To Net: NetName=GND Pin=C20-1
+Added Pin To Net: NetName=3V3P Pin=C20-2
+Added Pin To Net: NetName=GND Pin=C21-1
+Added Pin To Net: NetName=3V3P Pin=C21-2
+Added Pin To Net: NetName=GND Pin=C22-1
+Added Pin To Net: NetName=3V3P Pin=C22-2
+Added Pin To Net: NetName=GND Pin=C23-1
+Added Pin To Net: NetName=3V3P Pin=C23-2
+Added Pin To Net: NetName=GND Pin=C24-1
+Added Pin To Net: NetName=3V3P Pin=C24-2
+Added Pin To Net: NetName=GND Pin=C25-1
+Added Pin To Net: NetName=3V3P Pin=C25-2
+Added Pin To Net: NetName=GND Pin=C26-1
+Added Pin To Net: NetName=RESET Pin=C26-2
+Added Pin To Net: NetName=GND Pin=C27-1
+Added Pin To Net: NetName=3V3P Pin=C27-2
+Added Pin To Net: NetName=GND Pin=C28-1
+Added Pin To Net: NetName=3V3P Pin=C28-2
+Added Pin To Net: NetName=GND Pin=C29-1
+Added Pin To Net: NetName=3V3P Pin=C29-2
+Added Pin To Net: NetName=GND Pin=C30-1
+Added Pin To Net: NetName=3V3P Pin=C30-2
+Added Pin To Net: NetName=SDIO_D3 Pin=CON1-1
+Added Pin To Net: NetName=SDIO_CMD Pin=CON1-2
+Added Pin To Net: NetName=GND Pin=CON1-3
+Added Pin To Net: NetName=GND Pin=CON1-3
+Added Pin To Net: NetName=3V3P Pin=CON1-4
+Added Pin To Net: NetName=SDIO_CK Pin=CON1-5
+Added Pin To Net: NetName=GND Pin=CON1-6
+Added Pin To Net: NetName=GND Pin=CON1-6
+Added Pin To Net: NetName=SDIO_D0 Pin=CON1-7
+Added Pin To Net: NetName=SDIO_D1 Pin=CON1-8
+Added Pin To Net: NetName=SDIO_D2 Pin=CON1-9
+Added Pin To Net: NetName=SD_DETECT Pin=CON1-10
+Added Pin To Net: NetName=3V3P Pin=P1-1
+Added Pin To Net: NetName=GND Pin=P1-2
+Added Pin To Net: NetName=3V3PB Pin=P1-3
+Added Pin To Net: NetName=GND Pin=P1-4
+Added Pin To Net: NetName=5V0P Pin=P1-5
+Added Pin To Net: NetName=GND Pin=P1-6
+Added Pin To Net: NetName=19V2P Pin=P1-7
+Added Pin To Net: NetName=GND Pin=P1-8
+Added Pin To Net: NetName=GND Pin=P1-10
+Added Pin To Net: NetName=SWCLK Pin=P2-1
+Added Pin To Net: NetName=SWDIO Pin=P2-2
+Added Pin To Net: NetName=OSC_MAIN_IN Pin=R1-1
+Added Pin To Net: NetName=NetC1_2 Pin=R1-2
+Added Pin To Net: NetName=NetC2_2 Pin=R2-1
+Added Pin To Net: NetName=OSC_MAIN_OUT Pin=R2-2
+Added Pin To Net: NetName=OSC_RTC_IN Pin=R3-1
+Added Pin To Net: NetName=NetC3_2 Pin=R3-2
+Added Pin To Net: NetName=NetC4_2 Pin=R4-1
+Added Pin To Net: NetName=OSC_RTC_OUT Pin=R4-2
+Added Pin To Net: NetName=SDIO_CMD Pin=R5-1
+Added Pin To Net: NetName=3V3P Pin=R5-2
+Added Pin To Net: NetName=SDIO_D3 Pin=R6-1
+Added Pin To Net: NetName=3V3P Pin=R6-2
+Added Pin To Net: NetName=SDIO_D2 Pin=R7-1
+Added Pin To Net: NetName=3V3P Pin=R7-2
+Added Pin To Net: NetName=SDIO_D1 Pin=R8-1
+Added Pin To Net: NetName=3V3P Pin=R8-2
+Added Pin To Net: NetName=SDIO_D0 Pin=R9-1
+Added Pin To Net: NetName=3V3P Pin=R9-2
+Added Pin To Net: NetName=RESET Pin=S1-1
+Added Pin To Net: NetName=GND Pin=S1-2
+Added Pin To Net: NetName=INPUT_LATCH Pin=U1-1
+Added Pin To Net: NetName=FMC_A19 Pin=U1-2
+Added Pin To Net: NetName=SD_DETECT Pin=U1-3
+Added Pin To Net: NetName=MP3_DR Pin=U1-4
+Added Pin To Net: NetName=BATTERY_LOW_LED Pin=U1-5
+Added Pin To Net: NetName=3V3PB Pin=U1-6
+Added Pin To Net: NetName=OSC_RTC_IN Pin=U1-9
+Added Pin To Net: NetName=OSC_RTC_OUT Pin=U1-10
+Added Pin To Net: NetName=LTDC_VSYNC Pin=U1-11
+Added Pin To Net: NetName=LTDC_HSYNC Pin=U1-12
+Added Pin To Net: NetName=GND Pin=U1-14
+Added Pin To Net: NetName=3V3P Pin=U1-15
+Added Pin To Net: NetName=FMC_A0 Pin=U1-16
+Added Pin To Net: NetName=FMC_A1 Pin=U1-17
+Added Pin To Net: NetName=FMC_A2 Pin=U1-18
+Added Pin To Net: NetName=FMC_A3 Pin=U1-19
+Added Pin To Net: NetName=FMC_A4 Pin=U1-20
+Added Pin To Net: NetName=FMC_A5 Pin=U1-21
+Added Pin To Net: NetName=GND Pin=U1-22
+Added Pin To Net: NetName=3V3P Pin=U1-23
+Added Pin To Net: NetName=SPI5_LCD_SCK Pin=U1-25
+Added Pin To Net: NetName=SPI5_LCD_MISO Pin=U1-26
+Added Pin To Net: NetName=SPI5_LCD_MOSI Pin=U1-27
+Added Pin To Net: NetName=LTDC_DE Pin=U1-28
+Added Pin To Net: NetName=OSC_MAIN_IN Pin=U1-29
+Added Pin To Net: NetName=OSC_MAIN_OUT Pin=U1-30
+Added Pin To Net: NetName=RESET Pin=U1-31
+Added Pin To Net: NetName=SPI2_INPUT_MISO Pin=U1-34
+Added Pin To Net: NetName=3V3P Pin=U1-36
+Added Pin To Net: NetName=GND Pin=U1-37
+Added Pin To Net: NetName=3V3P Pin=U1-38
+Added Pin To Net: NetName=3V3P Pin=U1-39
+Added Pin To Net: NetName=BATTERY_ADC0 Pin=U1-40
+Added Pin To Net: NetName=LTDC_B5 Pin=U1-47
+Added Pin To Net: NetName=GND Pin=U1-48
+Added Pin To Net: NetName=3V3P Pin=U1-49
+Added Pin To Net: NetName=AUDIO_DAC1 Pin=U1-50
+Added Pin To Net: NetName=AUDIO_DAC2 Pin=U1-51
+Added Pin To Net: NetName=LTDC_G2 Pin=U1-52
+Added Pin To Net: NetName=LTDC_R3 Pin=U1-56
+Added Pin To Net: NetName=LTDC_R6 Pin=U1-57
+Added Pin To Net: NetName=FMC_A6 Pin=U1-60
+Added Pin To Net: NetName=GND Pin=U1-61
+Added Pin To Net: NetName=3V3P Pin=U1-62
+Added Pin To Net: NetName=FMC_A7 Pin=U1-63
+Added Pin To Net: NetName=FMC_A8 Pin=U1-64
+Added Pin To Net: NetName=FMC_A9 Pin=U1-65
+Added Pin To Net: NetName=FMC_A10 Pin=U1-66
+Added Pin To Net: NetName=FMC_A11 Pin=U1-67
+Added Pin To Net: NetName=FMC_D4 Pin=U1-67
+Added Pin To Net: NetName=FMC_D5 Pin=U1-68
+Added Pin To Net: NetName=FMC_D6 Pin=U1-69
+Added Pin To Net: NetName=GND Pin=U1-71
+Added Pin To Net: NetName=3V3P Pin=U1-72
+Added Pin To Net: NetName=FMC_D7 Pin=U1-73
+Added Pin To Net: NetName=FMC_D8 Pin=U1-74
+Added Pin To Net: NetName=FMC_D9 Pin=U1-75
+Added Pin To Net: NetName=FMC_D10 Pin=U1-76
+Added Pin To Net: NetName=FMC_D11 Pin=U1-77
+Added Pin To Net: NetName=FMC_D12 Pin=U1-78
+Added Pin To Net: NetName=LTDC_G4 Pin=U1-79
+Added Pin To Net: NetName=LTDC_G5 Pin=U1-80
+Added Pin To Net: NetName=VCAP1 Pin=U1-81
+Added Pin To Net: NetName=LTDC_R5 Pin=U1-88
+Added Pin To Net: NetName=GND Pin=U1-90
+Added Pin To Net: NetName=3V3P Pin=U1-91
+Added Pin To Net: NetName=SPI2_INPUT_SCK Pin=U1-93
+Added Pin To Net: NetName=FMC_D13 Pin=U1-96
+Added Pin To Net: NetName=FMC_D14 Pin=U1-97
+Added Pin To Net: NetName=FMC_D15 Pin=U1-98
+Added Pin To Net: NetName=FMC_A16 Pin=U1-99
+Added Pin To Net: NetName=FMC_A17 Pin=U1-100
+Added Pin To Net: NetName=FMC_A18 Pin=U1-101
+Added Pin To Net: NetName=GND Pin=U1-102
+Added Pin To Net: NetName=3V3P Pin=U1-103
+Added Pin To Net: NetName=FMC_D0 Pin=U1-104
+Added Pin To Net: NetName=FMC_D1 Pin=U1-105
+Added Pin To Net: NetName=FMC_A12 Pin=U1-106
+Added Pin To Net: NetName=FMC_A13 Pin=U1-107
+Added Pin To Net: NetName=FMC_A14 Pin=U1-108
+Added Pin To Net: NetName=FMC_A15 Pin=U1-109
+Added Pin To Net: NetName=LTDC_R7 Pin=U1-110
+Added Pin To Net: NetName=LTDC_CLK Pin=U1-111
+Added Pin To Net: NetName=GND Pin=U1-113
+Added Pin To Net: NetName=3V3P Pin=U1-114
+Added Pin To Net: NetName=UART6_MULTI_TX Pin=U1-115
+Added Pin To Net: NetName=UART6_MULTI_RX Pin=U1-116
+Added Pin To Net: NetName=SDIO_D0 Pin=U1-117
+Added Pin To Net: NetName=SDIO_D1 Pin=U1-118
+Added Pin To Net: NetName=CLK_OUT Pin=U1-119
+Added Pin To Net: NetName=UART1_DEBUG_TX Pin=U1-120
+Added Pin To Net: NetName=UART1_DEBUG_RX Pin=U1-121
+Added Pin To Net: NetName=LTDC_R4 Pin=U1-122
+Added Pin To Net: NetName=SWDIO Pin=U1-124
+Added Pin To Net: NetName=VCAP2 Pin=U1-125
+Added Pin To Net: NetName=GND Pin=U1-126
+Added Pin To Net: NetName=3V3P Pin=U1-127
+Added Pin To Net: NetName=LTDC_G3 Pin=U1-129
+Added Pin To Net: NetName=LTDC_G6 Pin=U1-132
+Added Pin To Net: NetName=LTDC_G7 Pin=U1-133
+Added Pin To Net: NetName=GND Pin=U1-135
+Added Pin To Net: NetName=3V3P Pin=U1-136
+Added Pin To Net: NetName=SWCLK Pin=U1-137
+Added Pin To Net: NetName=SDIO_D2 Pin=U1-139
+Added Pin To Net: NetName=SDIO_D3 Pin=U1-140
+Added Pin To Net: NetName=SDIO_CK Pin=U1-141
+Added Pin To Net: NetName=FMC_D2 Pin=U1-142
+Added Pin To Net: NetName=FMC_D3 Pin=U1-143
+Added Pin To Net: NetName=SDIO_CMD Pin=U1-144
+Added Pin To Net: NetName=RAM_NOE Pin=U1-146
+Added Pin To Net: NetName=RAM_NWE Pin=U1-147
+Added Pin To Net: NetName=GND Pin=U1-148
+Added Pin To Net: NetName=3V3P Pin=U1-149
+Added Pin To Net: NetName=SPI3_MUSIC_MOSI Pin=U1-150
+Added Pin To Net: NetName=RAM_NCS Pin=U1-151
+Added Pin To Net: NetName=LTDC_B3 Pin=U1-154
+Added Pin To Net: NetName=LTDC_B4 Pin=U1-155
+Added Pin To Net: NetName=GND Pin=U1-158
+Added Pin To Net: NetName=3V3P Pin=U1-159
+Added Pin To Net: NetName=SPI3_MUSIC_SCK Pin=U1-161
+Added Pin To Net: NetName=I2C1_SCL Pin=U1-164
+Added Pin To Net: NetName=I2C1_SDA Pin=U1-165
+Added Pin To Net: NetName=GND Pin=U1-166
+Added Pin To Net: NetName=3V3P Pin=U1-171
+Added Pin To Net: NetName=3V3P Pin=U1-172
+Added Pin To Net: NetName=LTDC_B6 Pin=U1-175
+Added Pin To Net: NetName=LTDC_B7 Pin=U1-176
+Added Pin To Net: NetName=FMC_A4 Pin=U2-1
+Added Pin To Net: NetName=FMC_A3 Pin=U2-2
+Added Pin To Net: NetName=FMC_A2 Pin=U2-3
+Added Pin To Net: NetName=FMC_A1 Pin=U2-4
+Added Pin To Net: NetName=FMC_A0 Pin=U2-5
+Added Pin To Net: NetName=RAM_NCS Pin=U2-7
+Added Pin To Net: NetName=FMC_D0 Pin=U2-8
+Added Pin To Net: NetName=FMC_D1 Pin=U2-9
+Added Pin To Net: NetName=FMC_D2 Pin=U2-10
+Added Pin To Net: NetName=FMC_D3 Pin=U2-11
+Added Pin To Net: NetName=3V3P Pin=U2-12
+Added Pin To Net: NetName=GND Pin=U2-13
+Added Pin To Net: NetName=FMC_D4 Pin=U2-14
+Added Pin To Net: NetName=FMC_D5 Pin=U2-15
+Added Pin To Net: NetName=FMC_D6 Pin=U2-16
+Added Pin To Net: NetName=FMC_D7 Pin=U2-17
+Added Pin To Net: NetName=RAM_NWE Pin=U2-18
+Added Pin To Net: NetName=FMC_A19 Pin=U2-20
+Added Pin To Net: NetName=FMC_A18 Pin=U2-21
+Added Pin To Net: NetName=FMC_A17 Pin=U2-22
+Added Pin To Net: NetName=FMC_A16 Pin=U2-23
+Added Pin To Net: NetName=FMC_A15 Pin=U2-24
+Added Pin To Net: NetName=FMC_A14 Pin=U2-25
+Added Pin To Net: NetName=FMC_A13 Pin=U2-26
+Added Pin To Net: NetName=FMC_A12 Pin=U2-27
+Added Pin To Net: NetName=FMC_A11 Pin=U2-28
+Added Pin To Net: NetName=FMC_A10 Pin=U2-29
+Added Pin To Net: NetName=FMC_A9 Pin=U2-30
+Added Pin To Net: NetName=FMC_D8 Pin=U2-32
+Added Pin To Net: NetName=FMC_D9 Pin=U2-33
+Added Pin To Net: NetName=FMC_D10 Pin=U2-34
+Added Pin To Net: NetName=FMC_D11 Pin=U2-35
+Added Pin To Net: NetName=3V3P Pin=U2-36
+Added Pin To Net: NetName=GND Pin=U2-37
+Added Pin To Net: NetName=FMC_D12 Pin=U2-38
+Added Pin To Net: NetName=FMC_D13 Pin=U2-39
+Added Pin To Net: NetName=FMC_D14 Pin=U2-40
+Added Pin To Net: NetName=FMC_D15 Pin=U2-41
+Added Pin To Net: NetName=GND Pin=U2-42
+Added Pin To Net: NetName=GND Pin=U2-43
+Added Pin To Net: NetName=RAM_NOE Pin=U2-44
+Added Pin To Net: NetName=FMC_A8 Pin=U2-45
+Added Pin To Net: NetName=FMC_A7 Pin=U2-46
+Added Pin To Net: NetName=FMC_A6 Pin=U2-47
+Added Pin To Net: NetName=FMC_A5 Pin=U2-48
+Added Pin To Net: NetName=NetC1_2 Pin=Y1-1
+Added Pin To Net: NetName=NetC2_2 Pin=Y1-2
+Added Pin To Net: NetName=NetC3_2 Pin=Y2-1
+Added Pin To Net: NetName=NetC4_2 Pin=Y2-2
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C1 10 pF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C2 10 pF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C3 10 pF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C4 10 pF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C5 100nF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C6 100nF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C7 100nF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C8 100nF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C9 100nF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C10 100nF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C11 100nF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C12 100nF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C13 100nF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C14 2.2 uF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C15 2.2 uF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C16 10 uF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C17 10 uF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C18 100nF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C19 100nF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C20 100nF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C21 100nF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C22 100nF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C23 100nF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C24 100nF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C25 100nF
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component C26 .1 uF
+Added Member To Class: ClassName=sdcard_ram Member=Component C27 100nF
+Added Member To Class: ClassName=sdcard_ram Member=Component C28 4.7 uF
+Added Member To Class: ClassName=sdcard_ram Member=Component C29 100nF
+Added Member To Class: ClassName=sdcard_ram Member=Component C30 4.7 uF
+Added Member To Class: ClassName=sdcard_ram Member=Component CON1 SD Card Connector
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component P1 Value
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component P2 Value
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component R1 1K
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component R2 1K
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component R3 1K
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component R4 1K
+Added Member To Class: ClassName=sdcard_ram Member=Component R5 Res1
+Added Member To Class: ClassName=sdcard_ram Member=Component R6 Res1
+Added Member To Class: ClassName=sdcard_ram Member=Component R7 Res1
+Added Member To Class: ClassName=sdcard_ram Member=Component R8 Res1
+Added Member To Class: ClassName=sdcard_ram Member=Component R9 Res1
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component S1 Value
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component U1 Value
+Added Member To Class: ClassName=sdcard_ram Member=Component U2 IS61WV102416BLL-10TLI
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component Y1 Value
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component Y2 Value

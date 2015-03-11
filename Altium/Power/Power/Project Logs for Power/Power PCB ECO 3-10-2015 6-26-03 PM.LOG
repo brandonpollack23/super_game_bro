@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=VIN Pin=D7-1
+Change Component Footprint: Designator=D7 Old Footprint=DO-35 New Footprint=Diode
+Change Component Comment : Designator=BT2 Old Comment=3V Coin New Comment=Battery
+Added Pin To Net: NetName=NetC15_1 Pin=D4-K
+Added Pin To Net: NetName=VIN Pin=D7-A
+Added Pin To Net: NetName=VWALL Pin=U8-14
+Added Pin To Net: NetName=NetD4_A Pin=D4-A
+Added Pin To Net: NetName=NetD4_A Pin=R16-2
+Added Pin To Net: NetName=NetD4_A Pin=U7-7
+Added Net: Name=NetD4_A
+Added Pin To Net: NetName=NetD7_K Pin=D7-K
+Added Pin To Net: NetName=NetD7_K Pin=R22-2
+Added Net: Name=NetD7_K

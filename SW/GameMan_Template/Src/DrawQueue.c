@@ -6,12 +6,17 @@
 void initQueue(DrawQueue* q) //initialize the queue
 {
 	q->head = q->tail = -1;
+	//TODO init all prio to 0
 }
 void clearQueue(DrawQueue* q) //clear the queue
 {
 	q->head = q->tail = -1;
 }
 
+uint32_t getSize(DrawQueue* q)
+{
+	return q->tail - q->head;
+}
 int enqueue(DrawQueue* q, DrawableObject* obj, uint8_t prio) //put something in queue, 0 returns success, else fail
 {
 	if(isFull(q)) return FALSE;
@@ -22,12 +27,12 @@ int enqueue(DrawQueue* q, DrawableObject* obj, uint8_t prio) //put something in 
 	{
 		if(q->drawQueue[i]->prio < prio) //smaller numbers have lower priority, if we find one less, we found our spot
 		{
-			for(int j = q->tail; j >= i; --j)
+			for(int j = q->tail; j > i; --j)
 			{
 				q->drawQueue[j+1 % QUEUE_MAX] = q->drawQueue[j % QUEUE_MAX]; //move everything over one
 			}
 			
-			q->drawQueue[i] = obj;
+			q->drawQueue[i+1] = obj;
 			
 			q->tail++;//one more added
 			

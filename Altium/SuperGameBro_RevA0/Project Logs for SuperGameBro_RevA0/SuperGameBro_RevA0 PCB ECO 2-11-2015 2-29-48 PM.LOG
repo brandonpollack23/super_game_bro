@@ -1,0 +1,40 @@
+Removed Pin From Net: NetName=SWDIO Pin=P2-2
+Removed Member From Class: ClassName=Buttons Member=R3
+Removed Member From Class: ClassName=Buttons Member=R4
+Removed Member From Class: ClassName=Buttons Member=R5
+Removed Member From Class: ClassName=Buttons Member=R6
+Removed Member From Class: ClassName=Audio Member=R14
+Removed Member From Class: ClassName=LCD_touch_conn Member=R16
+Removed Member From Class: ClassName=LCD_touch_conn Member=R17
+Removed Member From Class: ClassName=Audio Member=R19
+Removed Member From Class: ClassName=Audio Member=R20
+Removed Member From Class: ClassName=Audio Member=R21
+Change Component DesignItemId : Designator=P2 Old DesignItemId=Header 2 New DesignItemId=Header 3
+Change Component Footprint: Designator=P2 Old Footprint=HDR1X2 New Footprint=HDR1X3
+Change Component Comment : Designator=Q1 Old Comment=2N3904 New Comment=2N2222
+Change Component Comment : Designator=Q3 Old Comment=2N3904 New Comment=2N2222
+Change Component Comment : Designator=Q2 Old Comment=2N3906 New Comment=2N2907
+Change Component Comment : Designator=Q4 Old Comment=2N3906 New Comment=2N2907
+Change Component Comment : Designator=P2 Old Comment=Value New Comment=Header 3
+Added Pin To Net: NetName=GND Pin=P2-2
+Added Pin To Net: NetName=SWDIO Pin=P2-3
+Added Pin To Net: NetName=FMC_A11 Pin=U1-67
+Added Member To Class: ClassName=Buttons Member=Component C31 100 nF
+Added Member To Class: ClassName=sdcard_ram Member=Component R4 Res1
+Added Member To Class: ClassName=sdcard_ram Member=Component R5 Res1
+Added Member To Class: ClassName=sdcard_ram Member=Component R6 Res1
+Added Member To Class: ClassName=sdcard_ram Member=Component R7 Res1
+Added Member To Class: ClassName=Buttons Member=Component R16 10K
+Added Member To Class: ClassName=Buttons Member=Component R17 10K
+Added Member To Class: ClassName=Buttons Member=Component R18 10K
+Added Member To Class: ClassName=Buttons Member=Component R19 10K
+Added Member To Class: ClassName=LCD_touch_conn Member=Component R20 10K
+Added Member To Class: ClassName=LCD_touch_conn Member=Component R21 10K
+Added Member To Class: ClassName=Audio Member=Component R22 Res1
+Added Member To Class: ClassName=Audio Member=Component R23 Res1
+Added Member To Class: ClassName=Audio Member=Component R24 Res1
+Added Member To Class: ClassName=Audio Member=Component R25 Res1
+Added Member To Class: ClassName=Audio Member=Component R37 400k
+Added Member To Class: ClassName=Audio Member=Component R38 700k
+Added Member To Class: ClassName=Audio Member=Component R39 700K
+Added Member To Class: ClassName=Audio Member=Component R40 1K

@@ -1,0 +1,17 @@
+Change Component Footprint: Designator=R1 Old Footprint=AXIAL-0.3 New Footprint=6-0805_M
+Change Component Footprint: Designator=R2 Old Footprint=AXIAL-0.3 New Footprint=6-0805_M
+Change Component Footprint: Designator=R3 Old Footprint=AXIAL-0.3 New Footprint=6-0805_M
+Change Component Footprint: Designator=R4 Old Footprint=AXIAL-0.3 New Footprint=6-0805_M
+Added Pin To Net: NetName=GND Pin=C27-1
+Added Pin To Net: NetName=3V3P Pin=C27-2
+Added Pin To Net: NetName=GND Pin=C28-1
+Added Pin To Net: NetName=3V3P Pin=C28-2
+Added Pin To Net: NetName=GND Pin=C29-1
+Added Pin To Net: NetName=3V3P Pin=C29-2
+Added Pin To Net: NetName=GND Pin=C30-1
+Added Pin To Net: NetName=3V3P Pin=C30-2
+Added Pin To Net: NetName=FMC_A11 Pin=U1-67
+Added Member To Class: ClassName=sdcard_ram Member=Component C27 100nF
+Added Member To Class: ClassName=sdcard_ram Member=Component C28 4.7 uF
+Added Member To Class: ClassName=sdcard_ram Member=Component C29 100nF
+Added Member To Class: ClassName=sdcard_ram Member=Component C30 4.7 uF

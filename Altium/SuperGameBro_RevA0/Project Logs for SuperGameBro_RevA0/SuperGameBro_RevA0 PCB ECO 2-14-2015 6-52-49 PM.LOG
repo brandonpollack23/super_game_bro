@@ -1,0 +1,3 @@
+Added Pin To Net: NetName=GND Pin=Pot0-4
+Added Pin To Net: NetName=NetC52_1 Pin=Pot0-5
+Added Pin To Net: NetName=NetPot0_6 Pin=Pot0-6

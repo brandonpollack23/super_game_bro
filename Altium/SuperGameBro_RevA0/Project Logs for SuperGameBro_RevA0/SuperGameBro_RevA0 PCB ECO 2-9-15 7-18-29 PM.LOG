@@ -1,0 +1,12 @@
+Change Component Designator: OldDesignator=A NewDesignator=X
+Change Component Designator: OldDesignator=S6 NewDesignator=UP
+Change Component Designator: OldDesignator=S7 NewDesignator=DOWN
+Change Component Designator: OldDesignator=S8 NewDesignator=LEFT
+Change Component Designator: OldDesignator=S9 NewDesignator=RIGHT
+Change Component Designator: OldDesignator=S10 NewDesignator=LEFT_SHOULDER
+Change Component Designator: OldDesignator=S11 NewDesignator=RIGHT_SHOULDER
+Change Component Designator: OldDesignator=S12 NewDesignator=START
+Change Component Designator: OldDesignator=S13 NewDesignator=SELECT
+Change Component Designator: OldDesignator=X NewDesignator=Y
+Change Component Designator: OldDesignator=Y NewDesignator=A
+Added Pin To Net: NetName=FMC_D4 Pin=U1-67

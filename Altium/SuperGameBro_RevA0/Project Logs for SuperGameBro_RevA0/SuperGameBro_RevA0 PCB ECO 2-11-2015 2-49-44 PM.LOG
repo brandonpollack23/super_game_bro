@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=5V0P Pin=C47-1
+Removed Pin From Net: NetName=5V0P Pin=U6-7
+Removed Pin From Net: NetName=5V0P Pin=U7-8
+Added Pin To Net: NetName=FMC_D4 Pin=U1-67
+Added Pin To Net: NetName=5V0P_A Pin=C47-1
+Added Pin To Net: NetName=5V0P_A Pin=P1-9
+Added Pin To Net: NetName=5V0P_A Pin=U6-7
+Added Pin To Net: NetName=5V0P_A Pin=U7-8
+Added Net: Name=5V0P_A

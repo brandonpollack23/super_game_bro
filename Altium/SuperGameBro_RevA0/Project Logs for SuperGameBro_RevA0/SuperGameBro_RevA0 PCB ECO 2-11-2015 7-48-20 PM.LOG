@@ -1,0 +1,25 @@
+Added Component: Designator=C60(C0805)
+Added Component: Designator=C61(C0805)
+Added Component: Designator=C62(C0805)
+Added Component: Designator=C63(C0805)
+Added Component: Designator=C64(C0805)
+Added Component: Designator=C65(C0805)
+Added Pin To Net: NetName=GND Pin=C60-1
+Added Pin To Net: NetName=19V2P Pin=C60-2
+Added Pin To Net: NetName=GND Pin=C61-1
+Added Pin To Net: NetName=19V2P Pin=C61-2
+Added Pin To Net: NetName=GND Pin=C62-1
+Added Pin To Net: NetName=3V3P Pin=C62-2
+Added Pin To Net: NetName=GND Pin=C63-1
+Added Pin To Net: NetName=3V3P Pin=C63-2
+Added Pin To Net: NetName=GND Pin=C64-1
+Added Pin To Net: NetName=3V3P Pin=C64-2
+Added Pin To Net: NetName=GND Pin=C65-1
+Added Pin To Net: NetName=3V3P Pin=C65-2
+Added Pin To Net: NetName=FMC_D4 Pin=U1-67
+Added Member To Class: ClassName=LCD_touch_conn Member=Component C60 100pF
+Added Member To Class: ClassName=LCD_touch_conn Member=Component C61 100pF
+Added Member To Class: ClassName=LCD_touch_conn Member=Component C62 100pF
+Added Member To Class: ClassName=LCD_touch_conn Member=Component C63 100pF
+Added Member To Class: ClassName=LCD_touch_conn Member=Component C64 100pF
+Added Member To Class: ClassName=LCD_touch_conn Member=Component C65 4.7 uF

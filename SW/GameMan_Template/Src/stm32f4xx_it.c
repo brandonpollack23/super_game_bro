@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    stm32f4xx_it.c
-  * @date    21/01/2015 16:06:51
+  * @date    04/03/2015 14:16:22
   * @brief   Interrupt Service Routines.
   ******************************************************************************
   *
@@ -36,7 +36,8 @@
 #include "stm32f4xx.h"
 #include "stm32f4xx_it.h"
 /* USER CODE BEGIN 0 */
-
+#include "GameMan_RevA0.h"
+#include "kraidsfuckinglair.h"
 /* USER CODE END 0 */
 /* External variables --------------------------------------------------------*/
 
@@ -60,6 +61,24 @@ void SysTick_Handler(void)
 }
 
 /* USER CODE BEGIN 1 */
-
+void EXTI0_IRQHandler(void)
+{
+	//send from buffer until DR goes low
+	while((GPIO_DATA_REQ_MP3->IDR & PIN_DATA_REQ_MP3) == PIN_DATA_REQ_MP3)
+	{
+		HAL_SPI_Transmit(&mp3_spi,(uint8_t*)((uint32_t)mp3_ptr % (uint32_t)MP3_BUFFER_SIZE),2,1000);
+		mp3_ptr += 2; //increment mp3 buffer pointer by 2, we just sent 2 bytes
+		mp3_ptr %= (int)MP3_BUFFER_SIZE;
+		mp3_ptr += (int)MP3_BUFFER;
+	}
+	
+	for(int i = mp3_end_ptr+1; i < mp3_ptr; i = ((i + 1) % (int)MP3_BUFFER_SIZE))
+	{
+		MP3_BUFFER[i] = *((uint16_t*)(kraidslair + (file_ptr)));
+		file_ptr += 2; //we just filled 2 bytes into the buffer, inc file by 2
+		file_ptr %= sizeof(kraidslair)/sizeof(uint8_t);
+	}
+	mp3_end_ptr = (int)MP3_BUFFER + ((mp3_ptr - 1) % (int)MP3_BUFFER_SIZE);
+}
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -620,6 +620,9 @@
             </File>
           </Files>
         </Group>
+        <Group>
+          <GroupName>Resources</GroupName>
+        </Group>
       </Groups>
     </Target>
   </Targets>

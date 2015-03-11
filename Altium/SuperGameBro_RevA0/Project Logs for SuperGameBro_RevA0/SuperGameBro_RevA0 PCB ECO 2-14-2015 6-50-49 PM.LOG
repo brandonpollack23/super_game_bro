@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=NetC45_1 Pin=R30-2
+Removed Pin From Net: NetName=NetC52_1 Pin=R37-2
+Removed Pin From Net: NetName=NetC45_1 Pin=U7-1
+Removed Pin From Net: NetName=NetC52_1 Pin=U7-7
+Added Component: Designator=Pot0(DGPOT)
+Added Pin To Net: NetName=NetPot0_1 Pin=R30-2
+Added Pin To Net: NetName=NetPot0_1 Pin=U7-1
+Added Net: Name=NetPot0_1
+Added Pin To Net: NetName=NetPot0_6 Pin=R37-2
+Added Pin To Net: NetName=NetPot0_6 Pin=U7-7
+Added Net: Name=NetPot0_6
+Added Member To Class: ClassName=Audio Member=Component Pot0 Dual_GagPOT

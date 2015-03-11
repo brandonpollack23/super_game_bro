@@ -1,0 +1,49 @@
+Added Component: Designator=C1(C0805)
+Added Component: Designator=C2(C0805)
+Added Component: Designator=C3(C0805)
+Added Component: Designator=C4(C0805)
+Added Component: Designator=C5(C0805)
+Added Component: Designator=C6(C0805)
+Added Component: Designator=C7(C0805)
+Added Component: Designator=C8(C0805)
+Added Component: Designator=C9(C0805)
+Added Component: Designator=C10(C0805)
+Added Component: Designator=C11(C0805)
+Added Component: Designator=C12(C0805)
+Added Component: Designator=C13(C0805)
+Added Component: Designator=C14(C0805)
+Added Component: Designator=C15(C0805)
+Added Component: Designator=U1(LQFP76)
+Added Pin To Net: NetName=3V3P Pin=C1-2
+Added Pin To Net: NetName=3V3P Pin=C2-2
+Added Pin To Net: NetName=3V3P Pin=C3-2
+Added Pin To Net: NetName=3V3P Pin=C4-2
+Added Pin To Net: NetName=3V3P Pin=C5-2
+Added Pin To Net: NetName=3V3P Pin=C6-2
+Added Pin To Net: NetName=3V3P Pin=C7-2
+Added Pin To Net: NetName=3V3P Pin=C8-2
+Added Pin To Net: NetName=3V3P Pin=C9-2
+Added Pin To Net: NetName=3V3P Pin=C10-2
+Added Pin To Net: NetName=3V3P Pin=C11-2
+Added Pin To Net: NetName=3V3P Pin=C12-2
+Added Pin To Net: NetName=3V3P Pin=C13-2
+Added Pin To Net: NetName=3V3P Pin=C14-2
+Added Pin To Net: NetName=3V3P Pin=C15-2
+Added Net: Name=3V3P
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=GND Pin=C3-1
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=GND Pin=C6-1
+Added Pin To Net: NetName=GND Pin=C7-1
+Added Pin To Net: NetName=GND Pin=C8-1
+Added Pin To Net: NetName=GND Pin=C9-1
+Added Pin To Net: NetName=GND Pin=C10-1
+Added Pin To Net: NetName=GND Pin=C11-1
+Added Pin To Net: NetName=GND Pin=C12-1
+Added Pin To Net: NetName=GND Pin=C13-1
+Added Pin To Net: NetName=GND Pin=C14-1
+Added Pin To Net: NetName=GND Pin=C15-1
+Added Net: Name=GND
+Added Class: Name=CPU_Power_XTAL_Prog

@@ -1,0 +1,28 @@
+Removed Pin From Net: NetName=GND Pin=LEFT_SHOULDER-1
+Removed Pin From Net: NetName=BTN_LS Pin=LEFT_SHOULDER-2
+Removed Pin From Net: NetName=GND Pin=RIGHT_SHOULDER-1
+Removed Pin From Net: NetName=BTN_RS Pin=RIGHT_SHOULDER-2
+Change Component Footprint: Designator=B Old Footprint=12mmSwitch New Footprint=SMT12mmbutton
+Change Component Footprint: Designator=DOWN Old Footprint=12mmSwitch New Footprint=SMT12mmbutton
+Change Component Footprint: Designator=LEFT Old Footprint=12mmSwitch New Footprint=SMT12mmbutton
+Change Component Footprint: Designator=RIGHT Old Footprint=12mmSwitch New Footprint=SMT12mmbutton
+Change Component Footprint: Designator=SELECT Old Footprint=12mmSwitch New Footprint=SMT12mmbutton
+Change Component Footprint: Designator=START Old Footprint=12mmSwitch New Footprint=SMT12mmbutton
+Change Component Footprint: Designator=UP Old Footprint=12mmSwitch New Footprint=SMT12mmbutton
+Change Component Footprint: Designator=X Old Footprint=12mmSwitch New Footprint=SMT12mmbutton
+Change Component Footprint: Designator=Y Old Footprint=12mmSwitch New Footprint=SMT12mmbutton
+Change Component Comment : Designator=A Old Comment= New Comment=12mmBTN
+Change Component Comment : Designator=B Old Comment= New Comment=12mmBTN
+Change Component Comment : Designator=DOWN Old Comment= New Comment=12mmBTN
+Change Component Comment : Designator=LEFT Old Comment= New Comment=12mmBTN
+Change Component Comment : Designator=LEFT_SHOULDER Old Comment= New Comment=12mmBTN
+Change Component Comment : Designator=RIGHT Old Comment= New Comment=12mmBTN
+Change Component Comment : Designator=RIGHT_SHOULDER Old Comment= New Comment=12mmBTN
+Change Component Comment : Designator=SELECT Old Comment= New Comment=12mmBTN
+Change Component Comment : Designator=START Old Comment= New Comment=12mmBTN
+Change Component Comment : Designator=UP Old Comment= New Comment=12mmBTN
+Change Component Comment : Designator=X Old Comment= New Comment=12mmBTN
+Change Component Comment : Designator=Y Old Comment= New Comment=12mmBTN
+Added Pin To Net: NetName=BTN_LS Pin=LEFT_SHOULDER-1
+Added Pin To Net: NetName=BTN_RS Pin=RIGHT_SHOULDER-1
+Added Pin To Net: NetName=FMC_A11 Pin=U1-67

@@ -1,0 +1,18 @@
+Added Component: Designator=LED0(LED-0)
+Added Component: Designator=LED1(LED-0)
+Added Component: Designator=R_LED0(AXIAL-0.3)
+Added Component: Designator=R_LED1(AXIAL-0.3)
+Added Pin To Net: NetName=STATUS_OUT 0 Pin=LED0-1
+Added Pin To Net: NetName=STATUS_OUT 1 Pin=LED1-1
+Added Pin To Net: NetName=GND Pin=R_LED0-2
+Added Pin To Net: NetName=GND Pin=R_LED1-2
+Added Pin To Net: NetName=NetLED0_2 Pin=LED0-2
+Added Pin To Net: NetName=NetLED0_2 Pin=R_LED0-1
+Added Net: Name=NetLED0_2
+Added Pin To Net: NetName=NetLED1_2 Pin=LED1-2
+Added Pin To Net: NetName=NetLED1_2 Pin=R_LED1-1
+Added Net: Name=NetLED1_2
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component LED0
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component LED1 LED0
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component R_LED0 65
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component R_LED1 65

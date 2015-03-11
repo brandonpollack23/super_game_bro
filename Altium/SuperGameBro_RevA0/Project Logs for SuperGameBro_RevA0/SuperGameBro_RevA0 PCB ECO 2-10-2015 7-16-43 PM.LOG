@@ -1,0 +1,6 @@
+Added Component: Designator=S1(Reset_Button)
+Added Pin To Net: NetName=RESET Pin=S1-0
+Added Pin To Net: NetName=RESET Pin=S1-0
+Added Pin To Net: NetName=GND Pin=S1-1
+Added Pin To Net: NetName=GND Pin=S1-1
+Added Pin To Net: NetName=FMC_D4 Pin=U1-67

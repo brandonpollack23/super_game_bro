@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=GND Pin=CON3-6
+Added Component: Designator=P_Touch(HDR1X3)
+Added Pin To Net: NetName=GND Pin=P_Touch-1
+Added Pin To Net: NetName=3V3P Pin=P_Touch-3
+Added Pin To Net: NetName=NWAKE_TOUCH Pin=CON3-6
+Added Net: Name=NWAKE_TOUCH
+Added Member To Class: ClassName=LCD_touch_conn Member=Component P_Touch Header 3

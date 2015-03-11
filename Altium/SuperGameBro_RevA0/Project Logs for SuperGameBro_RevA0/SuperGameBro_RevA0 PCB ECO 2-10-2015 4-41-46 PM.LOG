@@ -1,0 +1,2 @@
+Change Component Footprint: Designator=A Old Footprint=12mmSwitch New Footprint=SMT12mmbutton
+Added Pin To Net: NetName=FMC_D4 Pin=U1-67

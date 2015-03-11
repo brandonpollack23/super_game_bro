@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=3V3P Pin=C_SD-1
+Removed Pin From Net: NetName=GND Pin=C_SD-2
+Removed Member From Class: ClassName=sdcard_ram Member=C_SD

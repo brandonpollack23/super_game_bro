@@ -1,0 +1,62 @@
+Added Component: Designator=CON2(Molex54 - duplicate2)
+Added Component: Designator=CON3(Molex6)
+Added Component: Designator=R24(AXIAL-0.3)
+Added Component: Designator=R25(AXIAL-0.3)
+Added Pin To Net: NetName=GND Pin=CON2-A1
+Added Pin To Net: NetName=GND Pin=CON2-A2
+Added Pin To Net: NetName=19V2P Pin=CON2-A3
+Added Pin To Net: NetName=19V2P Pin=CON2-A4
+Added Pin To Net: NetName=RESET Pin=CON2-A8
+Added Pin To Net: NetName=SPI5_LCD_SCK Pin=CON2-A10
+Added Pin To Net: NetName=SPI5_LCD_MOSI Pin=CON2-A11
+Added Pin To Net: NetName=GND Pin=CON2-A12
+Added Pin To Net: NetName=GND Pin=CON2-A13
+Added Pin To Net: NetName=GND Pin=CON2-A14
+Added Pin To Net: NetName=LTDC_B3 Pin=CON2-A15
+Added Pin To Net: NetName=LTDC_B4 Pin=CON2-A16
+Added Pin To Net: NetName=LTDC_B5 Pin=CON2-A17
+Added Pin To Net: NetName=LTDC_B6 Pin=CON2-A18
+Added Pin To Net: NetName=LTDC_B7 Pin=CON2-A19
+Added Pin To Net: NetName=GND Pin=CON2-A20
+Added Pin To Net: NetName=GND Pin=CON2-A21
+Added Pin To Net: NetName=LTDC_G2 Pin=CON2-A22
+Added Pin To Net: NetName=LTDC_G3 Pin=CON2-A23
+Added Pin To Net: NetName=LTDC_G4 Pin=CON2-A24
+Added Pin To Net: NetName=LTDC_G5 Pin=CON2-A25
+Added Pin To Net: NetName=LTDC_G6 Pin=CON2-A26
+Added Pin To Net: NetName=LTDC_G7 Pin=CON2-A27
+Added Pin To Net: NetName=GND Pin=CON2-A28
+Added Pin To Net: NetName=GND Pin=CON2-A29
+Added Pin To Net: NetName=GND Pin=CON2-A30
+Added Pin To Net: NetName=LTDC_R3 Pin=CON2-A31
+Added Pin To Net: NetName=LTDC_R4 Pin=CON2-A32
+Added Pin To Net: NetName=LTDC_R5 Pin=CON2-A33
+Added Pin To Net: NetName=LTDC_R6 Pin=CON2-A34
+Added Pin To Net: NetName=LTDC_R7 Pin=CON2-A35
+Added Pin To Net: NetName=LTDC_HSYNC Pin=CON2-A36
+Added Pin To Net: NetName=LTDC_VSYNC Pin=CON2-A37
+Added Pin To Net: NetName=LTDC_CLK Pin=CON2-A38
+Added Pin To Net: NetName=3V3P Pin=CON2-A41
+Added Pin To Net: NetName=3V3P Pin=CON2-A42
+Added Pin To Net: NetName=LTDC_DE Pin=CON2-A52
+Added Pin To Net: NetName=GND Pin=CON2-A53
+Added Pin To Net: NetName=GND Pin=CON2-A54
+Added Pin To Net: NetName=3V3P Pin=CON3-1
+Added Pin To Net: NetName=GND Pin=CON3-2
+Added Pin To Net: NetName=GND Pin=CON3-6
+Added Pin To Net: NetName=3V3P Pin=R24-1
+Added Pin To Net: NetName=3V3P Pin=R25-1
+Added Pin To Net: NetName=FMC_D4 Pin=U1-67
+Added Pin To Net: NetName=LCD_SPI_NEN Pin=CON2-A9
+Added Pin To Net: NetName=LCD_SPI_NEN Pin=U1-26
+Added Net: Name=LCD_SPI_NEN
+Added Pin To Net: NetName=NetCON3_3 Pin=CON3-3
+Added Pin To Net: NetName=NetCON3_3 Pin=R24-2
+Added Net: Name=NetCON3_3
+Added Pin To Net: NetName=NetCON3_4 Pin=CON3-4
+Added Pin To Net: NetName=NetCON3_4 Pin=R25-2
+Added Net: Name=NetCON3_4
+Added Pin To Net: NetName=TOUCH_NINT Pin=CON3-5
+Added Pin To Net: NetName=TOUCH_NINT Pin=U1-13
+Added Net: Name=TOUCH_NINT
+Added Class: Name=LCD_touch_conn

@@ -1,0 +1,6 @@
+Change Component Designator: OldDesignator=C3 NewDesignator=C4
+Change Component Designator: OldDesignator=C4 NewDesignator=C3
+Added Component: Designator=Y2(C-2Type Crystal)
+Added Pin To Net: NetName=OSC_RTC_IN Pin=Y2-1
+Added Pin To Net: NetName=OSC_RTC_OUT Pin=Y2-2
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component Y2 32.768Khz

@@ -85,38 +85,38 @@ ARM Macro Assembler    Page 2
    45 00000000         ;   <o> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
    46 00000000         ; </h>
    47 00000000         
-   48 00000000 00000400 
+   48 00000000 00001000 
                        Stack_Size
-                               EQU              0x00000400
+                               EQU              0x00001000  ; 4k
    49 00000000         
    50 00000000                 AREA             STACK, NOINIT, READWRITE, ALIGN
 =3
    51 00000000         Stack_Mem
                                SPACE            Stack_Size
-   52 00000400         __initial_sp
-   53 00000400         
-   54 00000400         
-   55 00000400         ; <h> Heap Configuration
-   56 00000400         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
-   57 00000400         ; </h>
-   58 00000400         
-   59 00000400 00000200 
+   52 00001000         __initial_sp
+   53 00001000         
+   54 00001000         
+   55 00001000         ; <h> Heap Configuration
+   56 00001000         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   57 00001000         ; </h>
+   58 00001000         
+   59 00001000 00025800 
                        Heap_Size
-                               EQU              0x00000200
-   60 00000400         
-   61 00000400                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
+                               EQU              0x00025800  ;150k
+   60 00001000         
+   61 00001000                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
 3
    62 00000000         __heap_base
    63 00000000         Heap_Mem
                                SPACE            Heap_Size
-   64 00000200         __heap_limit
-   65 00000200         
-   66 00000200                 PRESERVE8
-   67 00000200                 THUMB
-   68 00000200         
-   69 00000200         
-   70 00000200         ; Vector Table Mapped to Address 0 at Reset
-   71 00000200                 AREA             RESET, DATA, READONLY
+   64 00025800         __heap_limit
+   65 00025800         
+   66 00025800                 PRESERVE8
+   67 00025800                 THUMB
+   68 00025800         
+   69 00025800         
+   70 00025800         ; Vector Table Mapped to Address 0 at Reset
+   71 00025800                 AREA             RESET, DATA, READONLY
    72 00000000                 EXPORT           __Vectors
    73 00000000                 EXPORT           __Vectors_End
    74 00000000                 EXPORT           __Vectors_Size
@@ -905,21 +905,19 @@ ARM Macro Assembler    Page 14
   465 0000001C                 END
               00000000 
               00000000 
-Command Line: --debug --xref --cpu=Cortex-M4.fp --apcs=interwork --depend=".\ga
-meman_template configuration\startup_stm32f439xx.d" -o".\gameman_template confi
-guration\startup_stm32f439xx.o" -I..\..\Inc -ID:\Dropbox\school\SENIORDESIGN\SW
+Command Line: --debug --xref --cpu=Cortex-M4.fp --apcs=interwork --depend="game
+man_template configuration\startup_stm32f439xx.d" -o"gameman_template configura
+tion\startup_stm32f439xx.o" -I..\..\Inc -I"C:\Program Files (x86)\Keil_v5\ARM\R
 
 
 
 ARM Macro Assembler    Page 15 
 
 
-\GameMan_Template\Projects\MDK-ARM\RTE -I"C:\Program Files (x86)\Keil_v5\ARM\PA
-CK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include" -I"C:\Pr
-ogram Files (x86)\Keil_v5\ARM\CMSIS\Include" --predefine="__EVAL SETA 1" --pred
-efine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 513" --predefine=
-"STM32F429xx SETA 1" --list=startup_stm32f439xx.lst ..\..\Drivers\CMSIS\Device\
-ST\STM32F4xx\Source\Templates\arm\startup_stm32f439xx.s
+V31\INC" -I"C:\Program Files (x86)\Keil_v5\ARM\CMSIS\Include" --predefine="__EV
+AL SETA 1" --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 
+513" --list=startup_stm32f439xx.lst ..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Sou
+rce\Templates\arm\startup_stm32f439xx.s
 
 
 
@@ -944,7 +942,7 @@ es\arm\startup_stm32f439xx.s
    Uses
       None
 Comment: Stack_Mem unused
-__initial_sp 00000400
+__initial_sp 00001000
 
 Symbol: __initial_sp
    Definitions
@@ -991,7 +989,7 @@ es\arm\startup_stm32f439xx.s
       At line 445 in file ..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templa
 tes\arm\startup_stm32f439xx.s
 Comment: __heap_base used once
-__heap_limit 00000200
+__heap_limit 00025800
 
 Symbol: __heap_limit
    Definitions
@@ -2405,7 +2403,7 @@ tes\arm\startup_stm32f439xx.s
 ARM Macro Assembler    Page 1 Alphabetic symbol ordering
 Absolute symbols
 
-Heap_Size 00000200
+Heap_Size 00025800
 
 Symbol: Heap_Size
    Definitions
@@ -2415,7 +2413,7 @@ es\arm\startup_stm32f439xx.s
       At line 63 in file ..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templat
 es\arm\startup_stm32f439xx.s
 Comment: Heap_Size used once
-Stack_Size 00000400
+Stack_Size 00001000
 
 Symbol: Stack_Size
    Definitions
@@ -2463,4 +2461,4 @@ tes\arm\startup_stm32f439xx.s
 tes\arm\startup_stm32f439xx.s
 Comment: __main used once
 2 symbols
-455 symbols in table
+454 symbols in table

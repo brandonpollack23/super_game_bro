@@ -1,0 +1,20 @@
+Change Component Footprint: Designator=CP1 Old Footprint=RB7.6-15 New Footprint=KemetC3
+Change Component Footprint: Designator=CP2 Old Footprint=RB7.6-15 New Footprint=KemetC3
+Change Component Comment : Designator=C3 Old Comment=10 pF New Comment=12.5 pF
+Change Component Comment : Designator=C4 Old Comment=10 pF New Comment=12.5 pF
+Change Component Comment : Designator=C1 Old Comment=25 pF New Comment=18 pF
+Change Component Comment : Designator=C2 Old Comment=25 pF New Comment=18 pF
+Change Component Comment : Designator=CP2 Old Comment=68uF New Comment=47uF
+Added Component: Designator=P_Debug(HDR1X2)
+Added Component: Designator=P_Multi(HDR1X2)
+Added Pin To Net: NetName=UART1_DEBUG_RX Pin=P_Debug-1
+Added Pin To Net: NetName=UART1_DEBUG_TX Pin=P_Debug-2
+Added Pin To Net: NetName=UART6_MULTI_RX Pin=P_Multi-1
+Added Pin To Net: NetName=UART6_MULTI_TX Pin=P_Multi-2
+Added Pin To Net: NetName=FMC_A11 Pin=U1-67
+Added Pin To Net: NetName=STATUS_OUT 0 Pin=U1-7
+Added Net: Name=STATUS_OUT 0
+Added Pin To Net: NetName=STATUS_OUT 1 Pin=U1-8
+Added Net: Name=STATUS_OUT 1
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component P_Debug Header 2
+Added Member To Class: ClassName=CPU_Power_XTAL_Prog Member=Component P_Multi Header 2

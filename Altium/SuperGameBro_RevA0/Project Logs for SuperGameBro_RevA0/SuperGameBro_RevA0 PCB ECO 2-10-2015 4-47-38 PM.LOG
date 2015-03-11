@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=BTN_LS Pin=LEFT_SHOULDER-1
+Removed Pin From Net: NetName=BTN_RS Pin=RIGHT_SHOULDER-1
+Added Pin To Net: NetName=GND Pin=LEFT_SHOULDER-1
+Added Pin To Net: NetName=BTN_LS Pin=LEFT_SHOULDER-2
+Added Pin To Net: NetName=GND Pin=RIGHT_SHOULDER-1
+Added Pin To Net: NetName=BTN_RS Pin=RIGHT_SHOULDER-2
+Added Pin To Net: NetName=FMC_A11 Pin=U1-67

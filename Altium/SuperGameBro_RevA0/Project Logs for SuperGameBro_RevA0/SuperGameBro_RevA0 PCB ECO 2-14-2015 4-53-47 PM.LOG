@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=I2C1_SCL Pin=CON3-3
+Added Pin To Net: NetName=I2C1_SDA Pin=CON3-4
+Added Pin To Net: NetName=I2C1_SCL Pin=R20-2
+Added Pin To Net: NetName=I2C1_SDA Pin=R21-2

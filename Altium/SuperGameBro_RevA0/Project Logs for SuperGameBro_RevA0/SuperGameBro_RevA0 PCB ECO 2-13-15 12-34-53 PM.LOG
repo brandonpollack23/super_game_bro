@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=STATUS_OUT 0 Pin=LED0-1
+Removed Pin From Net: NetName=STATUS_OUT 1 Pin=LED1-1
+Change Component Footprint: Designator=LED0 Old Footprint=LED-0 New Footprint=LED-LTST
+Change Component Footprint: Designator=LED1 Old Footprint=LED-0 New Footprint=LED-LTST
+Added Pin To Net: NetName=STATUS_OUT 0 Pin=LED0-A
+Added Pin To Net: NetName=STATUS_OUT 1 Pin=LED1-A
+Added Pin To Net: NetName=NetLED0_K Pin=LED0-K
+Added Pin To Net: NetName=NetLED0_K Pin=R_LED0-1
+Added Net: Name=NetLED0_K
+Added Pin To Net: NetName=NetLED1_K Pin=LED1-K
+Added Pin To Net: NetName=NetLED1_K Pin=R_LED1-1
+Added Net: Name=NetLED1_K

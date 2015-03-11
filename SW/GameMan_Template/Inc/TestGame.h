@@ -12,9 +12,12 @@
 #include "DrawQueue.h"
 
 //Game Includes
+#include "DrawableObject.h"
 #include "MainMenu.h"
 
-typedef enum
+#define MAIN_MENU ((menuDObj*)mainMenu->datas)
+
+typedef enum //game state
 {
 	INIT,
 	MENU,
@@ -27,14 +30,18 @@ typedef enum
 extern DrawQueue drawQueue; //queue of things to draw
 extern DrawQueue drawableObjects; //all drawable objects, iterate through, update, readd (use special iterate with locally stored "head" so you don't actually remove from queue)
 
-extern menuDObj* mainMenu; //the main menu
+//Drawable Objects we need (sprites, bgs, menus, etc)
+extern DrawableObject* mainMenu; //the main menu
+
+/******Resources********/
+extern uint8_t font12[];
+#define FONT_HEIGHT 12 //each height is a byte, so 12 bytes per char
+#define FONT_WIDTH 7
+
+/***** Functions *******/
 
 void runGame(void); //called from main
+
 uint32_t updateObjects(void); //updates all active in game objects (in predefined array or malloc'd) and adds them to render queue if necessary
 uint32_t updateGame(void); //updates game state based on certain in game objects
-
-void writeToScreen(uint16_t x, uint8_t y, char* text); //function to write text to screen without gameobject
-
-inline void swap(void); //if drawQueue is empty swap the framebuffer and tell the shadow registers to update at v_sync, update everything necessary (inputs, touch screen, etc)
-
 #endif
