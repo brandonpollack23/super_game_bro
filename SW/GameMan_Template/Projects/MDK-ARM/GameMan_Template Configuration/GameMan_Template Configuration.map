@@ -817,16 +817,28 @@ Section Cross References
     testgame.o(i.runGame) refers to gameman_reva0.o(.data) for input_ptr
     testgame.o(i.runGame) refers to gameman_reva0.o(.bss) for buttonInput
     testgame.o(i.runGame) refers to main.o(.bss) for input_spi
+    testgame.o(i.switchToLinkTest) refers to link_pc.o(i.loadLinkSpriteSet) for loadLinkSpriteSet
+    testgame.o(i.switchToLinkTest) refers to link_pc.o(i.constructLink) for constructLink
+    testgame.o(i.switchToLinkTest) refers to drawqueue.o(i.enqueue) for enqueue
+    testgame.o(i.switchToLinkTest) refers to gameman_reva0.o(i.clearBothFrameBuffers) for clearBothFrameBuffers
+    testgame.o(i.switchToLinkTest) refers to testgame.o(.data) for gameState
+    testgame.o(i.switchToLinkTest) refers to testgame.o(.bss) for drawQueue
+    testgame.o(i.switchToMainMenu) refers to stm32f4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    testgame.o(i.switchToMainMenu) refers to mainmenu.o(i.constructMenu) for constructMenu
+    testgame.o(i.switchToMainMenu) refers to drawqueue.o(i.enqueue) for enqueue
+    testgame.o(i.switchToMainMenu) refers to gameman_reva0.o(i.clearBothFrameBuffers) for clearBothFrameBuffers
+    testgame.o(i.switchToMainMenu) refers to testgame.o(.data) for gameState
+    testgame.o(i.switchToMainMenu) refers to testgame.o(.constdata) for main_menu_header
+    testgame.o(i.switchToMainMenu) refers to testgame.o(.bss) for drawQueue
+    testgame.o(i.updateGame) refers to testgame.o(i.switchToMainMenu) for switchToMainMenu
     testgame.o(i.updateGame) refers to stm32f4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
-    testgame.o(i.updateGame) refers to mainmenu.o(i.constructMenu) for constructMenu
-    testgame.o(i.updateGame) refers to drawqueue.o(i.enqueue) for enqueue
-    testgame.o(i.updateGame) refers to gameman_reva0.o(i.clearBothFrameBuffers) for clearBothFrameBuffers
+    testgame.o(i.updateGame) refers to testgame.o(i.switchToLinkTest) for switchToLinkTest
     testgame.o(i.updateGame) refers to drawqueue.o(i.removeItem) for removeItem
     testgame.o(i.updateGame) refers to mainmenu.o(i.deconstructMenu) for deconstructMenu
+    testgame.o(i.updateGame) refers to link_pc.o(i.deconstructLink) for deconstructLink
     testgame.o(i.updateGame) refers to testgame.o(.data) for gameState
     testgame.o(i.updateGame) refers to gameman_reva0.o(.data) for input_ptr
     testgame.o(i.updateGame) refers to gameman_reva0.o(.bss) for buttonInput
-    testgame.o(i.updateGame) refers to testgame.o(.constdata) for main_menu_header
     testgame.o(i.updateGame) refers to testgame.o(.bss) for drawQueue
     testgame.o(i.updateObjects) refers to testgame.o(.bss) for drawQueue
     testgame.o(.data) refers to testgame.o(.conststring) for .conststring
@@ -862,6 +874,8 @@ Section Cross References
     gameman_reva0.o(i.getInputs) refers to gameman_reva0.o(i.initiateSPIRx) for initiateSPIRx
     gameman_reva0.o(i.getInputs) refers to gameman_reva0.o(i.retrieveSPI) for retrieveSPI
     gameman_reva0.o(i.getInputs) refers to main.o(.bss) for input_spi
+    gameman_reva0.o(i.resetSimpleLoad) refers to gameman_reva0.o(.data) for globalLoadPointer
+    gameman_reva0.o(i.simpleLoad) refers to gameman_reva0.o(.data) for globalLoadPointer
     gameman_reva0.o(i.startPlayingMp3) refers to stm32f4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit) for HAL_I2C_Master_Transmit
     gameman_reva0.o(i.startPlayingMp3) refers to gameman_reva0.o(i.Error_Handler) for Error_Handler
     gameman_reva0.o(i.startPlayingMp3) refers to main.o(.bss) for hi2c1
@@ -884,6 +898,16 @@ Section Cross References
     mainmenu.o(i.updateMenu) refers to stm32f4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
     mainmenu.o(i.updateMenu) refers to gameman_reva0.o(.data) for input_ptr
     mainmenu.o(i.updateMenu) refers to gameman_reva0.o(.bss) for buttonInput
+    link_pc.o(i.constructLink) refers to malloc.o(i.malloc) for malloc
+    link_pc.o(i.constructLink) refers to link_pc.o(i.updateLink) for updateLink
+    link_pc.o(i.constructLink) refers to link_pc.o(i.renderLinkCPU) for renderLinkCPU
+    link_pc.o(i.constructLink) refers to link_pc.o(i.renderLinkDMA2D) for renderLinkDMA2D
+    link_pc.o(i.deconstructLink) refers to malloc.o(i.free) for free
+    link_pc.o(i.loadLinkSpriteSet) refers to gameman_reva0.o(i.simpleLoad) for simpleLoad
+    link_pc.o(i.loadLinkSpriteSet) refers to bitmap_tools.o(i.loadImage) for loadImage
+    link_pc.o(i.renderLinkCPU) refers to gameman_reva0.o(.data) for framebuffer_0
+    link_pc.o(i.updateLink) refers to gameman_reva0.o(.data) for input_ptr
+    link_pc.o(i.updateLink) refers to gameman_reva0.o(.bss) for buttonInput
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
@@ -1630,36 +1654,20 @@ Removing Unused input sections from the image.
     Removing system_stm32f4xx.o(i.SystemCoreClockUpdate), (192 bytes).
     Removing ff.o(.rev16_text), (4 bytes).
     Removing ff.o(.revsh_text), (4 bytes).
-    Removing ff.o(i.chk_chr), (20 bytes).
-    Removing ff.o(i.chk_lock), (144 bytes).
-    Removing ff.o(i.clmt_clust), (56 bytes).
-    Removing ff.o(i.clust2sect), (32 bytes).
-    Removing ff.o(i.cmp_lfn), (144 bytes).
-    Removing ff.o(i.create_chain), (226 bytes).
-    Removing ff.o(i.create_name), (560 bytes).
     Removing ff.o(i.dec_lock), (76 bytes).
-    Removing ff.o(i.dir_alloc), (100 bytes).
-    Removing ff.o(i.dir_find), (242 bytes).
-    Removing ff.o(i.dir_next), (350 bytes).
     Removing ff.o(i.dir_read), (214 bytes).
-    Removing ff.o(i.dir_register), (342 bytes).
     Removing ff.o(i.dir_remove), (114 bytes).
-    Removing ff.o(i.dir_sdi), (202 bytes).
-    Removing ff.o(i.enq_lock), (40 bytes).
     Removing ff.o(i.f_chmod), (118 bytes).
     Removing ff.o(i.f_close), (46 bytes).
     Removing ff.o(i.f_closedir), (42 bytes).
     Removing ff.o(i.f_getfree), (274 bytes).
     Removing ff.o(i.f_gets), (86 bytes).
-    Removing ff.o(i.f_lseek), (804 bytes).
     Removing ff.o(i.f_mkdir), (388 bytes).
     Removing ff.o(i.f_mkfs), (1600 bytes).
-    Removing ff.o(i.f_open), (478 bytes).
     Removing ff.o(i.f_opendir), (190 bytes).
     Removing ff.o(i.f_printf), (628 bytes).
     Removing ff.o(i.f_putc), (64 bytes).
     Removing ff.o(i.f_puts), (74 bytes).
-    Removing ff.o(i.f_read), (518 bytes).
     Removing ff.o(i.f_readdir), (120 bytes).
     Removing ff.o(i.f_rename), (364 bytes).
     Removing ff.o(i.f_stat), (88 bytes).
@@ -1668,25 +1676,10 @@ Removing Unused input sections from the image.
     Removing ff.o(i.f_unlink), (230 bytes).
     Removing ff.o(i.f_utime), (116 bytes).
     Removing ff.o(i.f_write), (604 bytes).
-    Removing ff.o(i.fit_lfn), (128 bytes).
-    Removing ff.o(i.follow_path), (156 bytes).
-    Removing ff.o(i.gen_numname), (168 bytes).
-    Removing ff.o(i.get_fat), (224 bytes).
     Removing ff.o(i.get_fileinfo), (262 bytes).
-    Removing ff.o(i.inc_lock), (232 bytes).
-    Removing ff.o(i.ld_clust), (34 bytes).
-    Removing ff.o(i.mem_cmp), (38 bytes).
-    Removing ff.o(i.mem_cpy), (26 bytes).
-    Removing ff.o(i.mem_set), (20 bytes).
     Removing ff.o(i.pick_lfn), (116 bytes).
-    Removing ff.o(i.put_fat), (310 bytes).
     Removing ff.o(i.putc_bfd), (78 bytes).
-    Removing ff.o(i.remove_chain), (122 bytes).
-    Removing ff.o(i.st_clust), (16 bytes).
-    Removing ff.o(i.sum_sfn), (32 bytes).
     Removing ff.o(i.sync_fs), (244 bytes).
-    Removing ff.o(i.validate), (70 bytes).
-    Removing ff.o(.constdata), (186 bytes).
     Removing ff_gen_drv.o(.rev16_text), (4 bytes).
     Removing ff_gen_drv.o(.revsh_text), (4 bytes).
     Removing ff_gen_drv.o(i.FATFS_GetAttachedDriversNbr), (12 bytes).
@@ -1694,18 +1687,12 @@ Removing Unused input sections from the image.
     Removing diskio.o(.rev16_text), (4 bytes).
     Removing diskio.o(.revsh_text), (4 bytes).
     Removing diskio.o(i.disk_ioctl), (36 bytes).
-    Removing diskio.o(i.get_fattime), (4 bytes).
     Removing syscall.o(.rev16_text), (4 bytes).
     Removing syscall.o(.revsh_text), (4 bytes).
-    Removing syscall.o(i.ff_memalloc), (12 bytes).
-    Removing syscall.o(i.ff_memfree), (12 bytes).
     Removing sd_diskio.o(.rev16_text), (4 bytes).
     Removing sd_diskio.o(.revsh_text), (4 bytes).
     Removing ccsbcs.o(.rev16_text), (4 bytes).
     Removing ccsbcs.o(.revsh_text), (4 bytes).
-    Removing ccsbcs.o(i.ff_convert), (76 bytes).
-    Removing ccsbcs.o(i.ff_wtoupper), (56 bytes).
-    Removing ccsbcs.o(.constdata), (1216 bytes).
     Removing bsp_driver_sd.o(.rev16_text), (4 bytes).
     Removing bsp_driver_sd.o(.revsh_text), (4 bytes).
     Removing bsp_driver_sd.o(i.BSP_SD_DMA_Rx_IRQHandler), (16 bytes).
@@ -1751,17 +1738,20 @@ Removing Unused input sections from the image.
     Removing gameman_reva0.o(i.MP3_DR_int_init), (64 bytes).
     Removing gameman_reva0.o(i.configureMp3), (508 bytes).
     Removing gameman_reva0.o(i.initiateTouchI2CRx), (4 bytes).
+    Removing gameman_reva0.o(i.resetSimpleLoad), (16 bytes).
     Removing gameman_reva0.o(i.retrieveTouchI2C), (4 bytes).
     Removing gameman_reva0.o(i.selectSong), (4 bytes).
     Removing gameman_reva0.o(i.startPlayingMp3), (76 bytes).
     Removing gameman_reva0.o(i.stopPlayingMp3), (2 bytes).
     Removing bitmap_tools.o(.rev16_text), (4 bytes).
     Removing bitmap_tools.o(.revsh_text), (4 bytes).
-    Removing bitmap_tools.o(i.loadImage), (300 bytes).
     Removing bitmap_tools.o(.constdata), (4020 bytes).
     Removing mainmenu.o(.rev16_text), (4 bytes).
     Removing mainmenu.o(.revsh_text), (4 bytes).
     Removing mainmenu.o(.constdata), (4020 bytes).
+    Removing link_pc.o(.rev16_text), (4 bytes).
+    Removing link_pc.o(.revsh_text), (4 bytes).
+    Removing link_pc.o(.constdata), (4020 bytes).
     Removing dadd.o(.text), (334 bytes).
     Removing dmul.o(.text), (228 bytes).
     Removing ddiv.o(.text), (222 bytes).
@@ -1769,7 +1759,7 @@ Removing Unused input sections from the image.
     Removing cdrcmple.o(.text), (48 bytes).
     Removing depilogue.o(.text), (186 bytes).
 
-584 unused section(s) (total 84818 bytes) removed from the image.
+550 unused section(s) (total 81166 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1779,40 +1769,40 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
-    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  mallocra.o ABSOLUTE
-    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloca.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  mallocr.o ABSOLUTE
     ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloc.o ABSOLUTE
+    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  mallocra.o ABSOLUTE
+    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloca.o ABSOLUTE
     ../clib/microlib/malloc/mvars.c          0x00000000   Number         0  mvars.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
     ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
@@ -1863,6 +1853,7 @@ Image Symbol Table
     ..\..\Src\TestGame.c                     0x00000000   Number         0  testgame.o ABSOLUTE
     ..\..\Src\bitmap_tools.c                 0x00000000   Number         0  bitmap_tools.o ABSOLUTE
     ..\..\Src\bsp_driver_sd.c                0x00000000   Number         0  bsp_driver_sd.o ABSOLUTE
+    ..\..\Src\link_pc.c                      0x00000000   Number         0  link_pc.o ABSOLUTE
     ..\..\Src\main.c                         0x00000000   Number         0  main.o ABSOLUTE
     ..\..\Src\stm32f4xx_hal_msp.c            0x00000000   Number         0  stm32f4xx_hal_msp.o ABSOLUTE
     ..\..\Src\stm32f4xx_it.c                 0x00000000   Number         0  stm32f4xx_it.o ABSOLUTE
@@ -1903,6 +1894,7 @@ Image Symbol Table
     ..\\..\\Src\\TestGame.c                  0x00000000   Number         0  testgame.o ABSOLUTE
     ..\\..\\Src\\bitmap_tools.c              0x00000000   Number         0  bitmap_tools.o ABSOLUTE
     ..\\..\\Src\\bsp_driver_sd.c             0x00000000   Number         0  bsp_driver_sd.o ABSOLUTE
+    ..\\..\\Src\\link_pc.c                   0x00000000   Number         0  link_pc.o ABSOLUTE
     ..\\..\\Src\\main.c                      0x00000000   Number         0  main.o ABSOLUTE
     ..\\..\\Src\\stm32f4xx_hal_msp.c         0x00000000   Number         0  stm32f4xx_hal_msp.o ABSOLUTE
     ..\\..\\Src\\stm32f4xx_it.c              0x00000000   Number         0  stm32f4xx_it.o ABSOLUTE
@@ -2091,56 +2083,133 @@ Image Symbol Table
     _printf_core                             0x08004575   Thumb Code   336  printf1.o(i._printf_core)
     i.check_fs                               0x080046c8   Section        0  ff.o(i.check_fs)
     check_fs                                 0x080046c9   Thumb Code   146  ff.o(i.check_fs)
-    i.clearBothFrameBuffers                  0x08004760   Section        0  gameman_reva0.o(i.clearBothFrameBuffers)
-    i.clearFrameBuffer                       0x08004778   Section        0  gameman_reva0.o(i.clearFrameBuffer)
-    i.clear_lock                             0x08004794   Section        0  ff.o(i.clear_lock)
-    clear_lock                               0x08004795   Thumb Code    42  ff.o(i.clear_lock)
-    i.constructMenu                          0x080047c4   Section        0  mainmenu.o(i.constructMenu)
-    i.deconstructMenu                        0x0800482c   Section        0  mainmenu.o(i.deconstructMenu)
-    i.disk_initialize                        0x08004840   Section        0  diskio.o(i.disk_initialize)
-    i.disk_read                              0x08004868   Section        0  diskio.o(i.disk_read)
-    i.disk_status                            0x08004890   Section        0  diskio.o(i.disk_status)
-    i.disk_write                             0x080048a8   Section        0  diskio.o(i.disk_write)
-    i.enqueue                                0x080048d0   Section        0  drawqueue.o(i.enqueue)
-    i.f_mount                                0x08004940   Section        0  ff.o(i.f_mount)
-    i.find_volume                            0x080049a4   Section        0  ff.o(i.find_volume)
-    find_volume                              0x080049a5   Thumb Code   956  ff.o(i.find_volume)
-    i.fputc                                  0x08004d70   Section        0  main.o(i.fputc)
-    i.framebuffer_layer_init                 0x08004d8c   Section        0  gameman_reva0.o(i.framebuffer_layer_init)
-    i.free                                   0x08004dec   Section        0  malloc.o(i.free)
-    i.getInputs                              0x08004e3c   Section        0  gameman_reva0.o(i.getInputs)
-    i.get_ldnumber                           0x08004e7c   Section        0  ff.o(i.get_ldnumber)
-    get_ldnumber                             0x08004e7d   Thumb Code    50  ff.o(i.get_ldnumber)
-    i.initQueue                              0x08004eae   Section        0  drawqueue.o(i.initQueue)
-    i.initiateSPIRx                          0x08004ebc   Section        0  gameman_reva0.o(i.initiateSPIRx)
-    i.isEmpty                                0x08004eda   Section        0  drawqueue.o(i.isEmpty)
-    i.isFull                                 0x08004ef0   Section        0  drawqueue.o(i.isFull)
-    i.main                                   0x08004f0c   Section        0  main.o(i.main)
-    i.malloc                                 0x08004f94   Section        0  malloc.o(i.malloc)
-    i.move_window                            0x08005000   Section        0  ff.o(i.move_window)
-    move_window                              0x08005001   Thumb Code    54  ff.o(i.move_window)
-    i.removeItem                             0x08005036   Section        0  drawqueue.o(i.removeItem)
-    i.renderMenuCPU                          0x0800508c   Section        0  mainmenu.o(i.renderMenuCPU)
-    i.renderMenuDMA2D                        0x080050f0   Section        0  mainmenu.o(i.renderMenuDMA2D)
-    i.retrieveSPI                            0x080050f2   Section        0  gameman_reva0.o(i.retrieveSPI)
-    i.runGame                                0x0800510c   Section        0  testgame.o(i.runGame)
-    i.swap                                   0x08005224   Section        0  gameman_reva0.o(i.swap)
-    i.sync_window                            0x0800525c   Section        0  ff.o(i.sync_window)
-    sync_window                              0x0800525d   Thumb Code    90  ff.o(i.sync_window)
-    i.updateGame                             0x080052b8   Section        0  testgame.o(i.updateGame)
-    i.updateMenu                             0x080053c4   Section        0  mainmenu.o(i.updateMenu)
-    i.updateObjects                          0x080054f8   Section        0  testgame.o(i.updateObjects)
-    i.writeCharToScreen                      0x08005534   Section        0  gameman_reva0.o(i.writeCharToScreen)
-    i.writeStringToScreen                    0x080055ec   Section        0  gameman_reva0.o(i.writeStringToScreen)
-    .constdata                               0x08005652   Section       16  stm32f4xx_hal_rcc.o(.constdata)
-    .constdata                               0x08005662   Section     4062  testgame.o(.constdata)
-    sta013_patch                             0x08005662   Data        4020  testgame.o(.constdata)
-    .constdata                               0x08006640   Section    74690  stm32f4xx_it.o(.constdata)
-    sta013_patch                             0x08006640   Data        4020  stm32f4xx_it.o(.constdata)
-    kraidslair                               0x080075f4   Data       70670  stm32f4xx_it.o(.constdata)
-    .constdata                               0x08018a02   Section     5160  gameman_reva0.o(.constdata)
-    sta013_patch                             0x08018a02   Data        4020  gameman_reva0.o(.constdata)
-    .conststring                             0x08019e2c   Section      110  testgame.o(.conststring)
+    i.chk_chr                                0x08004760   Section        0  ff.o(i.chk_chr)
+    chk_chr                                  0x08004761   Thumb Code    20  ff.o(i.chk_chr)
+    i.chk_lock                               0x08004774   Section        0  ff.o(i.chk_lock)
+    chk_lock                                 0x08004775   Thumb Code   140  ff.o(i.chk_lock)
+    i.clearBothFrameBuffers                  0x08004804   Section        0  gameman_reva0.o(i.clearBothFrameBuffers)
+    i.clearFrameBuffer                       0x0800481c   Section        0  gameman_reva0.o(i.clearFrameBuffer)
+    i.clear_lock                             0x08004838   Section        0  ff.o(i.clear_lock)
+    clear_lock                               0x08004839   Thumb Code    42  ff.o(i.clear_lock)
+    i.clmt_clust                             0x08004868   Section        0  ff.o(i.clmt_clust)
+    clmt_clust                               0x08004869   Thumb Code    56  ff.o(i.clmt_clust)
+    i.clust2sect                             0x080048a0   Section        0  ff.o(i.clust2sect)
+    i.cmp_lfn                                0x080048c0   Section        0  ff.o(i.cmp_lfn)
+    cmp_lfn                                  0x080048c1   Thumb Code   138  ff.o(i.cmp_lfn)
+    i.constructLink                          0x08004950   Section        0  link_pc.o(i.constructLink)
+    i.constructMenu                          0x080049bc   Section        0  mainmenu.o(i.constructMenu)
+    i.create_chain                           0x08004a24   Section        0  ff.o(i.create_chain)
+    create_chain                             0x08004a25   Thumb Code   226  ff.o(i.create_chain)
+    i.create_name                            0x08004b08   Section        0  ff.o(i.create_name)
+    create_name                              0x08004b09   Thumb Code   534  ff.o(i.create_name)
+    i.deconstructLink                        0x08004d38   Section        0  link_pc.o(i.deconstructLink)
+    i.deconstructMenu                        0x08004d4a   Section        0  mainmenu.o(i.deconstructMenu)
+    i.dir_alloc                              0x08004d5c   Section        0  ff.o(i.dir_alloc)
+    dir_alloc                                0x08004d5d   Thumb Code   100  ff.o(i.dir_alloc)
+    i.dir_find                               0x08004dc0   Section        0  ff.o(i.dir_find)
+    dir_find                                 0x08004dc1   Thumb Code   242  ff.o(i.dir_find)
+    i.dir_next                               0x08004eb2   Section        0  ff.o(i.dir_next)
+    dir_next                                 0x08004eb3   Thumb Code   350  ff.o(i.dir_next)
+    i.dir_register                           0x08005010   Section        0  ff.o(i.dir_register)
+    dir_register                             0x08005011   Thumb Code   342  ff.o(i.dir_register)
+    i.dir_sdi                                0x08005166   Section        0  ff.o(i.dir_sdi)
+    dir_sdi                                  0x08005167   Thumb Code   202  ff.o(i.dir_sdi)
+    i.disk_initialize                        0x08005230   Section        0  diskio.o(i.disk_initialize)
+    i.disk_read                              0x08005258   Section        0  diskio.o(i.disk_read)
+    i.disk_status                            0x08005280   Section        0  diskio.o(i.disk_status)
+    i.disk_write                             0x08005298   Section        0  diskio.o(i.disk_write)
+    i.enq_lock                               0x080052c0   Section        0  ff.o(i.enq_lock)
+    enq_lock                                 0x080052c1   Thumb Code    36  ff.o(i.enq_lock)
+    i.enqueue                                0x080052e8   Section        0  drawqueue.o(i.enqueue)
+    i.f_lseek                                0x08005356   Section        0  ff.o(i.f_lseek)
+    i.f_mount                                0x0800567c   Section        0  ff.o(i.f_mount)
+    i.f_open                                 0x080056e0   Section        0  ff.o(i.f_open)
+    i.f_read                                 0x080058be   Section        0  ff.o(i.f_read)
+    i.ff_convert                             0x08005ac4   Section        0  ccsbcs.o(i.ff_convert)
+    i.ff_memalloc                            0x08005b10   Section        0  syscall.o(i.ff_memalloc)
+    i.ff_memfree                             0x08005b1c   Section        0  syscall.o(i.ff_memfree)
+    i.ff_wtoupper                            0x08005b28   Section        0  ccsbcs.o(i.ff_wtoupper)
+    i.find_volume                            0x08005b60   Section        0  ff.o(i.find_volume)
+    find_volume                              0x08005b61   Thumb Code   956  ff.o(i.find_volume)
+    i.fit_lfn                                0x08005f2c   Section        0  ff.o(i.fit_lfn)
+    fit_lfn                                  0x08005f2d   Thumb Code   122  ff.o(i.fit_lfn)
+    i.follow_path                            0x08005fac   Section        0  ff.o(i.follow_path)
+    follow_path                              0x08005fad   Thumb Code   156  ff.o(i.follow_path)
+    i.fputc                                  0x08006048   Section        0  main.o(i.fputc)
+    i.framebuffer_layer_init                 0x08006064   Section        0  gameman_reva0.o(i.framebuffer_layer_init)
+    i.free                                   0x080060c4   Section        0  malloc.o(i.free)
+    i.gen_numname                            0x08006114   Section        0  ff.o(i.gen_numname)
+    i.getInputs                              0x080061bc   Section        0  gameman_reva0.o(i.getInputs)
+    i.get_fat                                0x080061fc   Section        0  ff.o(i.get_fat)
+    i.get_fattime                            0x080062dc   Section        0  diskio.o(i.get_fattime)
+    i.get_ldnumber                           0x080062e0   Section        0  ff.o(i.get_ldnumber)
+    get_ldnumber                             0x080062e1   Thumb Code    50  ff.o(i.get_ldnumber)
+    i.inc_lock                               0x08006314   Section        0  ff.o(i.inc_lock)
+    inc_lock                                 0x08006315   Thumb Code   226  ff.o(i.inc_lock)
+    i.initQueue                              0x080063fc   Section        0  drawqueue.o(i.initQueue)
+    i.initiateSPIRx                          0x0800640a   Section        0  gameman_reva0.o(i.initiateSPIRx)
+    i.isEmpty                                0x08006428   Section        0  drawqueue.o(i.isEmpty)
+    i.isFull                                 0x0800643e   Section        0  drawqueue.o(i.isFull)
+    i.ld_clust                               0x08006458   Section        0  ff.o(i.ld_clust)
+    ld_clust                                 0x08006459   Thumb Code    34  ff.o(i.ld_clust)
+    i.loadImage                              0x0800647c   Section        0  bitmap_tools.o(i.loadImage)
+    i.loadLinkSpriteSet                      0x080065a8   Section        0  link_pc.o(i.loadLinkSpriteSet)
+    i.main                                   0x080066ec   Section        0  main.o(i.main)
+    i.malloc                                 0x08006774   Section        0  malloc.o(i.malloc)
+    i.mem_cmp                                0x080067e0   Section        0  ff.o(i.mem_cmp)
+    mem_cmp                                  0x080067e1   Thumb Code    38  ff.o(i.mem_cmp)
+    i.mem_cpy                                0x08006806   Section        0  ff.o(i.mem_cpy)
+    mem_cpy                                  0x08006807   Thumb Code    26  ff.o(i.mem_cpy)
+    i.mem_set                                0x08006820   Section        0  ff.o(i.mem_set)
+    mem_set                                  0x08006821   Thumb Code    20  ff.o(i.mem_set)
+    i.move_window                            0x08006834   Section        0  ff.o(i.move_window)
+    move_window                              0x08006835   Thumb Code    54  ff.o(i.move_window)
+    i.put_fat                                0x0800686a   Section        0  ff.o(i.put_fat)
+    i.removeItem                             0x080069a0   Section        0  drawqueue.o(i.removeItem)
+    i.remove_chain                           0x080069f6   Section        0  ff.o(i.remove_chain)
+    remove_chain                             0x080069f7   Thumb Code   122  ff.o(i.remove_chain)
+    i.renderLinkCPU                          0x08006a70   Section        0  link_pc.o(i.renderLinkCPU)
+    i.renderLinkDMA2D                        0x08006ac0   Section        0  link_pc.o(i.renderLinkDMA2D)
+    i.renderMenuCPU                          0x08006ac2   Section        0  mainmenu.o(i.renderMenuCPU)
+    i.renderMenuDMA2D                        0x08006b26   Section        0  mainmenu.o(i.renderMenuDMA2D)
+    i.retrieveSPI                            0x08006b28   Section        0  gameman_reva0.o(i.retrieveSPI)
+    i.runGame                                0x08006b40   Section        0  testgame.o(i.runGame)
+    i.simpleLoad                             0x08006c58   Section        0  gameman_reva0.o(i.simpleLoad)
+    i.st_clust                               0x08006c84   Section        0  ff.o(i.st_clust)
+    st_clust                                 0x08006c85   Thumb Code    16  ff.o(i.st_clust)
+    i.sum_sfn                                0x08006c94   Section        0  ff.o(i.sum_sfn)
+    sum_sfn                                  0x08006c95   Thumb Code    32  ff.o(i.sum_sfn)
+    i.swap                                   0x08006cb4   Section        0  gameman_reva0.o(i.swap)
+    i.switchToLinkTest                       0x08006cec   Section        0  testgame.o(i.switchToLinkTest)
+    i.switchToMainMenu                       0x08006d34   Section        0  testgame.o(i.switchToMainMenu)
+    i.sync_window                            0x08006d8c   Section        0  ff.o(i.sync_window)
+    sync_window                              0x08006d8d   Thumb Code    90  ff.o(i.sync_window)
+    i.updateGame                             0x08006de8   Section        0  testgame.o(i.updateGame)
+    i.updateLink                             0x08006efc   Section        0  link_pc.o(i.updateLink)
+    i.updateMenu                             0x08007040   Section        0  mainmenu.o(i.updateMenu)
+    i.updateObjects                          0x08007174   Section        0  testgame.o(i.updateObjects)
+    i.validate                               0x080071b0   Section        0  ff.o(i.validate)
+    validate                                 0x080071b1   Thumb Code    70  ff.o(i.validate)
+    i.writeCharToScreen                      0x080071f8   Section        0  gameman_reva0.o(i.writeCharToScreen)
+    i.writeStringToScreen                    0x080072b0   Section        0  gameman_reva0.o(i.writeStringToScreen)
+    .constdata                               0x08007316   Section       16  stm32f4xx_hal_rcc.o(.constdata)
+    .constdata                               0x08007326   Section      186  ff.o(.constdata)
+    ExCvt                                    0x08007326   Data         128  ff.o(.constdata)
+    LfnOfs                                   0x080073a6   Data          13  ff.o(.constdata)
+    vst                                      0x080073b4   Data          22  ff.o(.constdata)
+    cst                                      0x080073ca   Data          22  ff.o(.constdata)
+    .constdata                               0x080073e0   Section     1216  ccsbcs.o(.constdata)
+    Tbl                                      0x080073e0   Data         256  ccsbcs.o(.constdata)
+    tbl_lower                                0x080074e0   Data         480  ccsbcs.o(.constdata)
+    tbl_upper                                0x080076c0   Data         480  ccsbcs.o(.constdata)
+    .constdata                               0x080078a0   Section     4062  testgame.o(.constdata)
+    sta013_patch                             0x080078a0   Data        4020  testgame.o(.constdata)
+    .constdata                               0x0800887e   Section    74690  stm32f4xx_it.o(.constdata)
+    sta013_patch                             0x0800887e   Data        4020  stm32f4xx_it.o(.constdata)
+    kraidslair                               0x08009832   Data       70670  stm32f4xx_it.o(.constdata)
+    .constdata                               0x0801ac40   Section     5160  gameman_reva0.o(.constdata)
+    sta013_patch                             0x0801ac40   Data        4020  gameman_reva0.o(.constdata)
+    .conststring                             0x0801c068   Section      110  testgame.o(.conststring)
     .data                                    0x20000000   Section        4  stm32f4xx_hal.o(.data)
     uwTick                                   0x20000000   Data           4  stm32f4xx_hal.o(.data)
     .data                                    0x20000004   Section       20  system_stm32f4xx.o(.data)
@@ -2153,18 +2222,18 @@ Image Symbol Table
     FMC_Initialized                          0x20000038   Data           4  stm32f4xx_hal_msp.o(.data)
     FMC_DeInitialized                        0x2000003c   Data           4  stm32f4xx_hal_msp.o(.data)
     .data                                    0x20000040   Section       24  main.o(.data)
-    .data                                    0x20000058   Section       29  testgame.o(.data)
-    .data                                    0x20000078   Section       24  gameman_reva0.o(.data)
-    .data                                    0x20000090   Section        4  mvars.o(.data)
-    .data                                    0x20000094   Section        4  mvars.o(.data)
-    .bss                                     0x20000098   Section       24  ff.o(.bss)
-    Files                                    0x20000098   Data          24  ff.o(.bss)
-    .bss                                     0x200000b0   Section       12  ff_gen_drv.o(.bss)
-    .bss                                     0x200000c0   Section     1496  main.o(.bss)
-    .bss                                     0x20000698   Section     1028  testgame.o(.bss)
-    .bss                                     0x20000a9c   Section       80  gameman_reva0.o(.bss)
-    HEAP                                     0x20000af0   Section    153600  startup_stm32f439xx.o(HEAP)
-    STACK                                    0x200262f0   Section     4096  startup_stm32f439xx.o(STACK)
+    .data                                    0x20000058   Section       33  testgame.o(.data)
+    .data                                    0x2000007c   Section       28  gameman_reva0.o(.data)
+    .data                                    0x20000098   Section        4  mvars.o(.data)
+    .data                                    0x2000009c   Section        4  mvars.o(.data)
+    .bss                                     0x200000a0   Section       24  ff.o(.bss)
+    Files                                    0x200000a0   Data          24  ff.o(.bss)
+    .bss                                     0x200000b8   Section       12  ff_gen_drv.o(.bss)
+    .bss                                     0x200000c8   Section     1496  main.o(.bss)
+    .bss                                     0x200006a0   Section     1028  testgame.o(.bss)
+    .bss                                     0x20000aa4   Section       80  gameman_reva0.o(.bss)
+    HEAP                                     0x20000af8   Section    153600  startup_stm32f439xx.o(HEAP)
+    STACK                                    0x200262f8   Section     4096  startup_stm32f439xx.o(STACK)
 
     Global Symbols
 
@@ -2439,42 +2508,64 @@ Image Symbol Table
     __scatterload_copy                       0x08004555   Thumb Code    14  handlers.o(i.__scatterload_copy)
     __scatterload_null                       0x08004563   Thumb Code     2  handlers.o(i.__scatterload_null)
     __scatterload_zeroinit                   0x08004565   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    clearBothFrameBuffers                    0x08004761   Thumb Code    24  gameman_reva0.o(i.clearBothFrameBuffers)
-    clearFrameBuffer                         0x08004779   Thumb Code    24  gameman_reva0.o(i.clearFrameBuffer)
-    constructMenu                            0x080047c5   Thumb Code    92  mainmenu.o(i.constructMenu)
-    deconstructMenu                          0x0800482d   Thumb Code    18  mainmenu.o(i.deconstructMenu)
-    disk_initialize                          0x08004841   Thumb Code    34  diskio.o(i.disk_initialize)
-    disk_read                                0x08004869   Thumb Code    36  diskio.o(i.disk_read)
-    disk_status                              0x08004891   Thumb Code    20  diskio.o(i.disk_status)
-    disk_write                               0x080048a9   Thumb Code    36  diskio.o(i.disk_write)
-    enqueue                                  0x080048d1   Thumb Code   110  drawqueue.o(i.enqueue)
-    f_mount                                  0x08004941   Thumb Code    96  ff.o(i.f_mount)
-    fputc                                    0x08004d71   Thumb Code    22  main.o(i.fputc)
-    framebuffer_layer_init                   0x08004d8d   Thumb Code    90  gameman_reva0.o(i.framebuffer_layer_init)
-    free                                     0x08004ded   Thumb Code    76  malloc.o(i.free)
-    getInputs                                0x08004e3d   Thumb Code    56  gameman_reva0.o(i.getInputs)
-    initQueue                                0x08004eaf   Thumb Code    14  drawqueue.o(i.initQueue)
-    initiateSPIRx                            0x08004ebd   Thumb Code    30  gameman_reva0.o(i.initiateSPIRx)
-    isEmpty                                  0x08004edb   Thumb Code    22  drawqueue.o(i.isEmpty)
-    isFull                                   0x08004ef1   Thumb Code    26  drawqueue.o(i.isFull)
-    main                                     0x08004f0d   Thumb Code   122  main.o(i.main)
-    malloc                                   0x08004f95   Thumb Code    92  malloc.o(i.malloc)
-    removeItem                               0x08005037   Thumb Code    86  drawqueue.o(i.removeItem)
-    renderMenuCPU                            0x0800508d   Thumb Code   100  mainmenu.o(i.renderMenuCPU)
-    renderMenuDMA2D                          0x080050f1   Thumb Code     2  mainmenu.o(i.renderMenuDMA2D)
-    retrieveSPI                              0x080050f3   Thumb Code    24  gameman_reva0.o(i.retrieveSPI)
-    runGame                                  0x0800510d   Thumb Code   196  testgame.o(i.runGame)
-    swap                                     0x08005225   Thumb Code    44  gameman_reva0.o(i.swap)
-    updateGame                               0x080052b9   Thumb Code   232  testgame.o(i.updateGame)
-    updateMenu                               0x080053c5   Thumb Code   298  mainmenu.o(i.updateMenu)
-    updateObjects                            0x080054f9   Thumb Code    54  testgame.o(i.updateObjects)
-    writeCharToScreen                        0x08005535   Thumb Code   174  gameman_reva0.o(i.writeCharToScreen)
-    writeStringToScreen                      0x080055ed   Thumb Code   102  gameman_reva0.o(i.writeStringToScreen)
-    APBAHBPrescTable                         0x08005652   Data          16  stm32f4xx_hal_rcc.o(.constdata)
-    main_menu_header                         0x08006616   Data          42  testgame.o(.constdata)
-    Font12_Table                             0x080199b6   Data        1140  gameman_reva0.o(.constdata)
-    Region$$Table$$Base                      0x08019e9c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08019ebc   Number         0  anon$$obj.o(Region$$Table)
+    clearBothFrameBuffers                    0x08004805   Thumb Code    24  gameman_reva0.o(i.clearBothFrameBuffers)
+    clearFrameBuffer                         0x0800481d   Thumb Code    24  gameman_reva0.o(i.clearFrameBuffer)
+    clust2sect                               0x080048a1   Thumb Code    32  ff.o(i.clust2sect)
+    constructLink                            0x08004951   Thumb Code    94  link_pc.o(i.constructLink)
+    constructMenu                            0x080049bd   Thumb Code    92  mainmenu.o(i.constructMenu)
+    deconstructLink                          0x08004d39   Thumb Code    18  link_pc.o(i.deconstructLink)
+    deconstructMenu                          0x08004d4b   Thumb Code    18  mainmenu.o(i.deconstructMenu)
+    disk_initialize                          0x08005231   Thumb Code    34  diskio.o(i.disk_initialize)
+    disk_read                                0x08005259   Thumb Code    36  diskio.o(i.disk_read)
+    disk_status                              0x08005281   Thumb Code    20  diskio.o(i.disk_status)
+    disk_write                               0x08005299   Thumb Code    36  diskio.o(i.disk_write)
+    enqueue                                  0x080052e9   Thumb Code   110  drawqueue.o(i.enqueue)
+    f_lseek                                  0x08005357   Thumb Code   804  ff.o(i.f_lseek)
+    f_mount                                  0x0800567d   Thumb Code    96  ff.o(i.f_mount)
+    f_open                                   0x080056e1   Thumb Code   478  ff.o(i.f_open)
+    f_read                                   0x080058bf   Thumb Code   518  ff.o(i.f_read)
+    ff_convert                               0x08005ac5   Thumb Code    70  ccsbcs.o(i.ff_convert)
+    ff_memalloc                              0x08005b11   Thumb Code    12  syscall.o(i.ff_memalloc)
+    ff_memfree                               0x08005b1d   Thumb Code    12  syscall.o(i.ff_memfree)
+    ff_wtoupper                              0x08005b29   Thumb Code    46  ccsbcs.o(i.ff_wtoupper)
+    fputc                                    0x08006049   Thumb Code    22  main.o(i.fputc)
+    framebuffer_layer_init                   0x08006065   Thumb Code    90  gameman_reva0.o(i.framebuffer_layer_init)
+    free                                     0x080060c5   Thumb Code    76  malloc.o(i.free)
+    gen_numname                              0x08006115   Thumb Code   168  ff.o(i.gen_numname)
+    getInputs                                0x080061bd   Thumb Code    56  gameman_reva0.o(i.getInputs)
+    get_fat                                  0x080061fd   Thumb Code   224  ff.o(i.get_fat)
+    get_fattime                              0x080062dd   Thumb Code     4  diskio.o(i.get_fattime)
+    initQueue                                0x080063fd   Thumb Code    14  drawqueue.o(i.initQueue)
+    initiateSPIRx                            0x0800640b   Thumb Code    30  gameman_reva0.o(i.initiateSPIRx)
+    isEmpty                                  0x08006429   Thumb Code    22  drawqueue.o(i.isEmpty)
+    isFull                                   0x0800643f   Thumb Code    26  drawqueue.o(i.isFull)
+    loadImage                                0x0800647d   Thumb Code   296  bitmap_tools.o(i.loadImage)
+    loadLinkSpriteSet                        0x080065a9   Thumb Code    88  link_pc.o(i.loadLinkSpriteSet)
+    main                                     0x080066ed   Thumb Code   122  main.o(i.main)
+    malloc                                   0x08006775   Thumb Code    92  malloc.o(i.malloc)
+    put_fat                                  0x0800686b   Thumb Code   310  ff.o(i.put_fat)
+    removeItem                               0x080069a1   Thumb Code    86  drawqueue.o(i.removeItem)
+    renderLinkCPU                            0x08006a71   Thumb Code    76  link_pc.o(i.renderLinkCPU)
+    renderLinkDMA2D                          0x08006ac1   Thumb Code     2  link_pc.o(i.renderLinkDMA2D)
+    renderMenuCPU                            0x08006ac3   Thumb Code   100  mainmenu.o(i.renderMenuCPU)
+    renderMenuDMA2D                          0x08006b27   Thumb Code     2  mainmenu.o(i.renderMenuDMA2D)
+    retrieveSPI                              0x08006b29   Thumb Code    24  gameman_reva0.o(i.retrieveSPI)
+    runGame                                  0x08006b41   Thumb Code   196  testgame.o(i.runGame)
+    simpleLoad                               0x08006c59   Thumb Code    38  gameman_reva0.o(i.simpleLoad)
+    swap                                     0x08006cb5   Thumb Code    44  gameman_reva0.o(i.swap)
+    switchToLinkTest                         0x08006ced   Thumb Code    54  testgame.o(i.switchToLinkTest)
+    switchToMainMenu                         0x08006d35   Thumb Code    60  testgame.o(i.switchToMainMenu)
+    updateGame                               0x08006de9   Thumb Code   248  testgame.o(i.updateGame)
+    updateLink                               0x08006efd   Thumb Code   316  link_pc.o(i.updateLink)
+    updateMenu                               0x08007041   Thumb Code   298  mainmenu.o(i.updateMenu)
+    updateObjects                            0x08007175   Thumb Code    54  testgame.o(i.updateObjects)
+    writeCharToScreen                        0x080071f9   Thumb Code   174  gameman_reva0.o(i.writeCharToScreen)
+    writeStringToScreen                      0x080072b1   Thumb Code   102  gameman_reva0.o(i.writeStringToScreen)
+    APBAHBPrescTable                         0x08007316   Data          16  stm32f4xx_hal_rcc.o(.constdata)
+    main_menu_header                         0x08008854   Data          42  testgame.o(.constdata)
+    Font12_Table                             0x0801bbf4   Data        1140  gameman_reva0.o(.constdata)
+    Region$$Table$$Base                      0x0801c0d8   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0801c0f8   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000004   Data           4  system_stm32f4xx.o(.data)
     AHBPrescTable                            0x20000008   Data          16  system_stm32f4xx.o(.data)
     SD_Driver                                0x20000024   Data          20  sd_diskio.o(.data)
@@ -2487,35 +2578,37 @@ Image Symbol Table
     delay_timestamp                          0x2000005c   Data           4  testgame.o(.data)
     mainMenu                                 0x20000060   Data           4  testgame.o(.data)
     main_menu_options                        0x20000064   Data          16  testgame.o(.data)
-    renderstyle                              0x20000074   Data           1  testgame.o(.data)
-    framebuffer_0                            0x20000078   Data           4  gameman_reva0.o(.data)
-    framebuffer_1                            0x2000007c   Data           4  gameman_reva0.o(.data)
-    mp3_ptr                                  0x20000080   Data           4  gameman_reva0.o(.data)
-    mp3_end_ptr                              0x20000084   Data           4  gameman_reva0.o(.data)
-    file_ptr                                 0x20000088   Data           4  gameman_reva0.o(.data)
-    input_ptr                                0x2000008c   Data           4  gameman_reva0.o(.data)
-    __microlib_freelist                      0x20000090   Data           4  mvars.o(.data)
-    __microlib_freelist_initialised          0x20000094   Data           4  mvars.o(.data)
-    disk                                     0x200000b0   Data          12  ff_gen_drv.o(.bss)
-    hdac                                     0x200000c0   Data          20  main.o(.bss)
-    hdma2d                                   0x200000d4   Data          64  main.o(.bss)
-    hi2c1                                    0x20000114   Data          56  main.o(.bss)
-    hltdc                                    0x2000014c   Data         168  main.o(.bss)
-    hsd                                      0x200001f4   Data          96  main.o(.bss)
-    SDCardInfo                               0x20000258   Data          88  main.o(.bss)
-    input_spi                                0x200002b0   Data          84  main.o(.bss)
-    mp3_spi                                  0x20000304   Data          84  main.o(.bss)
-    lcd_spi                                  0x20000358   Data          84  main.o(.bss)
-    huart1                                   0x200003ac   Data          60  main.o(.bss)
-    huart6                                   0x200003e8   Data          60  main.o(.bss)
-    hsram1                                   0x20000424   Data          72  main.o(.bss)
-    file                                     0x2000046c   Data         556  main.o(.bss)
-    drawQueue                                0x20000698   Data        1028  testgame.o(.bss)
-    buttonInput                              0x20000a9c   Data          40  gameman_reva0.o(.bss)
-    touchInput                               0x20000ac4   Data          40  gameman_reva0.o(.bss)
-    __heap_base                              0x20000af0   Data           0  startup_stm32f439xx.o(HEAP)
-    __heap_limit                             0x200262f0   Data           0  startup_stm32f439xx.o(HEAP)
-    __initial_sp                             0x200272f0   Data           0  startup_stm32f439xx.o(STACK)
+    link                                     0x20000074   Data           4  testgame.o(.data)
+    renderstyle                              0x20000078   Data           1  testgame.o(.data)
+    globalLoadPointer                        0x2000007c   Data           4  gameman_reva0.o(.data)
+    framebuffer_0                            0x20000080   Data           4  gameman_reva0.o(.data)
+    framebuffer_1                            0x20000084   Data           4  gameman_reva0.o(.data)
+    mp3_ptr                                  0x20000088   Data           4  gameman_reva0.o(.data)
+    mp3_end_ptr                              0x2000008c   Data           4  gameman_reva0.o(.data)
+    file_ptr                                 0x20000090   Data           4  gameman_reva0.o(.data)
+    input_ptr                                0x20000094   Data           4  gameman_reva0.o(.data)
+    __microlib_freelist                      0x20000098   Data           4  mvars.o(.data)
+    __microlib_freelist_initialised          0x2000009c   Data           4  mvars.o(.data)
+    disk                                     0x200000b8   Data          12  ff_gen_drv.o(.bss)
+    hdac                                     0x200000c8   Data          20  main.o(.bss)
+    hdma2d                                   0x200000dc   Data          64  main.o(.bss)
+    hi2c1                                    0x2000011c   Data          56  main.o(.bss)
+    hltdc                                    0x20000154   Data         168  main.o(.bss)
+    hsd                                      0x200001fc   Data          96  main.o(.bss)
+    SDCardInfo                               0x20000260   Data          88  main.o(.bss)
+    input_spi                                0x200002b8   Data          84  main.o(.bss)
+    mp3_spi                                  0x2000030c   Data          84  main.o(.bss)
+    lcd_spi                                  0x20000360   Data          84  main.o(.bss)
+    huart1                                   0x200003b4   Data          60  main.o(.bss)
+    huart6                                   0x200003f0   Data          60  main.o(.bss)
+    hsram1                                   0x2000042c   Data          72  main.o(.bss)
+    file                                     0x20000474   Data         556  main.o(.bss)
+    drawQueue                                0x200006a0   Data        1028  testgame.o(.bss)
+    buttonInput                              0x20000aa4   Data          40  gameman_reva0.o(.bss)
+    touchInput                               0x20000acc   Data          40  gameman_reva0.o(.bss)
+    __heap_base                              0x20000af8   Data           0  startup_stm32f439xx.o(HEAP)
+    __heap_limit                             0x200262f8   Data           0  startup_stm32f439xx.o(HEAP)
+    __initial_sp                             0x200272f8   Data           0  startup_stm32f439xx.o(STACK)
 
 
 
@@ -2525,42 +2618,42 @@ Memory Map of the image
 
   Image Entry point : 0x080001ad
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00019f54, Max: 0x00200000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0001c198, Max: 0x00200000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00019ebc, Max: 0x00200000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x0001c0f8, Max: 0x00200000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x08000000   0x000001ac   Data   RO            3    RESET               startup_stm32f439xx.o
-    0x080001ac   0x00000000   Code   RO         4620  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x080001ac   0x00000004   Code   RO         4920    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x080001b0   0x00000004   Code   RO         4923    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x080001b4   0x00000000   Code   RO         4925    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x080001b4   0x00000000   Code   RO         4927    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x080001b4   0x00000008   Code   RO         4928    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x080001bc   0x00000000   Code   RO         4930    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x080001bc   0x00000000   Code   RO         4932    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x080001bc   0x00000004   Code   RO         4921    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x080001ac   0x00000000   Code   RO         4703  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x080001ac   0x00000004   Code   RO         5003    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x080001b0   0x00000004   Code   RO         5006    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x080001b4   0x00000000   Code   RO         5008    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x080001b4   0x00000000   Code   RO         5010    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x080001b4   0x00000008   Code   RO         5011    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x080001bc   0x00000000   Code   RO         5013    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x080001bc   0x00000000   Code   RO         5015    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x080001bc   0x00000004   Code   RO         5004    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x080001c0   0x00000024   Code   RO            4    .text               startup_stm32f439xx.o
-    0x080001e4   0x00000062   Code   RO         4623    .text               mc_w.l(uldiv.o)
-    0x08000246   0x00000024   Code   RO         4625    .text               mc_w.l(memcpya.o)
-    0x0800026a   0x0000002c   Code   RO         4934    .text               mc_w.l(uidiv.o)
-    0x08000296   0x0000001e   Code   RO         4936    .text               mc_w.l(llshl.o)
-    0x080002b4   0x00000020   Code   RO         4938    .text               mc_w.l(llushr.o)
-    0x080002d4   0x00000024   Code   RO         4953    .text               mc_w.l(init.o)
+    0x080001e4   0x00000062   Code   RO         4706    .text               mc_w.l(uldiv.o)
+    0x08000246   0x00000024   Code   RO         4708    .text               mc_w.l(memcpya.o)
+    0x0800026a   0x0000002c   Code   RO         5017    .text               mc_w.l(uidiv.o)
+    0x08000296   0x0000001e   Code   RO         5019    .text               mc_w.l(llshl.o)
+    0x080002b4   0x00000020   Code   RO         5021    .text               mc_w.l(llushr.o)
+    0x080002d4   0x00000024   Code   RO         5036    .text               mc_w.l(init.o)
     0x080002f8   0x00000014   Code   RO         3836    i.BSP_SD_GetCardInfo  bsp_driver_sd.o
     0x0800030c   0x00000010   Code   RO         3837    i.BSP_SD_GetStatus  bsp_driver_sd.o
     0x0800031c   0x00000060   Code   RO         3840    i.BSP_SD_Init       bsp_driver_sd.o
     0x0800037c   0x0000000c   Code   RO         3841    i.BSP_SD_IsDetected  bsp_driver_sd.o
     0x08000388   0x00000030   Code   RO         3842    i.BSP_SD_ReadBlocks  bsp_driver_sd.o
     0x080003b8   0x00000030   Code   RO         3844    i.BSP_SD_WriteBlocks  bsp_driver_sd.o
-    0x080003e8   0x000000dc   Code   RO         4352    i.EXTI0_IRQHandler  stm32f4xx_it.o
-    0x080004c4   0x0000000c   Code   RO         4390    i.Error_Handler     gameman_reva0.o
+    0x080003e8   0x000000dc   Code   RO         4370    i.EXTI0_IRQHandler  stm32f4xx_it.o
+    0x080004c4   0x0000000c   Code   RO         4408    i.Error_Handler     gameman_reva0.o
     0x080004d0   0x0000004c   Code   RO         3594    i.FATFS_LinkDriver  ff_gen_drv.o
     0x0800051c   0x00000044   Code   RO         1240    i.FMC_NORSRAM_Extended_Timing_Init  stm32f4xx_ll_fmc.o
     0x08000560   0x0000006c   Code   RO         1241    i.FMC_NORSRAM_Init  stm32f4xx_ll_fmc.o
     0x080005cc   0x00000054   Code   RO         1242    i.FMC_NORSRAM_Timing_Init  stm32f4xx_ll_fmc.o
-    0x08000620   0x0000002c   Code   RO         4393    i.GameManLed_Write  gameman_reva0.o
+    0x08000620   0x0000002c   Code   RO         4411    i.GameManLed_Write  gameman_reva0.o
     0x0800064c   0x0000005c   Code   RO         1098    i.HAL_DAC_ConfigChannel  stm32f4xx_hal_dac.o
     0x080006a8   0x00000024   Code   RO         1108    i.HAL_DAC_Init      stm32f4xx_hal_dac.o
     0x080006cc   0x00000040   Code   RO         3937    i.HAL_DAC_MspInit   stm32f4xx_hal_msp.o
@@ -2634,8 +2727,8 @@ Memory Map of the image
     0x08003204   0x0000003c   Code   RO         4086    i.MX_SPI5_Init      main.o
     0x08003240   0x00000030   Code   RO         4087    i.MX_USART1_UART_Init  main.o
     0x08003270   0x00000030   Code   RO         4088    i.MX_USART6_UART_Init  main.o
-    0x080032a0   0x0000003c   Code   RO         4395    i.NV3035_init       gameman_reva0.o
-    0x080032dc   0x00000044   Code   RO         4396    i.NV3035_send_cmd   gameman_reva0.o
+    0x080032a0   0x0000003c   Code   RO         4413    i.NV3035_init       gameman_reva0.o
+    0x080032dc   0x00000044   Code   RO         4414    i.NV3035_send_cmd   gameman_reva0.o
     0x08003320   0x00000010   Code   RO         1423    i.NVIC_GetPriorityGrouping  stm32f4xx_hal_cortex.o
     0x08003330   0x00000028   Code   RO         1424    i.NVIC_SetPriority  stm32f4xx_hal_cortex.o
     0x08003358   0x0000002c   Code   RO         1640    i.SDIO_DataConfig   stm32f4xx_ll_sdmmc.o
@@ -2670,72 +2763,119 @@ Memory Map of the image
     0x08003fa4   0x00000024   Code   RO         3756    i.SD_status         sd_diskio.o
     0x08003fc8   0x0000002a   Code   RO         3757    i.SD_write          sd_diskio.o
     0x08003ff2   0x00000114   Code   RO         2416    i.SPI_WaitOnFlagUntilTimeout  stm32f4xx_hal_spi.o
-    0x08004106   0x0000000c   Code   RO         4353    i.SysTick_Handler   stm32f4xx_it.o
+    0x08004106   0x0000000c   Code   RO         4371    i.SysTick_Handler   stm32f4xx_it.o
     0x08004112   0x00000002   PAD
     0x08004114   0x00000098   Code   RO         4089    i.SystemClock_Config  main.o
     0x080041ac   0x00000064   Code   RO         3184    i.SystemInit        system_stm32f4xx.o
     0x08004210   0x00000228   Code   RO         1984    i.UART_SetConfig    stm32f4xx_hal_uart.o
     0x08004438   0x000000fa   Code   RO         1986    i.UART_WaitOnFlagUntilTimeout  stm32f4xx_hal_uart.o
     0x08004532   0x00000002   PAD
-    0x08004534   0x00000020   Code   RO         4676    i.__0printf$1       mc_w.l(printf1.o)
-    0x08004554   0x0000000e   Code   RO         4961    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x08004562   0x00000002   Code   RO         4962    i.__scatterload_null  mc_w.l(handlers.o)
-    0x08004564   0x0000000e   Code   RO         4963    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x08004534   0x00000020   Code   RO         4759    i.__0printf$1       mc_w.l(printf1.o)
+    0x08004554   0x0000000e   Code   RO         5044    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x08004562   0x00000002   Code   RO         5045    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08004564   0x0000000e   Code   RO         5046    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x08004572   0x00000002   PAD
-    0x08004574   0x00000154   Code   RO         4683    i._printf_core      mc_w.l(printf1.o)
+    0x08004574   0x00000154   Code   RO         4766    i._printf_core      mc_w.l(printf1.o)
     0x080046c8   0x00000098   Code   RO         3215    i.check_fs          ff.o
-    0x08004760   0x00000018   Code   RO         4397    i.clearBothFrameBuffers  gameman_reva0.o
-    0x08004778   0x0000001c   Code   RO         4398    i.clearFrameBuffer  gameman_reva0.o
-    0x08004794   0x00000030   Code   RO         3218    i.clear_lock        ff.o
-    0x080047c4   0x00000068   Code   RO         4576    i.constructMenu     mainmenu.o
-    0x0800482c   0x00000012   Code   RO         4577    i.deconstructMenu   mainmenu.o
-    0x0800483e   0x00000002   PAD
-    0x08004840   0x00000028   Code   RO         3631    i.disk_initialize   diskio.o
-    0x08004868   0x00000028   Code   RO         3633    i.disk_read         diskio.o
-    0x08004890   0x00000018   Code   RO         3634    i.disk_status       diskio.o
-    0x080048a8   0x00000028   Code   RO         3635    i.disk_write        diskio.o
-    0x080048d0   0x0000006e   Code   RO         4245    i.enqueue           drawqueue.o
-    0x0800493e   0x00000002   PAD
-    0x08004940   0x00000064   Code   RO         3241    i.f_mount           ff.o
-    0x080049a4   0x000003cc   Code   RO         3256    i.find_volume       ff.o
-    0x08004d70   0x0000001c   Code   RO         4094    i.fputc             main.o
-    0x08004d8c   0x00000060   Code   RO         4400    i.framebuffer_layer_init  gameman_reva0.o
-    0x08004dec   0x00000050   Code   RO         4892    i.free              mc_w.l(malloc.o)
-    0x08004e3c   0x00000040   Code   RO         4401    i.getInputs         gameman_reva0.o
-    0x08004e7c   0x00000032   Code   RO         3262    i.get_ldnumber      ff.o
-    0x08004eae   0x0000000e   Code   RO         4247    i.initQueue         drawqueue.o
-    0x08004ebc   0x0000001e   Code   RO         4402    i.initiateSPIRx     gameman_reva0.o
-    0x08004eda   0x00000016   Code   RO         4248    i.isEmpty           drawqueue.o
-    0x08004ef0   0x0000001a   Code   RO         4249    i.isFull            drawqueue.o
-    0x08004f0a   0x00000002   PAD
-    0x08004f0c   0x00000088   Code   RO         4095    i.main              main.o
-    0x08004f94   0x0000006c   Code   RO         4893    i.malloc            mc_w.l(malloc.o)
-    0x08005000   0x00000036   Code   RO         3268    i.move_window       ff.o
-    0x08005036   0x00000056   Code   RO         4250    i.removeItem        drawqueue.o
-    0x0800508c   0x00000064   Code   RO         4578    i.renderMenuCPU     mainmenu.o
-    0x080050f0   0x00000002   Code   RO         4579    i.renderMenuDMA2D   mainmenu.o
-    0x080050f2   0x00000018   Code   RO         4404    i.retrieveSPI       gameman_reva0.o
-    0x0800510a   0x00000002   PAD
-    0x0800510c   0x00000118   Code   RO         4303    i.runGame           testgame.o
-    0x08005224   0x00000038   Code   RO         4409    i.swap              gameman_reva0.o
-    0x0800525c   0x0000005a   Code   RO         3276    i.sync_window       ff.o
-    0x080052b6   0x00000002   PAD
-    0x080052b8   0x0000010c   Code   RO         4304    i.updateGame        testgame.o
-    0x080053c4   0x00000134   Code   RO         4580    i.updateMenu        mainmenu.o
-    0x080054f8   0x0000003c   Code   RO         4305    i.updateObjects     testgame.o
-    0x08005534   0x000000b8   Code   RO         4410    i.writeCharToScreen  gameman_reva0.o
-    0x080055ec   0x00000066   Code   RO         4411    i.writeStringToScreen  gameman_reva0.o
-    0x08005652   0x00000010   Data   RO         1862    .constdata          stm32f4xx_hal_rcc.o
-    0x08005662   0x00000fde   Data   RO         4307    .constdata          testgame.o
-    0x08006640   0x000123c2   Data   RO         4354    .constdata          stm32f4xx_it.o
-    0x08018a02   0x00001428   Data   RO         4413    .constdata          gameman_reva0.o
-    0x08019e2a   0x00000002   PAD
-    0x08019e2c   0x0000006e   Data   RO         4308    .conststring        testgame.o
-    0x08019e9a   0x00000002   PAD
-    0x08019e9c   0x00000020   Data   RO         4959    Region$$Table       anon$$obj.o
+    0x08004760   0x00000014   Code   RO         3216    i.chk_chr           ff.o
+    0x08004774   0x00000090   Code   RO         3217    i.chk_lock          ff.o
+    0x08004804   0x00000018   Code   RO         4415    i.clearBothFrameBuffers  gameman_reva0.o
+    0x0800481c   0x0000001c   Code   RO         4416    i.clearFrameBuffer  gameman_reva0.o
+    0x08004838   0x00000030   Code   RO         3218    i.clear_lock        ff.o
+    0x08004868   0x00000038   Code   RO         3219    i.clmt_clust        ff.o
+    0x080048a0   0x00000020   Code   RO         3220    i.clust2sect        ff.o
+    0x080048c0   0x00000090   Code   RO         3221    i.cmp_lfn           ff.o
+    0x08004950   0x0000006c   Code   RO         4649    i.constructLink     link_pc.o
+    0x080049bc   0x00000068   Code   RO         4603    i.constructMenu     mainmenu.o
+    0x08004a24   0x000000e2   Code   RO         3222    i.create_chain      ff.o
+    0x08004b06   0x00000002   PAD
+    0x08004b08   0x00000230   Code   RO         3223    i.create_name       ff.o
+    0x08004d38   0x00000012   Code   RO         4650    i.deconstructLink   link_pc.o
+    0x08004d4a   0x00000012   Code   RO         4604    i.deconstructMenu   mainmenu.o
+    0x08004d5c   0x00000064   Code   RO         3225    i.dir_alloc         ff.o
+    0x08004dc0   0x000000f2   Code   RO         3226    i.dir_find          ff.o
+    0x08004eb2   0x0000015e   Code   RO         3227    i.dir_next          ff.o
+    0x08005010   0x00000156   Code   RO         3229    i.dir_register      ff.o
+    0x08005166   0x000000ca   Code   RO         3231    i.dir_sdi           ff.o
+    0x08005230   0x00000028   Code   RO         3631    i.disk_initialize   diskio.o
+    0x08005258   0x00000028   Code   RO         3633    i.disk_read         diskio.o
+    0x08005280   0x00000018   Code   RO         3634    i.disk_status       diskio.o
+    0x08005298   0x00000028   Code   RO         3635    i.disk_write        diskio.o
+    0x080052c0   0x00000028   Code   RO         3232    i.enq_lock          ff.o
+    0x080052e8   0x0000006e   Code   RO         4251    i.enqueue           drawqueue.o
+    0x08005356   0x00000324   Code   RO         3238    i.f_lseek           ff.o
+    0x0800567a   0x00000002   PAD
+    0x0800567c   0x00000064   Code   RO         3241    i.f_mount           ff.o
+    0x080056e0   0x000001de   Code   RO         3242    i.f_open            ff.o
+    0x080058be   0x00000206   Code   RO         3247    i.f_read            ff.o
+    0x08005ac4   0x0000004c   Code   RO         3803    i.ff_convert        ccsbcs.o
+    0x08005b10   0x0000000c   Code   RO         3682    i.ff_memalloc       syscall.o
+    0x08005b1c   0x0000000c   Code   RO         3683    i.ff_memfree        syscall.o
+    0x08005b28   0x00000038   Code   RO         3804    i.ff_wtoupper       ccsbcs.o
+    0x08005b60   0x000003cc   Code   RO         3256    i.find_volume       ff.o
+    0x08005f2c   0x00000080   Code   RO         3257    i.fit_lfn           ff.o
+    0x08005fac   0x0000009c   Code   RO         3258    i.follow_path       ff.o
+    0x08006048   0x0000001c   Code   RO         4094    i.fputc             main.o
+    0x08006064   0x00000060   Code   RO         4418    i.framebuffer_layer_init  gameman_reva0.o
+    0x080060c4   0x00000050   Code   RO         4975    i.free              mc_w.l(malloc.o)
+    0x08006114   0x000000a8   Code   RO         3259    i.gen_numname       ff.o
+    0x080061bc   0x00000040   Code   RO         4419    i.getInputs         gameman_reva0.o
+    0x080061fc   0x000000e0   Code   RO         3260    i.get_fat           ff.o
+    0x080062dc   0x00000004   Code   RO         3636    i.get_fattime       diskio.o
+    0x080062e0   0x00000032   Code   RO         3262    i.get_ldnumber      ff.o
+    0x08006312   0x00000002   PAD
+    0x08006314   0x000000e8   Code   RO         3263    i.inc_lock          ff.o
+    0x080063fc   0x0000000e   Code   RO         4253    i.initQueue         drawqueue.o
+    0x0800640a   0x0000001e   Code   RO         4420    i.initiateSPIRx     gameman_reva0.o
+    0x08006428   0x00000016   Code   RO         4254    i.isEmpty           drawqueue.o
+    0x0800643e   0x0000001a   Code   RO         4255    i.isFull            drawqueue.o
+    0x08006458   0x00000022   Code   RO         3264    i.ld_clust          ff.o
+    0x0800647a   0x00000002   PAD
+    0x0800647c   0x0000012c   Code   RO         4578    i.loadImage         bitmap_tools.o
+    0x080065a8   0x00000144   Code   RO         4651    i.loadLinkSpriteSet  link_pc.o
+    0x080066ec   0x00000088   Code   RO         4095    i.main              main.o
+    0x08006774   0x0000006c   Code   RO         4976    i.malloc            mc_w.l(malloc.o)
+    0x080067e0   0x00000026   Code   RO         3265    i.mem_cmp           ff.o
+    0x08006806   0x0000001a   Code   RO         3266    i.mem_cpy           ff.o
+    0x08006820   0x00000014   Code   RO         3267    i.mem_set           ff.o
+    0x08006834   0x00000036   Code   RO         3268    i.move_window       ff.o
+    0x0800686a   0x00000136   Code   RO         3270    i.put_fat           ff.o
+    0x080069a0   0x00000056   Code   RO         4256    i.removeItem        drawqueue.o
+    0x080069f6   0x0000007a   Code   RO         3272    i.remove_chain      ff.o
+    0x08006a70   0x00000050   Code   RO         4652    i.renderLinkCPU     link_pc.o
+    0x08006ac0   0x00000002   Code   RO         4653    i.renderLinkDMA2D   link_pc.o
+    0x08006ac2   0x00000064   Code   RO         4605    i.renderMenuCPU     mainmenu.o
+    0x08006b26   0x00000002   Code   RO         4606    i.renderMenuDMA2D   mainmenu.o
+    0x08006b28   0x00000018   Code   RO         4423    i.retrieveSPI       gameman_reva0.o
+    0x08006b40   0x00000118   Code   RO         4309    i.runGame           testgame.o
+    0x08006c58   0x0000002c   Code   RO         4426    i.simpleLoad        gameman_reva0.o
+    0x08006c84   0x00000010   Code   RO         3273    i.st_clust          ff.o
+    0x08006c94   0x00000020   Code   RO         3274    i.sum_sfn           ff.o
+    0x08006cb4   0x00000038   Code   RO         4429    i.swap              gameman_reva0.o
+    0x08006cec   0x00000048   Code   RO         4310    i.switchToLinkTest  testgame.o
+    0x08006d34   0x00000058   Code   RO         4311    i.switchToMainMenu  testgame.o
+    0x08006d8c   0x0000005a   Code   RO         3276    i.sync_window       ff.o
+    0x08006de6   0x00000002   PAD
+    0x08006de8   0x00000114   Code   RO         4312    i.updateGame        testgame.o
+    0x08006efc   0x00000144   Code   RO         4654    i.updateLink        link_pc.o
+    0x08007040   0x00000134   Code   RO         4607    i.updateMenu        mainmenu.o
+    0x08007174   0x0000003c   Code   RO         4313    i.updateObjects     testgame.o
+    0x080071b0   0x00000046   Code   RO         3277    i.validate          ff.o
+    0x080071f6   0x00000002   PAD
+    0x080071f8   0x000000b8   Code   RO         4430    i.writeCharToScreen  gameman_reva0.o
+    0x080072b0   0x00000066   Code   RO         4431    i.writeStringToScreen  gameman_reva0.o
+    0x08007316   0x00000010   Data   RO         1862    .constdata          stm32f4xx_hal_rcc.o
+    0x08007326   0x000000ba   Data   RO         3279    .constdata          ff.o
+    0x080073e0   0x000004c0   Data   RO         3805    .constdata          ccsbcs.o
+    0x080078a0   0x00000fde   Data   RO         4315    .constdata          testgame.o
+    0x0800887e   0x000123c2   Data   RO         4372    .constdata          stm32f4xx_it.o
+    0x0801ac40   0x00001428   Data   RO         4433    .constdata          gameman_reva0.o
+    0x0801c068   0x0000006e   Data   RO         4316    .conststring        testgame.o
+    0x0801c0d6   0x00000002   PAD
+    0x0801c0d8   0x00000020   Data   RO         5042    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x000272f0, Max: 0x00030000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x000272f8, Max: 0x00030000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2746,20 +2886,20 @@ Memory Map of the image
     0x20000020   0x00000018   Data   RW         3758    .data               sd_diskio.o
     0x20000038   0x00000008   Data   RW         3957    .data               stm32f4xx_hal_msp.o
     0x20000040   0x00000018   Data   RW         4099    .data               main.o
-    0x20000058   0x0000001d   Data   RW         4309    .data               testgame.o
-    0x20000075   0x00000003   PAD
-    0x20000078   0x00000018   Data   RW         4414    .data               gameman_reva0.o
-    0x20000090   0x00000004   Data   RW         4940    .data               mc_w.l(mvars.o)
-    0x20000094   0x00000004   Data   RW         4941    .data               mc_w.l(mvars.o)
-    0x20000098   0x00000018   Zero   RW         3278    .bss                ff.o
-    0x200000b0   0x0000000c   Zero   RW         3596    .bss                ff_gen_drv.o
-    0x200000bc   0x00000004   PAD
-    0x200000c0   0x000005d8   Zero   RW         4097    .bss                main.o
-    0x20000698   0x00000404   Zero   RW         4306    .bss                testgame.o
-    0x20000a9c   0x00000050   Zero   RW         4412    .bss                gameman_reva0.o
-    0x20000aec   0x00000004   PAD
-    0x20000af0   0x00025800   Zero   RW            2    HEAP                startup_stm32f439xx.o
-    0x200262f0   0x00001000   Zero   RW            1    STACK               startup_stm32f439xx.o
+    0x20000058   0x00000021   Data   RW         4317    .data               testgame.o
+    0x20000079   0x00000003   PAD
+    0x2000007c   0x0000001c   Data   RW         4434    .data               gameman_reva0.o
+    0x20000098   0x00000004   Data   RW         5023    .data               mc_w.l(mvars.o)
+    0x2000009c   0x00000004   Data   RW         5024    .data               mc_w.l(mvars.o)
+    0x200000a0   0x00000018   Zero   RW         3278    .bss                ff.o
+    0x200000b8   0x0000000c   Zero   RW         3596    .bss                ff_gen_drv.o
+    0x200000c4   0x00000004   PAD
+    0x200000c8   0x000005d8   Zero   RW         4097    .bss                main.o
+    0x200006a0   0x00000404   Zero   RW         4314    .bss                testgame.o
+    0x20000aa4   0x00000050   Zero   RW         4432    .bss                gameman_reva0.o
+    0x20000af4   0x00000004   PAD
+    0x20000af8   0x00025800   Zero   RW            2    HEAP                startup_stm32f439xx.o
+    0x200262f8   0x00001000   Zero   RW            1    STACK               startup_stm32f439xx.o
 
 
 ==============================================================================
@@ -2769,13 +2909,16 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
+       300          4          0          0          0       1941   bitmap_tools.o
        240         34          0          0          0       4240   bsp_driver_sd.o
-       144         18          0          0          0       3212   diskio.o
+       132         16       1216          0          0       2143   ccsbcs.o
+       148         18          0          0          0       3762   diskio.o
        258          0          0          0          0       3518   drawqueue.o
-      1466         32          0          6         24      13630   ff.o
+      7300         84        186          6         24      42098   ff.o
         76          6          0          0         12       1722   ff_gen_drv.o
-       792         56       5160         24         80      12343   gameman_reva0.o
-      1328        184          0         24       1496      13156   main.o
+       836         62       5160         28         80      13166   gameman_reva0.o
+       856        262          0          0          0       4389   link_pc.o
+      1328        184          0         24       1496      14028   main.o
        532         22          0          0          0       3661   mainmenu.o
        276         12          0         24          0       4368   sd_diskio.o
         36          8        428          0     157696        984   startup_stm32f439xx.o
@@ -2798,14 +2941,14 @@ Image component sizes
        232         34      74690          0          0       1785   stm32f4xx_it.o
        260          0          0          0          0       2800   stm32f4xx_ll_fmc.o
        208          4          0          0          0       6425   stm32f4xx_ll_sdmmc.o
-         0          0          0          0          0      22056   syscall.o
+        24          0          0          0          0      23839   syscall.o
        100         18          0         20          0       1425   system_stm32f4xx.o
-       608        132       4172         29       1028       3450   testgame.o
+       776        170       4172         33       1028       4681   testgame.o
 
     ----------------------------------------------------------------------
-     20782        994      84502        144     160344     613523   Object Totals
+     28146       1372      85902        152     160344     655723   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        30          0          4          5          8          0   (incl. Padding)
+        32          0          2          5          8          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -2850,15 +2993,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     21670       1044      84502        152     160344     599451   Grand Totals
-     21670       1044      84502        152     160344     599451   ELF Image Totals
-     21670       1044      84502        152          0          0   ROM Totals
+     29034       1422      85902        160     160344     637151   Grand Totals
+     29034       1422      85902        160     160344     637151   ELF Image Totals
+     29034       1422      85902        160          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)               106172 ( 103.68kB)
-    Total RW  Size (RW Data + ZI Data)            160496 ( 156.73kB)
-    Total ROM Size (Code + RO Data + RW Data)     106324 ( 103.83kB)
+    Total RO  Size (Code + RO Data)               114936 ( 112.24kB)
+    Total RW  Size (RW Data + ZI Data)            160504 ( 156.74kB)
+    Total ROM Size (Code + RO Data + RW Data)     115096 ( 112.40kB)
 
 ==============================================================================
 

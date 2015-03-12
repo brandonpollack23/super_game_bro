@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=CHARGER Pin=P1-1
+Removed Pin From Net: NetName=CHARGER Pin=P1-3
+Added Pin To Net: NetName=VBAT Pin=P1-1
+Added Pin To Net: NetName=VBAT Pin=P1-3
+Added Pin To Net: NetName=VCC Pin=U8-14

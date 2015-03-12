@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=VWALL Pin=D6-1
+Removed Pin From Net: NetName=VBAT Pin=D6-2
+Change Component DesignItemId : Designator=D6 Old DesignItemId=SMD420LC New DesignItemId=Diode 1N4148
+Change Component Footprint: Designator=D6 Old Footprint=SMD40E20L New Footprint=Diode
+Change Component Comment : Designator=D6 Old Comment=SMD420LC New Comment=Diode 1N4148
+Change Component Designator: OldDesignator=D? NewDesignator=D9
+Added Component: Designator=D8(Diode)
+Added Pin To Net: NetName=VBAT Pin=D6-A
+Added Pin To Net: NetName=VWALL Pin=D8-A
+Added Pin To Net: NetName=VWALL Pin=U8-14
+Added Pin To Net: NetName=NetD6_K Pin=D6-K
+Added Pin To Net: NetName=NetD6_K Pin=D8-K
+Added Pin To Net: NetName=NetD6_K Pin=S1-3
+Added Net: Name=NetD6_K
+Added Member To Class: ClassName=Power Member=Component D8 Diode 1N4148

@@ -51,3 +51,5 @@ gameman_template configuration\testgame.o: ..\..\Inc\DrawQueue.h
 gameman_template configuration\testgame.o: ..\..\Inc\DrawableObject.h
 gameman_template configuration\testgame.o: ..\..\Inc\MainMenu.h
 gameman_template configuration\testgame.o: ..\..\Inc\TestGame.h
+gameman_template configuration\testgame.o: ..\..\Inc\link_pc.h
+gameman_template configuration\testgame.o: ..\..\Inc\bitmap_tools.h

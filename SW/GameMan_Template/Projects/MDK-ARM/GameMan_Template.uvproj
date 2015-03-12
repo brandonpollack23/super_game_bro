@@ -641,6 +641,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\Src\MainMenu.c</FilePath>
             </File>
+            <File>
+              <FileName>link_pc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Src\link_pc.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

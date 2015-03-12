@@ -1,0 +1,3 @@
+Added Pin To Net: NetName=VBAT Pin=C22-2
+Added Pin To Net: NetName=VWALL Pin=U8-14
+Added Member To Class: ClassName=Power Member=Component P1 Header 4X2

@@ -41,6 +41,7 @@
 "gameman_template configuration\gameman_reva0.o"
 "gameman_template configuration\bitmap_tools.o"
 "gameman_template configuration\mainmenu.o"
+"gameman_template configuration\link_pc.o"
 --library_type=microlib --strict --scatter "GameMan_Template Configuration\GameMan_Template Configuration.sct"
 
 --diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols

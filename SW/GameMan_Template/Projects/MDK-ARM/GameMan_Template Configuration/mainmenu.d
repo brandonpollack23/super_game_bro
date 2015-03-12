@@ -51,3 +51,6 @@ gameman_template configuration\mainmenu.o: C:\Program Files (x86)\Keil_v5\ARM\AR
 gameman_template configuration\mainmenu.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 gameman_template configuration\mainmenu.o: ..\..\Inc\DrawQueue.h
 gameman_template configuration\mainmenu.o: ..\..\Inc\MainMenu.h
+gameman_template configuration\mainmenu.o: ..\..\Inc\link_pc.h
+gameman_template configuration\mainmenu.o: ..\..\Inc\TestGame.h
+gameman_template configuration\mainmenu.o: ..\..\Inc\bitmap_tools.h

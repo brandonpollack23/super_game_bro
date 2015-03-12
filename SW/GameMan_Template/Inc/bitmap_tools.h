@@ -26,6 +26,6 @@ enum
 	BM_FILESEEK_FAIL
 };
 
-uint32_t loadImage(char* file, uint16_t* dest, uint32_t* bytes_loaded); //decodes simple bmp data and loads (correctly) into memory (from BGR to RGB)
+uint32_t loadImage(char* file, uint8_t* dest, uint32_t* bytes_loaded); //decodes simple bmp data and loads (correctly) into memory (from BGR to RGB)
 
 #endif

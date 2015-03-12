@@ -14,6 +14,7 @@ uint32_t delay_timestamp; //keeping track of time (delays) at the game logic lev
 DrawableObject* mainMenu;
 const char main_menu_header[] = "Please Select One of the Following Tests:";
 const char* main_menu_options[] = { "0) Test A Simple Mario Sprite", "1) Scrolling Background Test", "2) Sprite Render Test", "3) MP3 Playback Test" };
+DrawableObject* link;
 
 //RenderStyle
 RenderStyle renderstyle = CPU_RENDER;
@@ -70,12 +71,7 @@ uint32_t updateGame(void) //TODO
 		case INIT:
 			if(_CURRENT_BUTTON_INPUT() != BUTTON_NONE)
 			{
-				gameState = MENU; //if any key is pressed, continue to the menu
-				delay_timestamp = HAL_GetTick(); //take timestamp for delay to prevent double input
-				
-				mainMenu = constructMenu(0,0,(char*)main_menu_header,(char**)main_menu_options,sizeof(main_menu_options)/sizeof(char*), renderstyle);
-				enqueue(&drawQueue,mainMenu,255);
-				clearBothFrameBuffers();
+				switchToMainMenu();
 			}
 			break;
 			
@@ -85,7 +81,7 @@ uint32_t updateGame(void) //TODO
 				switch(MAIN_MENU->highlighted_option)
 				{
 					case 0:
-						gameState = MARIO_TEST;
+						switchToLinkTest();
 						break;
 					case 1:
 						gameState = SCROLLING_TEST;
@@ -97,20 +93,49 @@ uint32_t updateGame(void) //TODO
 						gameState = MP3_TEST;
 						break;
 					default:
-						return 2;
+						return NO_SUCH_MENU_OPTION;
 				}
 				removeItem(&drawQueue,mainMenu);
 				deconstructMenu(mainMenu);
 			}
 			break;
 				
-		case MARIO_TEST:
+		case LINK_TEST:
+			if(LINK->x_pos > 130 && LINK->x_pos < 170 && (LINK->y_pos == (Y_RESOLUTION - LINK_Y)) && LINK->direction == LINK_DOWN) //if walking down into exit
+			{
+				switchToMainMenu();
+				removeItem(&drawQueue,link);
+				deconstructLink(link);
+			}
+			break;
+				
 		case SCROLLING_TEST:
 		case SPRITE_TEST:
 		case MP3_TEST:
 		default:
-			return 1;
+			return ILLEGAL_GAME_STATE;
 	}
 	
 	return 0;
 }
+	
+void switchToMainMenu(void)
+{
+	gameState = MENU; //if any key is pressed, continue to the menu
+	delay_timestamp = HAL_GetTick(); //take timestamp for delay to prevent double input
+	
+	mainMenu = constructMenu(0,0,(char*)main_menu_header,(char**)main_menu_options,sizeof(main_menu_options)/sizeof(char*), renderstyle);
+	enqueue(&drawQueue,mainMenu,255);
+	clearBothFrameBuffers();
+}
+
+void switchToLinkTest(void)
+{
+	gameState = LINK_TEST;
+	
+	link = constructLink(152,112,LINK_DOWN,loadLinkSpriteSet(),renderstyle);
+	enqueue(&drawQueue,link,255);
+	clearBothFrameBuffers();
+}
+	
+	

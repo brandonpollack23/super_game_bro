@@ -77,6 +77,7 @@ extern SRAM_HandleTypeDef hsram1;
 #define SPRITE_LAYER ((LTDC_Layer_TypeDef *)__HAL_LTDC_LAYER(&hltdc,1))
 #define BACKGROUND_LAYER_NUM 0
 #define SPRITE_LAYER_NUM 1
+#define PX_PER_INCH 114
 
 #define EXTERNAL_SRAM_USABLE_START_ADDR (FRAMEBUFFER_1 + FRAMEBUFFER_SIZE)
 

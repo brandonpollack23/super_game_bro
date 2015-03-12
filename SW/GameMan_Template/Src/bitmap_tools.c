@@ -5,10 +5,11 @@
 
 void inline swap16(uint16_t* a, uint16_t* b);
 
-uint32_t loadImage(char* filepath, uint16_t* dest, uint32_t* bytes_loaded)
+uint32_t loadImage(char* filepath, uint8_t* dest, uint32_t* bytes_loaded)
 {
 	uint32_t readbytes;
 	uint32_t width, height;
+	uint16_t* dest16 = (uint16_t*) dest;
 	char ft[2];
 	FRESULT fr;
 	
@@ -58,8 +59,8 @@ uint32_t loadImage(char* filepath, uint16_t* dest, uint32_t* bytes_loaded)
 	
 	for(int i = 0; i < height/2; ++i)
 	{
-		uint16_t* bottom_row_ptr = dest + (height - i - 1)*width;
-		uint16_t* top_row_ptr = dest + i*width;
+		uint16_t* bottom_row_ptr = dest16 + (height - i - 1)*width;
+		uint16_t* top_row_ptr = dest16 + i*width;
 		for(int j = 0; j < width/2; ++j)
 		{
 			swap16(top_row_ptr + j,bottom_row_ptr + j); //swap the row order

@@ -52,6 +52,8 @@ gameman_template configuration\main.o: ..\..\Inc\DrawQueue.h
 gameman_template configuration\main.o: ..\..\Inc\DrawableObject.h
 gameman_template configuration\main.o: ..\..\Inc\MainMenu.h
 gameman_template configuration\main.o: ..\..\Inc\TestGame.h
+gameman_template configuration\main.o: ..\..\Inc\link_pc.h
+gameman_template configuration\main.o: ..\..\Inc\bitmap_tools.h
 gameman_template configuration\main.o: ..\..\Inc\DrawQueue.h
 gameman_template configuration\main.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\rt_misc.h
 gameman_template configuration\main.o: C:\Program Files (x86)\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
